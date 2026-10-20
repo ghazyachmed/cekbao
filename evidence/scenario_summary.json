@@ -1,0 +1,99 @@
+{
+  "started_utc": "2026-10-20T05:05:07+00:00",
+  "extraction_mode": "DETERMINISTIC_DEMO",
+  "registry_sha256": "0574b0361932dc0d3cfb4212b1411ef9fc207632dafa29697293fd235caa8b97",
+  "passed": 18,
+  "total": 18,
+  "results": [
+    {
+      "check": "A.status",
+      "passed": true,
+      "detail": "CONFLICT / HOLD_DO_NOT_PAY"
+    },
+    {
+      "check": "A.plan_refused",
+      "passed": true,
+      "detail": "propose plan -> HTTP 409 payment hold: the policy decision does not allow a payment plan"
+    },
+    {
+      "check": "A.escalation_to_registry_contact",
+      "passed": true,
+      "detail": "draft to student-accounts@northbridge-university.example auto_send=False"
+    },
+    {
+      "check": "B.slip_statuses",
+      "passed": true,
+      "detail": "{\"TRX-SYN-0001\": \"CONFIRMED_BY_INSTITUTION_LEDGER\", \"TRX-SYN-0002\": \"PAYMENT_UNCONFIRMED\", \"TRX-SYN-0004\": \"CONFLICT\"}"
+    },
+    {
+      "check": "B.receipt_pdf_not_proof",
+      "passed": true,
+      "detail": "PDF that says LUNAS/PAYMENT SUCCESSFUL stays PAYMENT_UNCONFIRMED"
+    },
+    {
+      "check": "B.bank_agent_detected",
+      "passed": true,
+      "detail": "BANK_AGENT_IMPERSONATION, DEADLINE_PRESSURE, DISCOUNT_OFFER, EASY_PAYMENT_OFFER, OFF_CHANNEL_CONTACT"
+    },
+    {
+      "check": "C.status",
+      "passed": true,
+      "detail": "MATCHED_SOURCE / needs_review"
+    },
+    {
+      "check": "C.quote_choice",
+      "passed": true,
+      "detail": "lowest=Provider B (illustrative) saves IDR 61125.00"
+    },
+    {
+      "check": "C.approved_once",
+      "passed": true,
+      "detail": "NOT_EXECUTED. Sandbox plan only. No money moved."
+    },
+    {
+      "check": "C.audit_sequence",
+      "passed": true,
+      "detail": "CASE_CREATED > EXTRACTION_COMPLETED > ANALYSIS_COMPLETED > ESCALATION_DRAFTED > QUOTES_COMPARED > PLAN_PROPOSED > PLAN_DENIED > PLAN_EDITED > PLAN_APPROVED"
+    },
+    {
+      "check": "D.D1_UNKNOWN_INSTITUTION",
+      "passed": true,
+      "detail": "fail closed"
+    },
+    {
+      "check": "D.D2_PROMPT_INJECTION",
+      "passed": true,
+      "detail": "fail closed"
+    },
+    {
+      "check": "D.D3_MANIPULATED_LINK",
+      "passed": true,
+      "detail": "fail closed"
+    },
+    {
+      "check": "D.D4_MISSING_PAYEE",
+      "passed": true,
+      "detail": "fail closed"
+    },
+    {
+      "check": "D.impossible_fx_quote",
+      "passed": true,
+      "detail": "HTTP 422: Provider A (illustrative): fx_rate deviates 99.99% from the reference rate (limit 25%). Th"
+    },
+    {
+      "check": "D.reviewer_cannot_approve",
+      "passed": true,
+      "detail": "HTTP 403"
+    },
+    {
+      "check": "D.other_student_cannot_approve",
+      "passed": true,
+      "detail": "HTTP 404"
+    },
+    {
+      "check": "D.anonymous_cannot_approve",
+      "passed": true,
+      "detail": "HTTP 401"
+    }
+  ]
+}

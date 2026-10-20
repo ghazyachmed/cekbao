@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CEKBAO evidence {{ b.case.case_id }}</title>
+<style>
+  body { font: 15px/1.55 Lato, "Segoe UI", system-ui, sans-serif; color: #0b1b2b; background: #f6f9fb; margin: 0; }
+  .bar { background: #0b1b2b; color: #fff; padding: 16px 28px; }
+  .bar .logo { display: inline-block; background: #24c7ac; color: #0b1b2b; font-weight: 900; border-radius: 8px; padding: 2px 9px; margin-right: 8px; }
+  .bar .meta { color: #a1b5c4; font-size: 13px; margin-top: 4px; }
+  main { max-width: 1000px; margin: 0 auto; padding: 20px 28px 40px; }
+  h1 { font-size: 20px; margin: 0; display: inline; }
+  h2 { font-size: 16px; margin: 26px 0 10px; color: #112335; text-transform: uppercase; letter-spacing: .05em; }
+  h3 { font-size: 15px; margin: 16px 0 6px; }
+  .notice { background: #fdf6e3; border: 1px solid #e8c56a; padding: 8px 12px; border-radius: 8px; margin: 8px 0; font-size: 13px; }
+  .card { background: #fff; border: 1px solid #dde6ed; border-radius: 12px; padding: 14px 18px; }
+  .outcome { border-left: 6px solid #c8323f; }
+  .outcome.ok { border-left-color: #0e7f6d; }
+  table { border-collapse: collapse; width: 100%; font-size: 13px; background: #fff; }
+  th, td { text-align: left; border-bottom: 1px solid #dde6ed; padding: 6px 8px; vertical-align: top; word-break: break-word; }
+  th { background: #112335; color: #fff; font-weight: 700; }
+  .s-MATCHED_SOURCE { color: #0e7f6d; font-weight: 700; }
+  .s-CONFLICT { color: #c8323f; font-weight: 700; }
+  .s-NOT_VERIFIABLE { color: #8a5d00; font-weight: 700; }
+  a { color: #0e7f6d; }
+  code, pre { font-family: ui-monospace, Menlo, monospace; font-size: 12px; }
+  pre { white-space: pre-wrap; background: #fff; border: 1px solid #dde6ed; padding: 10px; border-radius: 8px; }
+  .muted { color: #546778; }
+</style>
+</head>
+<body>
+<div class="bar"><span class="logo">C</span><h1>CEKBAO evidence record</h1>
+<div class="meta">Student Payment Verification Agent · bundle {{ b.bundle_version }} · case {{ b.case.case_id }} ({{ b.case.case_type }}) · state {{ b.case.state }}</div></div>
+<main>
+<div class="notice">{{ b.sandbox_notice }}</div>
+<div class="notice">{{ b.synthetic_data_notice }}</div>
+
+<h2>Outcome</h2>
+<div class="card outcome {{ 'ok' if b.decision == 'PLAN_ALLOWED_AFTER_STUDENT_CONFIRMATION' else '' }}">
+<p>Overall status: <span class="s-{{ b.overall_status }}">{{ b.overall_status }}</span> | Decision: <b>{{ b.decision }}</b></p>
+<p>{{ b.recommendation }}</p>
+{% if b.extraction %}<p class="muted">Extraction: <b>{{ b.extraction.mode }}</b>. {{ b.extraction.mode_label }}</p>{% endif %}
+</div>
+{% if b.institution %}<p class="muted">Registry entry: {{ b.institution.display_name }} (synthetic: {{ b.institution.synthetic }}). Source: <a href="{{ b.institution.source_url }}">{{ b.institution.source_url }}</a>, retrieved {{ b.institution.retrieved }}. Registry sha256 <code>{{ b.registry.sha256 }}</code></p>{% endif %}
+
+<h2>Findings</h2>
+<table>
+<tr><th>Check</th><th>Status</th><th>Observed</th><th>Expected (registry)</th><th>Explanation</th><th>Source</th></tr>
+{% for f in b.findings %}
+<tr><td>{{ f.label }}</td><td class="s-{{ f.status }}">{{ f.status }}{% if not f.required %} (info){% endif %}</td><td>{{ f.observed or "(missing)" }}</td><td>{{ f.expected or "-" }}</td><td>{{ f.explanation }}</td><td>{% if f.source_url %}<a href="{{ f.source_url }}">{{ f.source_url }}</a>{% if f.source_synthetic %} (synthetic){% endif %}{% else %}-{% endif %}</td></tr>
+{% endfor %}
+</table>
+
+{% if b.risk_signals %}
+<h2>Risk signals</h2>
+<table>
+<tr><th>Signal</th><th>Severity</th><th>Evidence</th><th>Explanation</th><th>Context source</th></tr>
+{% for s in b.risk_signals %}
+<tr><td>{{ s.signal_id }}</td><td>{{ s.severity }}</td><td>"{{ s.evidence }}"</td><td>{{ s.explanation }}</td><td>{% if s.source_url %}<a href="{{ s.source_url }}">{{ s.source_url }}</a>{% else %}-{% endif %}</td></tr>
+{% endfor %}
+</table>
+{% endif %}
+
+{% if b.settlement %}
+<h2>Payment evidence timeline</h2>
+<p class="muted">{{ b.settlement.method_note }}</p>
+{% for r in b.settlement.results %}
+<h3>Slip {{ r.slip_id }}: <span class="s-{{ 'MATCHED_SOURCE' if r.settlement_status == 'CONFIRMED_BY_INSTITUTION_LEDGER' else ('CONFLICT' if r.settlement_status == 'CONFLICT' else 'NOT_VERIFIABLE') }}">{{ r.settlement_status }}</span> | next action {{ r.next_action }}</h3>
+<table>
+<tr><th>Date</th><th>Source</th><th>Event</th></tr>
+{% for t in r.timeline %}<tr><td>{{ t.date or "-" }}</td><td>{{ t.source }}</td><td>{{ t.event }}</td></tr>{% endfor %}
+</table>
+{% if r.issues %}<ul>{% for i in r.issues %}<li><b>{{ i.code }}</b>: {{ i.detail }}</li>{% endfor %}</ul>{% endif %}
+{% endfor %}
+{% endif %}
+
+{% if b.quote_comparison %}
+<h2>Quote comparison (user-provided, illustrative)</h2>
+<p class="muted">{{ b.quote_comparison.method_note }} {{ b.quote_comparison.invoice_note }}</p>
+<table>
+<tr><th>Provider</th><th>Quote date</th><th>Rate</th><th>Recipient gets</th><th>Fees</th><th>Total cost</th><th>All-in rate</th><th>Shortfall</th><th>Intermediary fees</th></tr>
+{% for q in b.quote_comparison.results %}
+<tr><td>{{ q.provider_label }}</td><td>{{ q.quote_date }}</td><td>{{ q.fx_rate }}</td><td>{{ q.target_currency }} {{ q.expected_recipient_amount }}</td><td>{{ q.source_currency }} {{ q.flat_fee_source }} + {{ q.percent_fee_source }}</td><td><b>{{ q.source_currency }} {{ q.total_source_cost }}</b></td><td>{{ q.all_in_rate }}</td><td>{{ q.invoice_shortfall_target }}</td><td>{{ q.intermediary_fees }}</td></tr>
+{% endfor %}
+</table>
+<p>Lowest cost covering the invoice: <b>{{ b.quote_comparison.lowest_cost_covering_invoice or "none" }}</b>{% if b.quote_comparison.cost_difference_source %}, saving {{ b.quote_comparison.cost_difference_source }} vs the next quote{% endif %}.</p>
+{% if b.quote_comparison.warnings %}<ul>{% for w in b.quote_comparison.warnings %}<li>{{ w }}</li>{% endfor %}</ul>{% endif %}
+{% endif %}
+
+{% if b.plans %}
+<h2>Sandbox payment plans</h2>
+<table><tr><th>Revision</th><th>Status</th><th>Channel</th><th>Digest</th></tr>
+{% for p in b.plans %}<tr><td>{{ p.revision }}</td><td>{{ p.status }}</td><td>{{ p.plan.channel.channel_id }} ({{ p.plan.channel.method }})</td><td><code>{{ p.digest[:16] }}</code></td></tr>{% endfor %}
+</table>
+<p class="muted">{{ b.plans[-1].plan.execution }}</p>
+{% endif %}
+
+{% if b.escalation %}
+<h2>Safe-to-contact checklist</h2>
+<ol>{% for c in b.escalation.checklist %}<li>{{ c }}</li>{% endfor %}</ol>
+{% if b.escalation.draft_email %}
+<h2>Draft e-mail to the official contact (not sent)</h2>
+<p>To: <code>{{ b.escalation.draft_email.to }}</code> (from registry: {{ b.escalation.draft_email.to_source_url }}{% if b.escalation.draft_email.to_is_synthetic %}, synthetic{% endif %})<br>Subject: {{ b.escalation.draft_email.subject }}</p>
+<pre>{{ b.escalation.draft_email.body }}</pre>
+<p class="muted">{{ b.escalation.draft_email.note }}</p>
+{% endif %}
+{% endif %}
+
+<h2>Sources cited</h2>
+<ul>{% for u in b.sources_cited %}<li><a href="{{ u }}">{{ u }}</a></li>{% endfor %}</ul>
+
+<h2>Audit trail</h2>
+<p class="muted">Hash chain valid: <b>{{ b.audit_chain_valid }}</b>. As of event <code>{{ b.as_of_event_id }}</code>.</p>
+<table><tr><th>#</th><th>Event ID</th><th>Type</th><th>At (UTC)</th><th>Actor</th><th>Hash</th></tr>
+{% for e in b.audit_events %}<tr><td>{{ e.seq }}</td><td><code>{{ e.event_id }}</code></td><td>{{ e.event_type }}</td><td>{{ e.at }}</td><td>{{ e.actor_id }}</td><td><code>{{ e.hash[:16] }}</code></td></tr>{% endfor %}
+</table>
+
+<h2>Limitations</h2>
+<ul>{% for l in b.limitations %}<li>{{ l }}</li>{% endfor %}</ul>
+<p class="muted">Bundle sha256: <code>{{ b.bundle_sha256 }}</code></p>
+</main>
+</body>
+</html>

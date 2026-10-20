@@ -1,0 +1,10 @@
+{
+  "notice": "SYNTHETIC sandbox bank feed (the student's own outgoing transfers). Every record is invented. CEKBAO has no live bank connection.",
+  "records": [
+    {"bank_reference": "TRX-SYN-0001", "payer_reference": "UCN-SYN-2025-0042", "amount": "7500000.00", "currency": "IDR", "booked_on": "2025-01-15", "destination_account": "8808000000420042", "destination_name": "Universitas Contoh Nusantara"},
+    {"bank_reference": "TRX-SYN-0003", "payer_reference": "UCN-SYN-2025-0042", "amount": "750000.00", "currency": "IDR", "booked_on": "2025-02-04", "destination_account": "8808000000420042", "destination_name": "Universitas Contoh Nusantara"},
+    {"bank_reference": "TRX-SYN-0004", "payer_reference": "UCN-SYN-2025-0042", "amount": "7500000.00", "currency": "IDR", "booked_on": "2025-02-05", "destination_account": "1239876543", "destination_name": "Rina Fiktiana"},
+    {"bank_reference": "TRX-SYN-0005", "payer_reference": "UCN-SYN-2025-0042", "amount": "7500000.00", "currency": "IDR", "booked_on": "2025-01-20", "destination_account": "8808000000420042", "destination_name": "Universitas Contoh Nusantara"},
+    {"bank_reference": "TRX-SYN-9001", "payer_reference": "UCN-SYN-2025-0077", "amount": "7500000.00", "currency": "IDR", "booked_on": "2025-01-16", "destination_account": "8808000000770077", "destination_name": "Universitas Contoh Nusantara"}
+  ]
+}

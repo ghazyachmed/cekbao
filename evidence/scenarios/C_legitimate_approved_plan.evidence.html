@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CEKBAO evidence case_f89fad45883ee04b</title>
+<style>
+  body { font: 15px/1.55 Lato, "Segoe UI", system-ui, sans-serif; color: #0b1b2b; background: #f6f9fb; margin: 0; }
+  .bar { background: #0b1b2b; color: #fff; padding: 16px 28px; }
+  .bar .logo { display: inline-block; background: #24c7ac; color: #0b1b2b; font-weight: 900; border-radius: 8px; padding: 2px 9px; margin-right: 8px; }
+  .bar .meta { color: #a1b5c4; font-size: 13px; margin-top: 4px; }
+  main { max-width: 1000px; margin: 0 auto; padding: 20px 28px 40px; }
+  h1 { font-size: 20px; margin: 0; display: inline; }
+  h2 { font-size: 16px; margin: 26px 0 10px; color: #112335; text-transform: uppercase; letter-spacing: .05em; }
+  h3 { font-size: 15px; margin: 16px 0 6px; }
+  .notice { background: #fdf6e3; border: 1px solid #e8c56a; padding: 8px 12px; border-radius: 8px; margin: 8px 0; font-size: 13px; }
+  .card { background: #fff; border: 1px solid #dde6ed; border-radius: 12px; padding: 14px 18px; }
+  .outcome { border-left: 6px solid #c8323f; }
+  .outcome.ok { border-left-color: #0e7f6d; }
+  table { border-collapse: collapse; width: 100%; font-size: 13px; background: #fff; }
+  th, td { text-align: left; border-bottom: 1px solid #dde6ed; padding: 6px 8px; vertical-align: top; word-break: break-word; }
+  th { background: #112335; color: #fff; font-weight: 700; }
+  .s-MATCHED_SOURCE { color: #0e7f6d; font-weight: 700; }
+  .s-CONFLICT { color: #c8323f; font-weight: 700; }
+  .s-NOT_VERIFIABLE { color: #8a5d00; font-weight: 700; }
+  a { color: #0e7f6d; }
+  code, pre { font-family: ui-monospace, Menlo, monospace; font-size: 12px; }
+  pre { white-space: pre-wrap; background: #fff; border: 1px solid #dde6ed; padding: 10px; border-radius: 8px; }
+  .muted { color: #546778; }
+</style>
+</head>
+<body>
+<div class="bar"><span class="logo">C</span><h1>CEKBAO evidence record</h1>
+<div class="meta">Student Payment Verification Agent · bundle 1.0 · case case_f89fad45883ee04b (tuition_request) · state approved</div></div>
+<main>
+<div class="notice">SANDBOX PROTOTYPE. CEKBAO does not move money, connect to banks, authenticate payees against a bank registry or send e-mail. All institutions, accounts, ledgers and bank feeds are SYNTHETIC.</div>
+<div class="notice">SANDBOX REGISTRY. Every entry below is SYNTHETIC. The institutions, domains (.example is reserved by RFC 2606), accounts, SWIFT codes, phone numbers and banks are invented. This file contains zero real institutions. A real entry requires manual verification of the official domain, an exact https source URL, a retrieval date, a named reviewer and the permitted payment channel.</div>
+
+<h2>Outcome</h2>
+<div class="card outcome ok">
+<p>Overall status: <span class="s-MATCHED_SOURCE">MATCHED_SOURCE</span> | Decision: <b>PLAN_ALLOWED_AFTER_STUDENT_CONFIRMATION</b></p>
+<p>The student approved a sandbox payment plan. It is NOT executed. Pay only inside the official portal after you confirm the invoice amount.</p>
+<p class="muted">Extraction: <b>DETERMINISTIC_DEMO</b>. DETERMINISTIC DEMO MODE: no LLM is configured. A regex extractor read the message. No live model call was made.</p>
+</div>
+<p class="muted">Registry entry: Northbridge University (SYNTHETIC) (synthetic: True). Source: <a href="https://www.northbridge-university.example/student-accounts/how-to-pay">https://www.northbridge-university.example/student-accounts/how-to-pay</a>, retrieved 2026-10-20. Registry sha256 <code>0574b0361932dc0d3cfb4212b1411ef9fc207632dafa29697293fd235caa8b97</code></p>
+
+<h2>Findings</h2>
+<table>
+<tr><th>Check</th><th>Status</th><th>Observed</th><th>Expected (registry)</th><th>Explanation</th><th>Source</th></tr>
+
+<tr><td>Institution in registry</td><td class="s-MATCHED_SOURCE">MATCHED_SOURCE</td><td>Northbridge University</td><td>Northbridge University (SYNTHETIC)</td><td>The claimed institution matches a curated registry entry.</td><td><a href="https://www.northbridge-university.example/student-accounts/how-to-pay">https://www.northbridge-university.example/student-accounts/how-to-pay</a> (synthetic)</td></tr>
+
+<tr><td>Sender e-mail domain</td><td class="s-MATCHED_SOURCE">MATCHED_SOURCE</td><td>northbridge-university.example</td><td>northbridge-university.example</td><td>The From domain matches the registry. A From header can be forged, so open the portal yourself.</td><td><a href="https://www.northbridge-university.example/student-accounts/how-to-pay">https://www.northbridge-university.example/student-accounts/how-to-pay</a> (synthetic)</td></tr>
+
+<tr><td>Link host</td><td class="s-MATCHED_SOURCE">MATCHED_SOURCE</td><td>https://pay.northbridge-university.example/invoices</td><td>northbridge-university.example</td><td>Host is a reviewed official domain.</td><td><a href="https://www.northbridge-university.example/student-accounts/how-to-pay">https://www.northbridge-university.example/student-accounts/how-to-pay</a> (synthetic)</td></tr>
+
+<tr><td>Payee name</td><td class="s-MATCHED_SOURCE">MATCHED_SOURCE</td><td>Northbridge University</td><td>Northbridge University, Northbridge University</td><td>The payee name matches an approved channel. This is not bank-level payee authentication.</td><td><a href="https://www.northbridge-university.example/student-accounts/how-to-pay">https://www.northbridge-university.example/student-accounts/how-to-pay</a> (synthetic)</td></tr>
+
+<tr><td>Payee account</td><td class="s-MATCHED_SOURCE">MATCHED_SOURCE</td><td>********6789</td><td>approved channel account (masked)</td><td>The account matches an approved channel in the registry.</td><td><a href="https://www.northbridge-university.example/student-accounts/how-to-pay">https://www.northbridge-university.example/student-accounts/how-to-pay</a> (synthetic)</td></tr>
+
+<tr><td>Bank SWIFT/BIC</td><td class="s-MATCHED_SOURCE">MATCHED_SOURCE</td><td>SYNTUS33XXX</td><td>SYNTUS33XXX</td><td>The SWIFT/BIC matches the approved wire channel.</td><td><a href="https://www.northbridge-university.example/student-accounts/how-to-pay">https://www.northbridge-university.example/student-accounts/how-to-pay</a> (synthetic)</td></tr>
+
+<tr><td>Payment method</td><td class="s-MATCHED_SOURCE">MATCHED_SOURCE</td><td>international_wire, institution_portal</td><td>institution_portal, international_wire</td><td>The method is on the approved channel list.</td><td><a href="https://www.northbridge-university.example/student-accounts/how-to-pay">https://www.northbridge-university.example/student-accounts/how-to-pay</a> (synthetic)</td></tr>
+
+<tr><td>Requested amount</td><td class="s-NOT_VERIFIABLE">NOT_VERIFIABLE (info)</td><td>USD 500.00</td><td>Every valid amount appears on the student invoice inside the student-account portal.</td><td>CEKBAO cannot see your invoice. Compare this amount with the invoice in the official portal.</td><td><a href="https://www.northbridge-university.example/student-accounts/how-to-pay">https://www.northbridge-university.example/student-accounts/how-to-pay</a> (synthetic)</td></tr>
+
+</table>
+
+
+
+
+
+
+<h2>Quote comparison (user-provided, illustrative)</h2>
+<p class="muted">Deterministic Decimal calculation of user-provided illustrative quotes. CEKBAO did not fetch live rates. Figures are estimates for comparison, not offers. Amount as stated in the request. Unverified until it matches your portal invoice.</p>
+<table>
+<tr><th>Provider</th><th>Quote date</th><th>Rate</th><th>Recipient gets</th><th>Fees</th><th>Total cost</th><th>All-in rate</th><th>Shortfall</th><th>Intermediary fees</th></tr>
+
+<tr><td>Provider A (illustrative)</td><td>2026-10-19</td><td>16450.000000</td><td>USD 500.00</td><td>IDR 50000.00 + 41125.00</td><td><b>IDR 8316125.00</b></td><td>16632.250000</td><td>0.00</td><td>UNKNOWN</td></tr>
+
+<tr><td>Provider B (illustrative)</td><td>2026-10-19</td><td>16210.000000</td><td>USD 500.00</td><td>IDR 150000.00 + 0.00</td><td><b>IDR 8255000.00</b></td><td>16510.000000</td><td>0.00</td><td>KNOWN: 0.00</td></tr>
+
+</table>
+<p>Lowest cost covering the invoice: <b>Provider B (illustrative)</b>, saving 61125.00 vs the next quote.</p>
+<ul><li>Provider A (illustrative): intermediary or receiving-bank fees are UNKNOWN. The institution may receive less.</li></ul>
+
+
+
+<h2>Sandbox payment plans</h2>
+<table><tr><th>Revision</th><th>Status</th><th>Channel</th><th>Digest</th></tr>
+<tr><td>1</td><td>denied</td><td>NBU-PORTAL (institution_portal)</td><td><code>e51ba4b84159fba9</code></td></tr><tr><td>2</td><td>approved</td><td>NBU-PORTAL (institution_portal)</td><td><code>e51ba4b84159fba9</code></td></tr>
+</table>
+<p class="muted">NOT_EXECUTED. CEKBAO has no bank connection and moves no money.</p>
+
+
+
+<h2>Safe-to-contact checklist</h2>
+<ol><li>Do not reply to the sender. Do not use links, phone numbers or chat contacts from the message.</li><li>Contact Office of Student Accounts (synthetic): student-accounts@northbridge-university.example, +1-555-0100. Registry source: https://www.northbridge-university.example/student-accounts/contact</li><li>Open the institution website by typing the address from your admission documents.</li><li>Never share passwords, OTP codes, PINs or passport scans with anyone who requests payment.</li><li>Pay only through the channel your official portal or finance office confirms in writing.</li><li>If you already sent money, call your bank fraud line now (use the number on your card or the official bank app) and ask for a recall.</li><li>In the US you can also report fraud to the FBI IC3: https://www.ic3.gov/</li></ol>
+
+<h2>Draft e-mail to the official contact (not sent)</h2>
+<p>To: <code>student-accounts@northbridge-university.example</code> (from registry: https://www.northbridge-university.example/student-accounts/contact, synthetic)<br>Subject: Verification request: payment request received on 2026-10-20</p>
+<pre>Dear Office of Student Accounts (synthetic),
+
+I received a payment request on 2026-10-20 that asks me to pay tuition or fees.
+Before I take any action, please confirm whether this request comes from your office and which payment channel I must use.
+
+The request appears to match your published procedure. Please confirm the amount on my invoice.
+
+I have not paid through the channel in this request. I will wait for your written confirmation.
+I can share the original message through your official channel if you request it.
+
+Reference: CEKBAO sandbox case case_f89fad45883ee04b
+
+Kind regards,
+[Your name and student reference, added by you]</pre>
+<p class="muted">DRAFT ONLY. CEKBAO does not send e-mail. Review it and send it yourself.</p>
+
+
+
+<h2>Sources cited</h2>
+<ul><li><a href="https://www.northbridge-university.example/student-accounts/contact">https://www.northbridge-university.example/student-accounts/contact</a></li><li><a href="https://www.northbridge-university.example/student-accounts/how-to-pay">https://www.northbridge-university.example/student-accounts/how-to-pay</a></li></ul>
+
+<h2>Audit trail</h2>
+<p class="muted">Hash chain valid: <b>True</b>. As of event <code>evt_821246d63c762fa80689</code>.</p>
+<table><tr><th>#</th><th>Event ID</th><th>Type</th><th>At (UTC)</th><th>Actor</th><th>Hash</th></tr>
+<tr><td>1</td><td><code>evt_70001d078220402de092</code></td><td>CASE_CREATED</td><td>2026-10-20T05:05:07+00:00</td><td>stu_citra</td><td><code>14754c68e5e9a5c1</code></td></tr><tr><td>2</td><td><code>evt_4c872ce552e6d2a5affd</code></td><td>EXTRACTION_COMPLETED</td><td>2026-10-20T05:05:07+00:00</td><td>stu_citra</td><td><code>288b2b221978f4e0</code></td></tr><tr><td>3</td><td><code>evt_ee54e9f6050b0abcdd5f</code></td><td>ANALYSIS_COMPLETED</td><td>2026-10-20T05:05:07+00:00</td><td>stu_citra</td><td><code>702e242af9339c47</code></td></tr><tr><td>4</td><td><code>evt_ab0d5e05bc909523b642</code></td><td>ESCALATION_DRAFTED</td><td>2026-10-20T05:05:07+00:00</td><td>system</td><td><code>f2f831e2cd746776</code></td></tr><tr><td>5</td><td><code>evt_2bf1c6201916df40d36e</code></td><td>QUOTES_COMPARED</td><td>2026-10-20T05:05:07+00:00</td><td>stu_citra</td><td><code>73337b02cb79af3b</code></td></tr><tr><td>6</td><td><code>evt_418f05389291531bc7f6</code></td><td>PLAN_PROPOSED</td><td>2026-10-20T05:05:07+00:00</td><td>stu_citra</td><td><code>1d61f9976ff1e29d</code></td></tr><tr><td>7</td><td><code>evt_fbe1026ba86421125fbe</code></td><td>PLAN_DENIED</td><td>2026-10-20T05:05:07+00:00</td><td>stu_citra</td><td><code>8a6a006d8d936af5</code></td></tr><tr><td>8</td><td><code>evt_41449af973e510ec99b8</code></td><td>PLAN_EDITED</td><td>2026-10-20T05:05:07+00:00</td><td>stu_citra</td><td><code>86f287fb7dda3bb7</code></td></tr><tr><td>9</td><td><code>evt_821246d63c762fa80689</code></td><td>PLAN_APPROVED</td><td>2026-10-20T05:05:07+00:00</td><td>stu_citra</td><td><code>78102e5eef48f8e8</code></td></tr>
+</table>
+
+<h2>Limitations</h2>
+<ul><li>MATCHED_SOURCE means the request fields match the curated registry entry. It is not bank-level payee authentication.</li><li>A slip, receipt or screenshot is a document claim. Only an institution-side record confirms settlement.</li><li>All institutions, accounts, ledgers, bank feeds and quotes in this sandbox are synthetic or user-provided.</li><li>FX figures are user-provided illustrative quotes. CEKBAO did not fetch live market rates.</li><li>CEKBAO gives no legal, visa or investment advice and executes no payments.</li></ul>
+<p class="muted">Bundle sha256: <code>599f218d329445ea74fbe7cec8691fe81802d03da9daf37ab15df8dd32cf72b4</code></p>
+</main>
+</body>
+</html>

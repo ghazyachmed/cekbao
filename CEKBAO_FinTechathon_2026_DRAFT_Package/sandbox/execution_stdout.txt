@@ -1,0 +1,5 @@
+INTL-IMP-01 status=REQUIRES_OFFICIAL_CHECK flags=REQUEST_DOMAIN_MISMATCH,PAYEE_MISMATCH,PAYMENT_CHANNEL_MISMATCH,URGENCY_PRESSURE verified_settlement=False
+ID-SLIP-01 status=REQUIRES_OFFICIAL_CHECK flags=SLIP_NOT_FOUND_IN_SYNTHETIC_LEDGER verified_settlement=False
+LEGIT-01 status=MATCHES_SYNTHETIC_POLICY_ONLY flags=none verified_settlement=False
+UNKNOWN-01 status=NOT_VERIFIABLE flags=UNKNOWN_INSTITUTION verified_settlement=False
+4/4 synthetic scenario outcomes matched expected statuses.

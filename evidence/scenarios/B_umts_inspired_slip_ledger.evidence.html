@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CEKBAO evidence case_e69ec73d6264fdf7</title>
+<style>
+  body { font: 15px/1.55 Lato, "Segoe UI", system-ui, sans-serif; color: #0b1b2b; background: #f6f9fb; margin: 0; }
+  .bar { background: #0b1b2b; color: #fff; padding: 16px 28px; }
+  .bar .logo { display: inline-block; background: #24c7ac; color: #0b1b2b; font-weight: 900; border-radius: 8px; padding: 2px 9px; margin-right: 8px; }
+  .bar .meta { color: #a1b5c4; font-size: 13px; margin-top: 4px; }
+  main { max-width: 1000px; margin: 0 auto; padding: 20px 28px 40px; }
+  h1 { font-size: 20px; margin: 0; display: inline; }
+  h2 { font-size: 16px; margin: 26px 0 10px; color: #112335; text-transform: uppercase; letter-spacing: .05em; }
+  h3 { font-size: 15px; margin: 16px 0 6px; }
+  .notice { background: #fdf6e3; border: 1px solid #e8c56a; padding: 8px 12px; border-radius: 8px; margin: 8px 0; font-size: 13px; }
+  .card { background: #fff; border: 1px solid #dde6ed; border-radius: 12px; padding: 14px 18px; }
+  .outcome { border-left: 6px solid #c8323f; }
+  .outcome.ok { border-left-color: #0e7f6d; }
+  table { border-collapse: collapse; width: 100%; font-size: 13px; background: #fff; }
+  th, td { text-align: left; border-bottom: 1px solid #dde6ed; padding: 6px 8px; vertical-align: top; word-break: break-word; }
+  th { background: #112335; color: #fff; font-weight: 700; }
+  .s-MATCHED_SOURCE { color: #0e7f6d; font-weight: 700; }
+  .s-CONFLICT { color: #c8323f; font-weight: 700; }
+  .s-NOT_VERIFIABLE { color: #8a5d00; font-weight: 700; }
+  a { color: #0e7f6d; }
+  code, pre { font-family: ui-monospace, Menlo, monospace; font-size: 12px; }
+  pre { white-space: pre-wrap; background: #fff; border: 1px solid #dde6ed; padding: 10px; border-radius: 8px; }
+  .muted { color: #546778; }
+</style>
+</head>
+<body>
+<div class="bar"><span class="logo">C</span><h1>CEKBAO evidence record</h1>
+<div class="meta">Student Payment Verification Agent · bundle 1.0 · case case_e69ec73d6264fdf7 (payment_evidence) · state blocked</div></div>
+<main>
+<div class="notice">SANDBOX PROTOTYPE. CEKBAO does not move money, connect to banks, authenticate payees against a bank registry or send e-mail. All institutions, accounts, ledgers and bank feeds are SYNTHETIC.</div>
+<div class="notice">SANDBOX REGISTRY. Every entry below is SYNTHETIC. The institutions, domains (.example is reserved by RFC 2606), accounts, SWIFT codes, phone numbers and banks are invented. This file contains zero real institutions. A real entry requires manual verification of the official domain, an exact https source URL, a retrieval date, a named reviewer and the permitted payment channel.</div>
+
+<h2>Outcome</h2>
+<div class="card outcome ">
+<p>Overall status: <span class="s-CONFLICT">CONFLICT</span> | Decision: <b>HOLD_DO_NOT_PAY</b></p>
+<p>1 of 3 slip(s) match an institution ledger record. Unconfirmed: 1 (REQUIRES_INSTITUTION_CHECK). Conflicts: 1. Make no further payment through the intermediary. Contact Biro Keuangan / Finance Office (synthetic) through the registry contact.</p>
+<p class="muted">Extraction: <b>DETERMINISTIC_DEMO</b>. DETERMINISTIC DEMO MODE: no LLM is configured. A regex extractor read the message. No live model call was made.</p>
+</div>
+<p class="muted">Registry entry: Universitas Contoh Nusantara (SYNTHETIC) (synthetic: True). Source: <a href="https://www.ucn.example/keuangan/cara-bayar-ukt">https://www.ucn.example/keuangan/cara-bayar-ukt</a>, retrieved 2026-10-20. Registry sha256 <code>0574b0361932dc0d3cfb4212b1411ef9fc207632dafa29697293fd235caa8b97</code></p>
+
+<h2>Findings</h2>
+<table>
+<tr><th>Check</th><th>Status</th><th>Observed</th><th>Expected (registry)</th><th>Explanation</th><th>Source</th></tr>
+
+<tr><td>Payee name</td><td class="s-CONFLICT">CONFLICT</td><td>Rina Fiktiana</td><td>Universitas Contoh Nusantara, Universitas Contoh Nusantara</td><td>The payee name differs from every approved channel.</td><td><a href="https://www.ucn.example/keuangan/cara-bayar-ukt">https://www.ucn.example/keuangan/cara-bayar-ukt</a> (synthetic)</td></tr>
+
+<tr><td>Payee account</td><td class="s-CONFLICT">CONFLICT</td><td>******6543</td><td>approved channel account (masked)</td><td>The account is not an approved institution account.</td><td><a href="https://www.ucn.example/keuangan/cara-bayar-ukt">https://www.ucn.example/keuangan/cara-bayar-ukt</a> (synthetic)</td></tr>
+
+<tr><td>Payment method</td><td class="s-CONFLICT">CONFLICT</td><td>domestic_transfer</td><td>institution_portal, virtual_account</td><td>Not an approved method: domestic_transfer. Registry: UKT is never paid to a personal bank account.</td><td><a href="https://www.ucn.example/keuangan/cara-bayar-ukt">https://www.ucn.example/keuangan/cara-bayar-ukt</a> (synthetic)</td></tr>
+
+<tr><td>Documented procedure</td><td class="s-CONFLICT">CONFLICT</td><td>potongan</td><td>The university does not offer UKT discounts or &#39;easy payment&#39; services through third parties.</td><td>The message contradicts the documented payment procedure.</td><td><a href="https://www.ucn.example/keuangan/cara-bayar-ukt">https://www.ucn.example/keuangan/cara-bayar-ukt</a> (synthetic)</td></tr>
+
+<tr><td>Documented procedure</td><td class="s-CONFLICT">CONFLICT</td><td>perwakilan Bank</td><td>The finance office does not use bank agents, students or other third parties to collect UKT.</td><td>The message contradicts the documented payment procedure.</td><td><a href="https://www.ucn.example/keuangan/cara-bayar-ukt">https://www.ucn.example/keuangan/cara-bayar-ukt</a> (synthetic)</td></tr>
+
+<tr><td>Slip TRX-SYN-0002</td><td class="s-NOT_VERIFIABLE">NOT_VERIFIABLE</td><td>IDR 7500000.00</td><td>matching institution ledger record</td><td>PAYMENT_UNCONFIRMED, next action REQUIRES_INSTITUTION_CHECK. No institution ledger record matches this slip. A slip is not proof of settlement. Ask the finance office through the registry contact.</td><td><a href="https://www.ucn.example/keuangan/cara-bayar-ukt">https://www.ucn.example/keuangan/cara-bayar-ukt</a> (synthetic)</td></tr>
+
+<tr><td>Slip TRX-SYN-0004</td><td class="s-CONFLICT">CONFLICT</td><td>IDR 7500000.00</td><td>matching institution ledger record</td><td>CONFLICT, next action CONTACT_BANK_AND_INSTITUTION. The destination account is not an approved institution account in the registry.</td><td><a href="https://www.ucn.example/keuangan/cara-bayar-ukt">https://www.ucn.example/keuangan/cara-bayar-ukt</a> (synthetic)</td></tr>
+
+</table>
+
+
+<h2>Risk signals</h2>
+<table>
+<tr><th>Signal</th><th>Severity</th><th>Evidence</th><th>Explanation</th><th>Context source</th></tr>
+
+<tr><td>DEADLINE_PRESSURE</td><td>warning</td><td>"hari ini"</td><td>The message sets a short deadline. Pressure to pay fast is a common impersonation pattern. Check the due date on your official invoice.</td><td><a href="https://www.police.gov.sg/Media-Hub/News/2026/03/20260319_police_advisory_on_resurgence_of_impersonation_scams_involving_educational_institutions">https://www.police.gov.sg/Media-Hub/News/2026/03/20260319_police_advisory_on_resurgence_of_impersonation_scams_involving_educational_institutions</a></td></tr>
+
+<tr><td>DISCOUNT_OFFER</td><td>high</td><td>"potongan"</td><td>The message offers a discount or saving for paying through this route.</td><td><a href="https://pay.flywire.com/resources/how-international-students-can-avoid-tuition-payment-scams">https://pay.flywire.com/resources/how-international-students-can-avoid-tuition-payment-scams</a></td></tr>
+
+<tr><td>EASY_PAYMENT_OFFER</td><td>high</td><td>"tanpa ribet"</td><td>The message offers to handle tuition payment for you.</td><td><a href="https://www.kompas.com/jawa-barat/read/2025/02/24/150000488/awal-mula-terbongkar-modus-penipuan-bayar-ukt-tanpa-ribet-273">https://www.kompas.com/jawa-barat/read/2025/02/24/150000488/awal-mula-terbongkar-modus-penipuan-bayar-ukt-tanpa-ribet-273</a></td></tr>
+
+<tr><td>BANK_AGENT_IMPERSONATION</td><td>high</td><td>"perwakilan Bank"</td><td>The sender claims to represent a bank and collects tuition outside the institution channel.</td><td><a href="https://www.kompas.com/jawa-barat/read/2025/02/24/150000488/awal-mula-terbongkar-modus-penipuan-bayar-ukt-tanpa-ribet-273">https://www.kompas.com/jawa-barat/read/2025/02/24/150000488/awal-mula-terbongkar-modus-penipuan-bayar-ukt-tanpa-ribet-273</a></td></tr>
+
+<tr><td>OFF_CHANNEL_CONTACT</td><td>warning</td><td>"1 phone number(s) in message"</td><td>Do not call numbers from the message. Use only the registry contact.</td><td><a href="https://www.police.gov.sg/Media-Hub/News/2026/03/20260319_police_advisory_on_resurgence_of_impersonation_scams_involving_educational_institutions">https://www.police.gov.sg/Media-Hub/News/2026/03/20260319_police_advisory_on_resurgence_of_impersonation_scams_involving_educational_institutions</a></td></tr>
+
+</table>
+
+
+
+<h2>Payment evidence timeline</h2>
+<p class="muted">A slip or receipt is a document claim. Only an institution ledger record confirms settlement. Ledger and bank feed are SYNTHETIC sandbox fixtures.</p>
+
+<h3>Slip TRX-SYN-0001: <span class="s-MATCHED_SOURCE">CONFIRMED_BY_INSTITUTION_LEDGER</span> | next action KEEP_INSTITUTION_RECEIPT</h3>
+<table>
+<tr><th>Date</th><th>Source</th><th>Event</th></tr>
+<tr><td>2025-01-15</td><td>SLIP (student-provided, unauthenticated)</td><td>Slip claims transfer of IDR 7,500,000.00 to ************0042</td></tr><tr><td>2025-01-15</td><td>BANK FEED (synthetic sandbox)</td><td>Outgoing IDR 7,500,000.00 to ************0042</td></tr><tr><td>2025-01-15</td><td>INSTITUTION LEDGER (synthetic sandbox)</td><td>Credited as UCN-LGR-0001 via UCN-VA</td></tr>
+</table>
+
+
+<h3>Slip TRX-SYN-0002: <span class="s-NOT_VERIFIABLE">PAYMENT_UNCONFIRMED</span> | next action REQUIRES_INSTITUTION_CHECK</h3>
+<table>
+<tr><th>Date</th><th>Source</th><th>Event</th></tr>
+<tr><td>2025-02-03</td><td>SLIP (student-provided, unauthenticated)</td><td>Slip claims transfer of IDR 7,500,000.00 to ************0042</td></tr><tr><td>2026-10-20</td><td>UPLOAD (metadata only)</td><td>Receipt file bukti_transfer_LUNAS.pdf (application/pdf, 66 bytes, sha256 66104a4dcadb...). File content is not used as proof.</td></tr><tr><td>-</td><td>BANK FEED (synthetic sandbox)</td><td>No outgoing transfer with this reference.</td></tr><tr><td>-</td><td>INSTITUTION LEDGER (synthetic sandbox)</td><td>No matching credit for this slip.</td></tr>
+</table>
+
+
+<h3>Slip TRX-SYN-0004: <span class="s-CONFLICT">CONFLICT</span> | next action CONTACT_BANK_AND_INSTITUTION</h3>
+<table>
+<tr><th>Date</th><th>Source</th><th>Event</th></tr>
+<tr><td>2025-02-05</td><td>SLIP (student-provided, unauthenticated)</td><td>Slip claims transfer of IDR 7,500,000.00 to ******6543</td></tr><tr><td>2025-02-05</td><td>BANK FEED (synthetic sandbox)</td><td>Outgoing IDR 7,500,000.00 to ******6543</td></tr><tr><td>-</td><td>INSTITUTION LEDGER (synthetic sandbox)</td><td>No matching credit for this slip.</td></tr>
+</table>
+<ul><li><b>WRONG_DESTINATION</b>: The destination account is not an approved institution account in the registry.</li></ul>
+
+
+
+
+
+
+
+
+<h2>Safe-to-contact checklist</h2>
+<ol><li>Do not reply to the sender. Do not use links, phone numbers or chat contacts from the message.</li><li>Contact Biro Keuangan / Finance Office (synthetic): keuangan@ucn.example. Registry source: https://www.ucn.example/keuangan/kontak</li><li>Open the institution website by typing the address from your admission documents.</li><li>Never share passwords, OTP codes, PINs or passport scans with anyone who requests payment.</li><li>Pay only through the channel your official portal or finance office confirms in writing.</li><li>If you already sent money, call your bank fraud line now (use the number on your card or the official bank app) and ask for a recall.</li></ol>
+
+<h2>Draft e-mail to the official contact (not sent)</h2>
+<p>To: <code>keuangan@ucn.example</code> (from registry: https://www.ucn.example/keuangan/kontak, synthetic)<br>Subject: Verification request: tuition payment offer and payment slips received on 2026-10-20</p>
+<pre>Dear Biro Keuangan / Finance Office (synthetic),
+
+I received a tuition payment offer and payment slips on 2026-10-20 that asks me to pay tuition or fees.
+Before I take any action, please confirm whether this request comes from your office and which payment channel I must use.
+
+Items that do not match your published procedure:
+- Payee name: Rina Fiktiana. The payee name differs from every approved channel.
+- Payee account: ******6543. The account is not an approved institution account.
+- Payment method: domestic_transfer. Not an approved method: domestic_transfer. Registry: UKT is never paid to a personal bank account.
+- Documented procedure: potongan. The message contradicts the documented payment procedure.
+- Documented procedure: perwakilan Bank. The message contradicts the documented payment procedure.
+- Slip TRX-SYN-0002: IDR 7500000.00. PAYMENT_UNCONFIRMED, next action REQUIRES_INSTITUTION_CHECK. No institution ledger record matches this slip. A slip is not proof of settlement. Ask the finance office through the registry contact.
+- Slip TRX-SYN-0004: IDR 7500000.00. CONFLICT, next action CONTACT_BANK_AND_INSTITUTION. The destination account is not an approved institution account in the registry.
+- Warning sign: short deadline (&#34;hari ini&#34;).
+- Warning sign: discount offer (&#34;potongan&#34;).
+- Warning sign: offer to handle the payment for me (&#34;tanpa ribet&#34;).
+- Warning sign: sender claims to be a bank agent (&#34;perwakilan Bank&#34;).
+- Warning sign: asks me to use a chat app or phone number (&#34;1 phone number(s) in message&#34;).
+
+I have not paid through the channel in this request. I will wait for your written confirmation.
+I can share the original message through your official channel if you request it.
+
+Reference: CEKBAO sandbox case case_e69ec73d6264fdf7
+
+Kind regards,
+[Your name and student reference, added by you]</pre>
+<p class="muted">DRAFT ONLY. CEKBAO does not send e-mail. Review it and send it yourself.</p>
+
+
+
+<h2>Sources cited</h2>
+<ul><li><a href="https://pay.flywire.com/resources/how-international-students-can-avoid-tuition-payment-scams">https://pay.flywire.com/resources/how-international-students-can-avoid-tuition-payment-scams</a></li><li><a href="https://www.kompas.com/jawa-barat/read/2025/02/24/150000488/awal-mula-terbongkar-modus-penipuan-bayar-ukt-tanpa-ribet-273">https://www.kompas.com/jawa-barat/read/2025/02/24/150000488/awal-mula-terbongkar-modus-penipuan-bayar-ukt-tanpa-ribet-273</a></li><li><a href="https://www.police.gov.sg/Media-Hub/News/2026/03/20260319_police_advisory_on_resurgence_of_impersonation_scams_involving_educational_institutions">https://www.police.gov.sg/Media-Hub/News/2026/03/20260319_police_advisory_on_resurgence_of_impersonation_scams_involving_educational_institutions</a></li><li><a href="https://www.ucn.example/keuangan/cara-bayar-ukt">https://www.ucn.example/keuangan/cara-bayar-ukt</a></li><li><a href="https://www.ucn.example/keuangan/kontak">https://www.ucn.example/keuangan/kontak</a></li></ul>
+
+<h2>Audit trail</h2>
+<p class="muted">Hash chain valid: <b>True</b>. As of event <code>evt_e29660a6ea766bbb7a48</code>.</p>
+<table><tr><th>#</th><th>Event ID</th><th>Type</th><th>At (UTC)</th><th>Actor</th><th>Hash</th></tr>
+<tr><td>1</td><td><code>evt_5129c5b7618ac26564a8</code></td><td>CASE_CREATED</td><td>2026-10-20T05:05:07+00:00</td><td>stu_budi</td><td><code>3611968450098d54</code></td></tr><tr><td>2</td><td><code>evt_c9e4a607d2f657f962ba</code></td><td>UPLOAD_RECEIVED</td><td>2026-10-20T05:05:07+00:00</td><td>stu_budi</td><td><code>8ff29f21f1e3b09a</code></td></tr><tr><td>3</td><td><code>evt_86569d8ed41671c1d7aa</code></td><td>SETTLEMENT_CHECKED</td><td>2026-10-20T05:05:07+00:00</td><td>stu_budi</td><td><code>390129ac93a99870</code></td></tr><tr><td>4</td><td><code>evt_0b02780767e922d2672c</code></td><td>PAYMENT_HOLD</td><td>2026-10-20T05:05:07+00:00</td><td>system</td><td><code>457abbac59aaf5b3</code></td></tr><tr><td>5</td><td><code>evt_e29660a6ea766bbb7a48</code></td><td>ESCALATION_DRAFTED</td><td>2026-10-20T05:05:07+00:00</td><td>system</td><td><code>181305cc033f0129</code></td></tr>
+</table>
+
+<h2>Limitations</h2>
+<ul><li>MATCHED_SOURCE means the request fields match the curated registry entry. It is not bank-level payee authentication.</li><li>A slip, receipt or screenshot is a document claim. Only an institution-side record confirms settlement.</li><li>All institutions, accounts, ledgers, bank feeds and quotes in this sandbox are synthetic or user-provided.</li><li>FX figures are user-provided illustrative quotes. CEKBAO did not fetch live market rates.</li><li>CEKBAO gives no legal, visa or investment advice and executes no payments.</li></ul>
+<p class="muted">Bundle sha256: <code>3265e19e6f2dd27cdc4cb9b8965f4c00b097fc51e4ac8c58016f9e9e7b4cd8d3</code></p>
+</main>
+</body>
+</html>

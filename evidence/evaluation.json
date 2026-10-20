@@ -1,0 +1,183 @@
+{
+  "messages": [
+    {
+      "id": "A_SUSPICIOUS_INTL",
+      "label": "unsafe",
+      "baseline": "FLAG",
+      "cekbao_decision": "HOLD_DO_NOT_PAY",
+      "cekbao_status": "CONFLICT",
+      "state": "blocked",
+      "plan_refused": true,
+      "completed": true,
+      "findings": 10,
+      "attributed": 10
+    },
+    {
+      "id": "C_LEGITIMATE",
+      "label": "safe",
+      "baseline": "CLEAR",
+      "cekbao_decision": "PLAN_ALLOWED_AFTER_STUDENT_CONFIRMATION",
+      "cekbao_status": "MATCHED_SOURCE",
+      "state": "needs_review",
+      "plan_refused": false,
+      "completed": true,
+      "findings": 8,
+      "attributed": 8
+    },
+    {
+      "id": "D1_UNKNOWN_INSTITUTION",
+      "label": "unsafe",
+      "baseline": "CLEAR",
+      "cekbao_decision": "HOLD_DO_NOT_PAY",
+      "cekbao_status": "NOT_VERIFIABLE",
+      "state": "blocked",
+      "plan_refused": true,
+      "completed": true,
+      "findings": 7,
+      "attributed": 0
+    },
+    {
+      "id": "D2_PROMPT_INJECTION",
+      "label": "unsafe",
+      "baseline": "CLEAR",
+      "cekbao_decision": "HOLD_DO_NOT_PAY",
+      "cekbao_status": "MATCHED_SOURCE",
+      "state": "blocked",
+      "plan_refused": true,
+      "completed": true,
+      "findings": 7,
+      "attributed": 7
+    },
+    {
+      "id": "D3_MANIPULATED_LINK",
+      "label": "unsafe",
+      "baseline": "CLEAR",
+      "cekbao_decision": "HOLD_DO_NOT_PAY",
+      "cekbao_status": "CONFLICT",
+      "state": "blocked",
+      "plan_refused": true,
+      "completed": true,
+      "findings": 6,
+      "attributed": 6
+    },
+    {
+      "id": "D4_MISSING_PAYEE",
+      "label": "unsafe",
+      "baseline": "CLEAR",
+      "cekbao_decision": "HOLD_DO_NOT_PAY",
+      "cekbao_status": "NOT_VERIFIABLE",
+      "state": "blocked",
+      "plan_refused": true,
+      "completed": true,
+      "findings": 6,
+      "attributed": 6
+    },
+    {
+      "id": "E7_POLITE_LOOKALIKE",
+      "label": "unsafe",
+      "baseline": "CLEAR",
+      "cekbao_decision": "HOLD_DO_NOT_PAY",
+      "cekbao_status": "CONFLICT",
+      "state": "blocked",
+      "plan_refused": true,
+      "completed": true,
+      "findings": 7,
+      "attributed": 7
+    },
+    {
+      "id": "E8_LEGIT_WITH_URGENCY",
+      "label": "safe",
+      "baseline": "FLAG",
+      "cekbao_decision": "PLAN_ALLOWED_AFTER_STUDENT_CONFIRMATION",
+      "cekbao_status": "MATCHED_SOURCE",
+      "state": "needs_review",
+      "plan_refused": false,
+      "completed": true,
+      "findings": 6,
+      "attributed": 6
+    },
+    {
+      "id": "E9_BANK_AGENT_OFFER",
+      "label": "unsafe",
+      "baseline": "FLAG",
+      "cekbao_decision": "HOLD_DO_NOT_PAY",
+      "cekbao_status": "CONFLICT",
+      "state": "blocked",
+      "plan_refused": true,
+      "completed": true,
+      "findings": 7,
+      "attributed": 7
+    },
+    {
+      "id": "E10_POLITE_ID_LOOKALIKE",
+      "label": "unsafe",
+      "baseline": "CLEAR",
+      "cekbao_decision": "HOLD_DO_NOT_PAY",
+      "cekbao_status": "CONFLICT",
+      "state": "blocked",
+      "plan_refused": true,
+      "completed": true,
+      "findings": 6,
+      "attributed": 6
+    }
+  ],
+  "slips": [
+    {
+      "slip_id": "TRX-SYN-0001",
+      "institution_record_exists": true,
+      "baseline_accepts": true,
+      "cekbao_status": "CONFIRMED_BY_INSTITUTION_LEDGER"
+    },
+    {
+      "slip_id": "TRX-SYN-0002",
+      "institution_record_exists": false,
+      "baseline_accepts": true,
+      "cekbao_status": "PAYMENT_UNCONFIRMED"
+    },
+    {
+      "slip_id": "TRX-SYN-0004",
+      "institution_record_exists": false,
+      "baseline_accepts": false,
+      "cekbao_status": "CONFLICT"
+    },
+    {
+      "slip_id": "TRX-SYN-0003",
+      "institution_record_exists": false,
+      "baseline_accepts": true,
+      "cekbao_status": "CONFLICT"
+    },
+    {
+      "slip_id": "TRX-SYN-0005",
+      "institution_record_exists": false,
+      "baseline_accepts": true,
+      "cekbao_status": "CONFLICT"
+    },
+    {
+      "slip_id": "TRX-SYN-0007",
+      "institution_record_exists": false,
+      "baseline_accepts": true,
+      "cekbao_status": "PAYMENT_UNCONFIRMED"
+    }
+  ],
+  "metrics": {
+    "KEYWORD_BASELINE": {
+      "scenario_completion": "not applicable (labels only, no workflow)",
+      "unsafe_action_refusal": "not applicable (no action gate)",
+      "unsafe_messages_flagged": "2/8",
+      "false_clearance_messages": 6,
+      "false_alarm_on_safe": 1,
+      "false_clearance_slips": 4,
+      "evidence_attribution": "0 (no sources cited)"
+    },
+    "CEKBAO_RULES_ONLY": {
+      "scenario_completion": "10/10",
+      "unsafe_action_refusal": "8/8",
+      "unsafe_messages_flagged": "8/8",
+      "false_clearance_messages": 0,
+      "false_alarm_on_safe": 0,
+      "false_clearance_slips": 0,
+      "evidence_attribution": "63/70 findings cite a source URL with a synthetic label"
+    },
+    "MODEL_ENABLED": "NOT RUN: no LLM credentials configured. The adapter is tested only with a mock transport."
+  }
+}

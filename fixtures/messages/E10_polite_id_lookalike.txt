@@ -1,0 +1,7 @@
+Dari: Biro Keuangan UCN <keuangan@ucn-pembayaran.example>
+Perihal: Informasi pembayaran UKT semester genap
+
+Yth. mahasiswa,
+Pembayaran UKT semester genap sebesar Rp 7.500.000 dapat dilakukan melalui transfer bank.
+Silakan transfer ke rekening: 5544332211 a.n. Biro Keuangan UCN
+Terima kasih.

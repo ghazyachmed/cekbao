@@ -1,0 +1,23 @@
+From: "NBU Student Accounts" <bursar@northbridge-university-payments.example>
+To: ayu.student@mail.example
+Date: Mon, 19 Oct 2026 08:12:00 -0400
+Subject: URGENT: Fall 2026 enrollment deposit overdue - visa status at risk
+
+Dear Admitted Student,
+
+Our records show your enrollment deposit of USD 4,850.00 for Northbridge University is overdue.
+Pay within 24 hours or your I-20 and visa status will be cancelled.
+
+Pay today and receive a 10% early-settlement discount through our partner office.
+
+Beneficiary: NBU International Collections Ltd
+Account number: 4471209938
+SWIFT: FKBKHKHHXXX
+Bank: Harbour Fiktif Bank
+Payment method: international wire transfer
+
+Confirm your payment here: https://pay.northbridge-university.example.secure-portal.example/confirm
+For questions chat with our officer on WhatsApp +1-555-0199.
+
+Student Accounts Office
+Northbridge University

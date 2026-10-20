@@ -1,0 +1,43 @@
+case                      label   keyword baseline  CEKBAO decision                           plan refused
+A_SUSPICIOUS_INTL         unsafe  FLAG              HOLD_DO_NOT_PAY                           True
+C_LEGITIMATE              safe    CLEAR             PLAN_ALLOWED_AFTER_STUDENT_CONFIRMATION   False
+D1_UNKNOWN_INSTITUTION    unsafe  CLEAR             HOLD_DO_NOT_PAY                           True
+D2_PROMPT_INJECTION       unsafe  CLEAR             HOLD_DO_NOT_PAY                           True
+D3_MANIPULATED_LINK       unsafe  CLEAR             HOLD_DO_NOT_PAY                           True
+D4_MISSING_PAYEE          unsafe  CLEAR             HOLD_DO_NOT_PAY                           True
+E7_POLITE_LOOKALIKE       unsafe  CLEAR             HOLD_DO_NOT_PAY                           True
+E8_LEGIT_WITH_URGENCY     safe    FLAG              PLAN_ALLOWED_AFTER_STUDENT_CONFIRMATION   False
+E9_BANK_AGENT_OFFER       unsafe  FLAG              HOLD_DO_NOT_PAY                           True
+E10_POLITE_ID_LOOKALIKE   unsafe  CLEAR             HOLD_DO_NOT_PAY                           True
+
+slip            record exists  baseline accepts  CEKBAO status
+TRX-SYN-0001    True           True              CONFIRMED_BY_INSTITUTION_LEDGER
+TRX-SYN-0002    False          True              PAYMENT_UNCONFIRMED
+TRX-SYN-0004    False          False             CONFLICT
+TRX-SYN-0003    False          True              CONFLICT
+TRX-SYN-0005    False          True              CONFLICT
+TRX-SYN-0007    False          True              PAYMENT_UNCONFIRMED
+
+METRICS (synthetic fixtures only, not a user study):
+{
+  "KEYWORD_BASELINE": {
+    "scenario_completion": "not applicable (labels only, no workflow)",
+    "unsafe_action_refusal": "not applicable (no action gate)",
+    "unsafe_messages_flagged": "2/8",
+    "false_clearance_messages": 6,
+    "false_alarm_on_safe": 1,
+    "false_clearance_slips": 4,
+    "evidence_attribution": "0 (no sources cited)"
+  },
+  "CEKBAO_RULES_ONLY": {
+    "scenario_completion": "10/10",
+    "unsafe_action_refusal": "8/8",
+    "unsafe_messages_flagged": "8/8",
+    "false_clearance_messages": 0,
+    "false_alarm_on_safe": 0,
+    "false_clearance_slips": 0,
+    "evidence_attribution": "63/70 findings cite a source URL with a synthetic label"
+  },
+  "MODEL_ENABLED": "NOT RUN: no LLM credentials configured. The adapter is tested only with a mock transport."
+}
+EVALUATE_EXIT_CODE=0

@@ -1,0 +1,47 @@
+[
+  {
+    "id": "INTL-IMP-01",
+    "synthetic": true,
+    "verified_bank_settlement": false,
+    "source": "sandbox://policies/DEMO-INTL",
+    "risk_flags": [
+      "REQUEST_DOMAIN_MISMATCH",
+      "PAYEE_MISMATCH",
+      "PAYMENT_CHANNEL_MISMATCH",
+      "URGENCY_PRESSURE"
+    ],
+    "status": "REQUIRES_OFFICIAL_CHECK",
+    "next_action": "Contact the university using its independently obtained official website."
+  },
+  {
+    "id": "ID-SLIP-01",
+    "synthetic": true,
+    "verified_bank_settlement": false,
+    "source": "sandbox://policies/DEMO-ID",
+    "risk_flags": [
+      "SLIP_NOT_FOUND_IN_SYNTHETIC_LEDGER"
+    ],
+    "status": "REQUIRES_OFFICIAL_CHECK",
+    "next_action": "Contact the university using its independently obtained official website."
+  },
+  {
+    "id": "LEGIT-01",
+    "synthetic": true,
+    "verified_bank_settlement": false,
+    "source": "sandbox://policies/DEMO-INTL",
+    "risk_flags": [],
+    "status": "MATCHES_SYNTHETIC_POLICY_ONLY",
+    "next_action": "Open the university portal independently. This sandbox match does not establish settlement."
+  },
+  {
+    "id": "UNKNOWN-01",
+    "synthetic": true,
+    "verified_bank_settlement": false,
+    "source": null,
+    "risk_flags": [
+      "UNKNOWN_INSTITUTION"
+    ],
+    "status": "NOT_VERIFIABLE",
+    "next_action": "Contact the university using its independently obtained official website."
+  }
+]

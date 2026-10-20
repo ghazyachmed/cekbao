@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CEKBAO | Student Payment Verification Agent</title>
+<link rel="stylesheet" href="/static/style.css">
+<script src="/static/app.js" defer></script>
+</head>
+<body>
+<header class="top">
+  <div class="brand">
+    <div class="logo" aria-hidden="true">C</div>
+    <div>
+      <div class="title">CEKBAO <span class="zh" lang="zh">学费支付核验助手</span></div>
+      <div class="sub">Check the request. Use the official payment route.</div>
+    </div>
+  </div>
+  <div class="right">
+    <span class="pill {{ 'pill-ok' if llm_configured else 'pill-muted' }}" title="{{ 'A configured model reads redacted text. Rules decide.' if llm_configured else 'No AI model is configured. A rule-based reader is used. No model call is made.' }}">{{ 'AI extraction on' if llm_configured else 'Demo mode · no AI call' }}</span>
+    <span id="who" class="who hidden"></span>
+    <button id="logout" class="link-btn hidden" type="button">Sign out</button>
+  </div>
+</header>
+<div class="notice">Sandbox demo · all universities, accounts and quotes are invented · no money moves · no e-mail is sent</div>
+
+<main>
+  <!-- Sign in -->
+  <section id="login-view" class="view">
+    <div class="hero">
+      <div class="hero-text">
+        <h1>Check a tuition payment request before you pay.</h1>
+        <p>CEKBAO compares the request with the university's official payment procedure and tells you what to do next.</p>
+        <ul class="hero-points">
+          <li>Spots look-alike senders, payees and links</li>
+          <li>Shows whether a slip really reached the university</li>
+          <li>Drafts a message to the official finance office</li>
+        </ul>
+      </div>
+      <img class="hero-art" src="/static/img/hero.svg" alt="A request goes through the CEKBAO check before the official payment route" width="420" height="220">
+    </div>
+    <div class="panel">
+      <h2 class="h-sm">Choose a demo student</h2>
+      <div id="personas" class="persona-grid" role="radiogroup" aria-label="Demo persona"></div>
+      <div class="field-row">
+        <label class="field grow">Demo access code
+          <input id="login-code" type="password" autocomplete="off" placeholder="Listed in README (sandbox test value)">
+        </label>
+        <button id="login-btn" class="btn primary" type="button">Sign in</button>
+      </div>
+      <p id="login-msg" class="msg" role="status"></p>
+    </div>
+  </section>
+
+  <!-- App -->
+  <section id="app-view" class="view hidden">
+    <nav class="tabs" role="tablist">
+      <button class="tab" role="tab" data-tab="request" data-roles="student" type="button">Check a request</button>
+      <button class="tab" role="tab" data-tab="slips" data-roles="student" type="button">Did my payment arrive?</button>
+      <button class="tab" role="tab" data-tab="cases" data-roles="student" type="button">My history</button>
+      <button class="tab" role="tab" data-tab="office" data-roles="office_reviewer" type="button">Office inbox</button>
+    </nav>
+
+    <!-- Request -->
+    <div id="tab-request" class="tabpane hidden">
+      <div class="panel">
+        <h2 class="with-icon"><img src="/static/img/mail.svg" alt="" width="40" height="40"> What did you receive?</h2>
+        <div class="samples"><span class="muted">Try a sample:</span> <span id="req-samples"></span></div>
+        <label class="field">Which university does it claim to be from?
+          <input id="req-inst" list="inst-list" maxlength="120" placeholder="e.g. Northbridge University">
+          <datalist id="inst-list"></datalist>
+        </label>
+        <label class="field">Paste the full message (e-mail or chat)
+          <textarea id="req-msg" rows="9" maxlength="20000" placeholder="Paste the e-mail including the From: line"></textarea>
+          <span class="hint">CEKBAO treats this text as untrusted. It never opens links from the message.</span>
+        </label>
+        <button id="req-check" class="btn primary big" type="button">Check before I pay</button>
+        <p id="req-status" class="msg" role="status"></p>
+      </div>
+      <div id="req-result" aria-live="polite"></div>
+    </div>
+
+    <!-- Slips -->
+    <div id="tab-slips" class="tabpane hidden">
+      <div class="panel">
+        <h2 class="with-icon"><img src="/static/img/receipt.svg" alt="" width="40" height="40"> Did my tuition payment really arrive?</h2>
+        <p class="lead">A transfer slip only shows what the sender claims. Only your university's own record can confirm the payment.</p>
+        <div class="samples"><span class="muted">Try a sample:</span> <button id="slip-sample" class="chip" type="button">Bank-agent offer + 3 slips</button></div>
+        <label class="field">University
+          <select id="slip-inst"></select>
+        </label>
+        <details class="sub-details">
+          <summary>Did someone offer to pay your tuition for you? Paste their message (optional)</summary>
+          <textarea id="slip-offer" rows="6" maxlength="20000"></textarea>
+        </details>
+        <h3 class="h-sm">Your payment slips</h3>
+        <div id="slip-rows" class="slip-rows"></div>
+        <button id="slip-add" class="btn ghost" type="button">+ Add a slip</button>
+        <div class="actions"><button id="slip-check" class="btn primary big" type="button">Check my slips</button></div>
+        <p id="slip-status" class="msg" role="status"></p>
+      </div>
+      <div id="slip-result" aria-live="polite"></div>
+    </div>
+
+    <!-- History -->
+    <div id="tab-cases" class="tabpane hidden">
+      <div class="panel"><h2>My history</h2><div id="cases-list"></div></div>
+      <div id="case-detail"></div>
+    </div>
+
+    <!-- Office -->
+    <div id="tab-office" class="tabpane hidden">
+      <div class="panel"><h2>Office inbox</h2><p class="lead">Requests that students escalated to your institution. Read-only. Student identities and raw messages are hidden.</p><div id="office-list"></div></div>
+      <div id="office-detail"></div>
+    </div>
+  </section>
+</main>
+<footer>CEKBAO is a coined bilingual name: Indonesian "cek" (check) + Mandarin 保 (bǎo, protect). It is not an established Chinese word or a registered trademark. Team HMIF · FinTechathon 2026 International Track · Topic C.</footer>
+</body>
+</html>

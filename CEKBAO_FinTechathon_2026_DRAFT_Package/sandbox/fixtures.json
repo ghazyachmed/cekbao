@@ -1,0 +1,6 @@
+[
+  {"id":"INTL-IMP-01","institution":"DEMO-INTL","request_url":"https://university.example.edu.evil.test/pay","payee":"Third Party Tuition Collections","channel":"bank_transfer","urgent_pressure":true},
+  {"id":"ID-SLIP-01","institution":"DEMO-ID","request_url":"https://campus.example.ac.id/billing","payee":"Example Campus Billing Account","channel":"bank_va","slip_id":"SLIP-0042","amount":"3500000","synthetic_university_ledger":{}},
+  {"id":"LEGIT-01","institution":"DEMO-INTL","request_url":"https://university.example.edu/portal","payee":"Example University Official Tuition Account","channel":"official_portal","urgent_pressure":false},
+  {"id":"UNKNOWN-01","institution":"NOT-IN-REGISTRY","request_url":"https://unknown.invalid/pay","payee":"Unknown Payee","channel":"bank_transfer"}
+]

@@ -1,0 +1,14 @@
+From: Northbridge University Student Accounts <student-accounts@northbridge-university.example.net>
+Subject: Updated banking details for your deposit
+
+Dear student,
+
+Our bank details changed this term. Please use the details below for your enrollment deposit of USD 500.00.
+Beneficiary: Northbridge University
+Account number: 5566778899
+SWIFT: SYNTUS33XXX
+Bank: Synthetic Trust Bank
+Payment method: international wire transfer
+
+Thank you,
+Office of Student Accounts

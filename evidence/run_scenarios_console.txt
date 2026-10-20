@@ -1,0 +1,63 @@
+CEKBAO scenario run started 2026-10-20T05:05:07+00:00 | extraction_mode=DETERMINISTIC_DEMO | registry 2026-10-20.1 sha256=0574b0361932dc0d...
+
+== Scenario A: suspicious international tuition request (persona stu_ayu)
+  case case_07cac55bfb05afe5: draft -> blocked | overall=CONFLICT decision=HOLD_DO_NOT_PAY
+    INSTITUTION                      MATCHED_SOURCE  observed=Northbridge University
+    SENDER_DOMAIN                    CONFLICT        observed=northbridge-university-payments.example
+    LINK_DOMAIN                      CONFLICT        observed=https://pay.northbridge-university.example.secure-portal.example/confirm
+    BENEFICIARY_NAME                 CONFLICT        observed=NBU International Collections Ltd
+    BENEFICIARY_ACCOUNT              CONFLICT        observed=******9938
+    SWIFT_BIC                        CONFLICT        observed=FKBKHKHHXXX
+    PAYMENT_METHOD                   MATCHED_SOURCE  observed=international_wire, institution_portal
+    AMOUNT                           NOT_VERIFIABLE  observed=USD 4850.00
+    POLICY_NO_THIRD_PARTY_DISCOUNT   CONFLICT        observed=discount
+    POLICY_NO_THREATS                CONFLICT        observed=visa status will be cancelled
+    RISK DEADLINE_PRESSURE (warning): "URGENT; within 24 hours; today"
+    RISK DISCOUNT_OFFER (high): "discount"
+    RISK THREAT_OR_AUTHORITY_PRESSURE (high): "visa status will be cancelled"
+    RISK OFF_CHANNEL_CONTACT (warning): "WhatsApp"
+  [PASS] A.status: CONFLICT / HOLD_DO_NOT_PAY
+  [PASS] A.plan_refused: propose plan -> HTTP 409 payment hold: the policy decision does not allow a payment plan
+  [PASS] A.escalation_to_registry_contact: draft to student-accounts@northbridge-university.example auto_send=False
+  evidence: scenarios/A_suspicious_international_request.evidence.json sha256=0177e3a1d6726e5c... events=5 chain_valid=True
+
+== Scenario B: bank-agent offer + payment slips, UMTS-inspired (persona stu_budi)
+  upload receipt for TRX-SYN-0002 -> HTTP 201 content_stored=False
+  case case_e69ec73d6264fdf7: draft -> blocked | slips=3 confirmed=1 unconfirmed=1 conflict=1
+    slip TRX-SYN-0001: CONFIRMED_BY_INSTITUTION_LEDGER next=KEEP_INSTITUTION_RECEIPT issues=[]
+    slip TRX-SYN-0002: PAYMENT_UNCONFIRMED next=REQUIRES_INSTITUTION_CHECK issues=[]
+    slip TRX-SYN-0004: CONFLICT next=CONTACT_BANK_AND_INSTITUTION issues=['WRONG_DESTINATION']
+  [PASS] B.slip_statuses: {"TRX-SYN-0001": "CONFIRMED_BY_INSTITUTION_LEDGER", "TRX-SYN-0002": "PAYMENT_UNCONFIRMED", "TRX-SYN-0004": "CONFLICT"}
+  [PASS] B.receipt_pdf_not_proof: PDF that says LUNAS/PAYMENT SUCCESSFUL stays PAYMENT_UNCONFIRMED
+  [PASS] B.bank_agent_detected: BANK_AGENT_IMPERSONATION, DEADLINE_PRESSURE, DISCOUNT_OFFER, EASY_PAYMENT_OFFER, OFF_CHANNEL_CONTACT
+  evidence: scenarios/B_umts_inspired_slip_ledger.evidence.json sha256=3265e19e6f2dd27c... events=5 chain_valid=True
+
+== Scenario C: request through the approved channel (persona stu_citra)
+  case case_f89fad45883ee04b: draft -> needs_review | overall=MATCHED_SOURCE decision=PLAN_ALLOWED_AFTER_STUDENT_CONFIRMATION
+  [PASS] C.status: MATCHED_SOURCE / needs_review
+    quote Provider A (illustrative): total IDR 8316125.00 all-in 16632.250000 markup 2.04% intermediary UNKNOWN
+    quote Provider B (illustrative): total IDR 8255000.00 all-in 16510.000000 markup 1.29% intermediary KNOWN: 0.00
+  [PASS] C.quote_choice: lowest=Provider B (illustrative) saves IDR 61125.00
+  deny revision 1 -> HTTP 200 state=needs_review
+  approve rev 2 -> HTTP 200 approved | replay same key -> HTTP 200 replay=True
+  [PASS] C.approved_once: NOT_EXECUTED. Sandbox plan only. No money moved.
+  evidence: scenarios/C_legitimate_approved_plan.evidence.json sha256=599f218d329445ea... events=9 chain_valid=True
+  [PASS] C.audit_sequence: CASE_CREATED > EXTRACTION_COMPLETED > ANALYSIS_COMPLETED > ESCALATION_DRAFTED > QUOTES_COMPARED > PLAN_PROPOSED > PLAN_DENIED > PLAN_EDITED > PLAN_APPROVED
+
+== Scenario D: incomplete and adversarial inputs (persona stu_ayu)
+  D1_UNKNOWN_INSTITUTION: NOT_VERIFIABLE / HOLD_DO_NOT_PAY / state blocked | reasons: INSTITUTION: NOT_VERIFIABLE; SENDER_DOMAIN: NOT_VERIFIABLE; BENEFICIARY_NAME: NOT_VERIFIABLE; BENEFICIARY_ACCOUNT: NOT_VERIFIABLE
+  [PASS] D.D1_UNKNOWN_INSTITUTION: fail closed
+  D2_PROMPT_INJECTION: MATCHED_SOURCE / HOLD_DO_NOT_PAY / state blocked | reasons: RISK PROMPT_INJECTION
+  [PASS] D.D2_PROMPT_INJECTION: fail closed
+  evidence: scenarios/D2_prompt_injection.evidence.json sha256=394a59964bbf1e6d... events=5 chain_valid=True
+  D3_MANIPULATED_LINK: CONFLICT / HOLD_DO_NOT_PAY / state blocked | reasons: LINK_DOMAIN: CONFLICT
+  [PASS] D.D3_MANIPULATED_LINK: fail closed
+  D4_MISSING_PAYEE: NOT_VERIFIABLE / HOLD_DO_NOT_PAY / state blocked | reasons: BENEFICIARY_NAME: NOT_VERIFIABLE; BENEFICIARY_ACCOUNT: NOT_VERIFIABLE
+  [PASS] D.D4_MISSING_PAYEE: fail closed
+  [PASS] D.impossible_fx_quote: HTTP 422: Provider A (illustrative): fx_rate deviates 99.99% from the reference rate (limit 25%). Th
+  [PASS] D.reviewer_cannot_approve: HTTP 403
+  [PASS] D.other_student_cannot_approve: HTTP 404
+  [PASS] D.anonymous_cannot_approve: HTTP 401
+
+SUMMARY: 18/18 expectations passed. Mode: DETERMINISTIC_DEMO (no live LLM call). Database: temporary file, discarded.
+RUN_SCENARIOS_EXIT_CODE=0

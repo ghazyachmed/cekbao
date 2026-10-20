@@ -1,0 +1,21 @@
+From: Northbridge University Student Accounts <student-accounts@northbridge-university.example>
+To: citra.student@mail.example
+Date: Thu, 15 Oct 2026 10:00:00 -0400
+Subject: Fall 2026 enrollment deposit invoice available
+
+Dear Citra,
+
+Your Fall 2026 enrollment deposit invoice is now available in the student-account portal.
+Amount due: USD 500.00. Due date: 15 November 2026.
+
+Pay inside the student-account portal: https://pay.northbridge-university.example/invoices
+If you pay by international wire transfer, use only these details and include your student reference:
+Beneficiary: Northbridge University
+Account number: 000123456789
+SWIFT: SYNTUS33XXX
+Bank: Synthetic Trust Bank
+
+We never ask for payment through agents, gift cards or personal accounts, and we do not offer discounts for early payment.
+
+Office of Student Accounts
+Northbridge University

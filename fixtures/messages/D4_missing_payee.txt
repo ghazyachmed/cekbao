@@ -1,0 +1,5 @@
+From: Student Accounts <student-accounts@northbridge-university.example>
+Subject: Deposit reminder
+
+Please send USD 500.00 by international wire transfer before Friday.
+Reply to this e-mail and we will send the account details.

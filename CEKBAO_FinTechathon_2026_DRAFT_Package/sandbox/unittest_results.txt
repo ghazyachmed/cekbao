@@ -1,0 +1,15 @@
+test_domain_mismatch_flags (tests.BaselineTests.test_domain_mismatch_flags) ... ok
+test_http_not_accepted (tests.BaselineTests.test_http_not_accepted) ... ok
+test_ledger_disagreement (tests.BaselineTests.test_ledger_disagreement) ... ok
+test_missing_slip_in_synthetic_ledger (tests.BaselineTests.test_missing_slip_in_synthetic_ledger) ... ok
+test_no_spoof_subdomain (tests.BaselineTests.test_no_spoof_subdomain) ... ok
+test_payee_mismatch (tests.BaselineTests.test_payee_mismatch) ... ok
+test_policy_match_not_settlement (tests.BaselineTests.test_policy_match_not_settlement) ... ok
+test_spoof_domain (tests.BaselineTests.test_spoof_domain) ... ok
+test_unknown_fails_closed (tests.BaselineTests.test_unknown_fails_closed) ... ok
+test_urgency_flag (tests.BaselineTests.test_urgency_flag) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.000s
+
+OK

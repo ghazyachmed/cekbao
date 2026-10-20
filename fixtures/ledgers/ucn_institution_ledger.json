@@ -1,0 +1,9 @@
+{
+  "notice": "SYNTHETIC institution ledger for Universitas Contoh Nusantara (SYNTHETIC). Every record is invented. In a real deployment this read-only lookup would come from the institution finance office, never from the student.",
+  "institution_id": "SYN-ID-UCN",
+  "records": [
+    {"ledger_id": "UCN-LGR-0001", "payer_reference": "UCN-SYN-2025-0042", "amount": "7500000.00", "currency": "IDR", "credited_on": "2025-01-15", "channel_id": "UCN-VA", "bank_reference": "TRX-SYN-0001"},
+    {"ledger_id": "UCN-LGR-0003", "payer_reference": "UCN-SYN-2025-0042", "amount": "6000000.00", "currency": "IDR", "credited_on": "2024-08-10", "channel_id": "UCN-VA", "bank_reference": "TRX-SYN-0000"},
+    {"ledger_id": "UCN-LGR-0002", "payer_reference": "UCN-SYN-2025-0077", "amount": "7500000.00", "currency": "IDR", "credited_on": "2025-01-16", "channel_id": "UCN-VA", "bank_reference": "TRX-SYN-9001"}
+  ]
+}

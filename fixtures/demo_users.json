@@ -1,0 +1,9 @@
+{
+  "notice": "SANDBOX DEMO PERSONAS. Invented people. The demo_access_code values are test values for this local prototype. They are not real credentials. Disable seeding with CEKBAO_DEMO_USERS=0 outside the sandbox.",
+  "users": [
+    {"user_id": "stu_ayu", "display_name": "Ayu (synthetic student, US-bound)", "role": "student", "institution_id": "SYN-US-NBU", "payer_reference": "NBU-SYN-0001", "demo_access_code": "demo-ayu-2026", "scenarios": "A, D"},
+    {"user_id": "stu_budi", "display_name": "Budi (synthetic student, Indonesia)", "role": "student", "institution_id": "SYN-ID-UCN", "payer_reference": "UCN-SYN-2025-0042", "demo_access_code": "demo-budi-2026", "scenarios": "B"},
+    {"user_id": "stu_citra", "display_name": "Citra (synthetic student, US-bound)", "role": "student", "institution_id": "SYN-US-NBU", "payer_reference": "NBU-SYN-0002", "demo_access_code": "demo-citra-2026", "scenarios": "C"},
+    {"user_id": "officer_nbu", "display_name": "Student Accounts reviewer (synthetic)", "role": "office_reviewer", "institution_id": "SYN-US-NBU", "payer_reference": null, "demo_access_code": "demo-officer-2026", "scenarios": "office view"}
+  ]
+}

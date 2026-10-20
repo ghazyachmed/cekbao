@@ -1,0 +1,10 @@
+From: Northbridge University Student Accounts <student-accounts@northbridge-university.example>
+Subject: Reminder: deposit due today
+
+Dear student,
+
+This is an urgent reminder. Your enrollment deposit of USD 500.00 is due today.
+Pay inside the student-account portal: https://pay.northbridge-university.example/invoices
+Beneficiary: Northbridge University
+
+Office of Student Accounts

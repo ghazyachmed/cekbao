@@ -1,0 +1,8 @@
+From: Bursar Office <bursar@westmoor-college.example>
+Subject: Spring tuition balance
+
+Westmoor College requests your spring tuition balance of USD 9,200.00.
+Beneficiary: Westmoor College
+Account number: 7788990011
+SWIFT: WSTMUS44
+Payment method: international wire transfer

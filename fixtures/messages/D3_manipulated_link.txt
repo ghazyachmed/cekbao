@@ -1,0 +1,6 @@
+From: Student Accounts <student-accounts@northbridge-university.example>
+Subject: Action needed: confirm your deposit
+
+Pay your enrollment deposit of USD 500.00 in the payment portal:
+https://pay.northbridge-university.example@portal-login.example/deposit
+Beneficiary: Northbridge University

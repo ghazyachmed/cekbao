@@ -1,0 +1,96 @@
+{
+  "registry_version": "2026-10-20.1",
+  "notice": "SANDBOX REGISTRY. Every entry below is SYNTHETIC. The institutions, domains (.example is reserved by RFC 2606), accounts, SWIFT codes, phone numbers and banks are invented. This file contains zero real institutions. A real entry requires manual verification of the official domain, an exact https source URL, a retrieval date, a named reviewer and the permitted payment channel.",
+  "institutions": [
+    {
+      "institution_id": "SYN-US-NBU",
+      "display_name": "Northbridge University (SYNTHETIC)",
+      "aliases": ["Northbridge University", "NBU"],
+      "synthetic": true,
+      "country": "US",
+      "official_domains": ["northbridge-university.example"],
+      "official_contact": {
+        "office": "Office of Student Accounts (synthetic)",
+        "email": "student-accounts@northbridge-university.example",
+        "phone": "+1-555-0100",
+        "contact_page_url": "https://www.northbridge-university.example/student-accounts/contact"
+      },
+      "approved_channels": [
+        {
+          "channel_id": "NBU-PORTAL",
+          "method": "institution_portal",
+          "description": "Pay the invoice inside the student-account portal. Type the portal address yourself.",
+          "beneficiary_name": "Northbridge University",
+          "payment_host": "pay.northbridge-university.example"
+        },
+        {
+          "channel_id": "NBU-WIRE",
+          "method": "international_wire",
+          "description": "International wire to the university operating account. Use the student reference shown on the portal invoice.",
+          "beneficiary_name": "Northbridge University",
+          "beneficiary_account": "000123456789",
+          "swift_bic": "SYNTUS33XXX",
+          "bank_name": "Synthetic Trust Bank",
+          "bank_country": "US"
+        }
+      ],
+      "policy_statements": [
+        {"statement_id": "NO_THIRD_PARTY_DISCOUNT", "text": "The university does not offer tuition discounts through agents or third parties."},
+        {"statement_id": "NO_PERSONAL_ACCOUNTS", "text": "The university never asks students to pay into personal accounts, crypto wallets, gift cards or cash agents."},
+        {"statement_id": "NO_THREATS", "text": "University staff do not threaten visa cancellation, deportation or arrest to collect payment."},
+        {"statement_id": "INVOICE_IN_PORTAL", "text": "Every valid amount appears on the student invoice inside the student-account portal."}
+      ],
+      "source": {
+        "url": "https://www.northbridge-university.example/student-accounts/how-to-pay",
+        "retrieved": "2026-10-20",
+        "reviewed_by": "HMIF team (synthetic fixture, no real institution)",
+        "permitted_channel_note": "Synthetic: portal payment and the listed wire account only."
+      }
+    },
+    {
+      "institution_id": "SYN-ID-UCN",
+      "display_name": "Universitas Contoh Nusantara (SYNTHETIC)",
+      "aliases": ["Universitas Contoh Nusantara", "UCN"],
+      "synthetic": true,
+      "country": "ID",
+      "official_domains": ["ucn.example"],
+      "official_contact": {
+        "office": "Biro Keuangan / Finance Office (synthetic)",
+        "email": "keuangan@ucn.example",
+        "phone": null,
+        "contact_page_url": "https://www.ucn.example/keuangan/kontak"
+      },
+      "approved_channels": [
+        {
+          "channel_id": "UCN-VA",
+          "method": "virtual_account",
+          "description": "Pay UKT only to the personal student virtual account shown in the official student portal.",
+          "beneficiary_name": "Universitas Contoh Nusantara",
+          "virtual_account_prefix": "88080",
+          "virtual_account_length": 16,
+          "bank_name": "Bank Fiktif Nusantara",
+          "bank_country": "ID"
+        },
+        {
+          "channel_id": "UCN-PORTAL",
+          "method": "institution_portal",
+          "description": "Open the payment page from the official student portal.",
+          "beneficiary_name": "Universitas Contoh Nusantara",
+          "payment_host": "siakad.ucn.example"
+        }
+      ],
+      "policy_statements": [
+        {"statement_id": "NO_AGENTS", "text": "The finance office does not use bank agents, students or other third parties to collect UKT."},
+        {"statement_id": "NO_PERSONAL_ACCOUNTS", "text": "UKT is never paid to a personal bank account."},
+        {"statement_id": "NO_THIRD_PARTY_DISCOUNT", "text": "The university does not offer UKT discounts or 'easy payment' services through third parties."},
+        {"statement_id": "LEDGER_IS_RECORD", "text": "A payment counts only after it appears in the student ledger in the official portal."}
+      ],
+      "source": {
+        "url": "https://www.ucn.example/keuangan/cara-bayar-ukt",
+        "retrieved": "2026-10-20",
+        "reviewed_by": "HMIF team (synthetic fixture, no real institution)",
+        "permitted_channel_note": "Synthetic: student virtual account (prefix 88080, 16 digits) and portal payment only."
+      }
+    }
+  ]
+}
