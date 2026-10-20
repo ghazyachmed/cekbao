@@ -222,7 +222,29 @@ Checked by clicking in a browser (20 October 2026):
 | Light and dark color schemes | Both readable |
 | Console | Only the expected 401 from the session probe before sign-in |
 
-## 7. Provenance
+## 7. Clean-environment install check
+
+On 20 October 2026 the repository was copied without `.venv`, `data`, caches, `.git` and `evidence` into an empty folder. Then:
+
+```bash
+python3.11 -m venv .venv
+```
+
+```bash
+.venv/bin/pip install -r requirements-dev.txt
+```
+
+```bash
+.venv/bin/python -m pytest -q
+```
+
+```bash
+.venv/bin/python scripts/run_scenarios.py --out /tmp/out
+```
+
+Results: install exit code 0 (packages resolved to the pinned versions in `requirements.txt`), `117 passed`, scenario run `18/18 expectations passed`, exit code 0.
+
+## 8. Provenance
 
 - The code, fixtures, tests and documents in this repository were written on 20 October 2026 by Team HMIF with an AI coding assistant (Claude Code). The team must review them before submission.
 - The folder `CEKBAO_FinTechathon_2026_DRAFT_Package/` holds an earlier offline baseline from the same day (stdlib checker, 10 unit tests, 4 fixtures). This build supersedes it. It is not a prior MVP.

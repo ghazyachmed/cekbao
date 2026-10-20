@@ -22,7 +22,7 @@ Source of requirements: official FinTechathon 2026 International Track brochure 
 | # | Official item | File(s) | Status |
 |---|---|---|---|
 | 01 | Technical documentation: system architecture, core algorithm description, security design | `docs/TECHNICAL.md` (+ security design in `docs/SECURITY_SELF_ASSESSMENT.md`) | Done (Markdown). Export to PDF if the form needs a file |
-| 02 | Presentation deck: final presentation of 10 minutes or less | `docs/PITCH_OUTLINE.md` (outline). The old `CEKBAO_Pitch_Deck_DRAFT.pptx` is **outdated** (it says the agent is not implemented) | **Open:** build or update the deck from the outline |
+| 02 | Presentation deck: final presentation of 10 minutes or less | New 10-slide deck "CEKBAO Pitch Deck" (private Slides artifact, speaker notes included), built from `docs/PITCH_OUTLINE.md` with real screenshots from `docs/screenshots/`. It **replaces** the outdated `CEKBAO_Pitch_Deck_DRAFT.pptx` | **Open:** review it, fill `[GitHub repository URL]` on slide 10, download as PPTX or PDF, rehearse to 10 minutes or less |
 | 03 | Demo video (optional, 5 minutes or less) | `docs/DEMO_STORYBOARD.md` | **NOT DONE.** Record manually |
 | 04 | Source code with README, GitHub repository link, deployment instructions and test cases | `README.md`, `app/`, `tests/`, `requirements*.txt` | Code done. **Open:** create the GitHub repository and push (manual) |
 | 05 | Security self-assessment: permission-tier implementation and known-risk list | `docs/SECURITY_SELF_ASSESSMENT.md` | Done |
@@ -34,7 +34,7 @@ Source of requirements: official FinTechathon 2026 International Track brochure 
 2. Decide what to do with `CEKBAO_FinTechathon_2026_DRAFT_Package/`. It is outdated. Keep it out of the submission, or keep it only as clearly labelled history.
 3. Commit locally (commands in the final handover message). Create a GitHub repository yourself. Push. Copy the real URL into the submission form. Do not invent a URL.
 4. Record the demo video (5 minutes or less) with `docs/DEMO_STORYBOARD.md`.
-5. Build or update the deck from `docs/PITCH_OUTLINE.md`. Re-check the FBI source before using it.
+5. Review the new deck, add the GitHub URL on slide 10, download it as PPTX or PDF and rehearse. Re-check the FBI source before citing it.
 6. Confirm eligibility (60% non-Chinese nationals, full-time students) and fill the registration form.
 7. Submit before **22:59 WIB on 20 October 2026**. Update later if needed.
 

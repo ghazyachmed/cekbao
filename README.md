@@ -141,6 +141,7 @@ CEKBAO_FinTechathon_2026_DRAFT_Package/   Earlier offline baseline and draft doc
 - `docs/PITCH_OUTLINE.md`: 10-slide outline for a presentation of 10 minutes or less
 - `docs/SUBMISSION_CHECKLIST.md`: official requirements and open steps
 - `docs/DEMO_STORYBOARD.md`: demo recording script (video NOT DONE)
+- `docs/screenshots/`: real screenshots of the running app (Scenarios A, B, C), taken on 20 October 2026
 
 ## 11. License and attribution
 
