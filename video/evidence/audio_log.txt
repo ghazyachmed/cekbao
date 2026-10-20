@@ -1,0 +1,41 @@
+vo h1      start    1.00s  dur  6.27s   18 words    172 wpm
+vo h2      start    8.40s  dur  1.01s    4 words    239 wpm
+vo m1      start   12.80s  dur  5.17s   14 words    163 wpm
+vo m2      start   19.00s  dur  3.27s   10 words    183 wpm
+vo m3      start   24.20s  dur  3.61s   11 words    183 wpm
+vo e1      start   30.60s  dur  9.34s   17 words    109 wpm
+vo e2      start   40.29s  dur  6.83s   13 words    114 wpm
+vo r1      start   47.60s  dur  2.03s    8 words    237 wpm
+vo r2      start   51.00s  dur  5.04s   17 words    202 wpm
+vo r3      start   57.60s  dur  3.35s    8 words    143 wpm
+vo v1      start   63.60s  dur  2.88s    8 words    166 wpm
+vo v2      start   67.40s  dur  6.36s   19 words    179 wpm
+vo a1      start   77.00s  dur  5.08s   15 words    177 wpm
+vo a2      start   83.60s  dur  4.02s   12 words    179 wpm
+vo a3      start   89.40s  dur  6.11s   14 words    138 wpm
+vo a4      start   96.40s  dur  4.77s   15 words    189 wpm
+vo a5      start  103.20s  dur  3.53s   11 words    187 wpm
+vo a6      start  108.20s  dur  6.38s   17 words    160 wpm
+vo a7      start  115.60s  dur  4.14s   13 words    188 wpm
+vo b1      start  121.00s  dur  4.24s   12 words    170 wpm
+vo b2      start  127.40s  dur  4.36s   12 words    165 wpm
+vo b3      start  133.00s  dur  2.45s    6 words    147 wpm
+vo b4      start  139.40s  dur  4.88s   12 words    148 wpm
+vo b5      start  147.00s  dur  3.33s   11 words    198 wpm
+vo b6      start  154.20s  dur  1.93s    7 words    218 wpm
+vo c1      start  168.00s  dur  3.02s    6 words    119 wpm
+vo c2      start  172.00s  dur  3.25s    9 words    166 wpm
+vo c3      start  177.60s  dur  6.70s   14 words    125 wpm
+vo c4      start  186.00s  dur  2.31s    6 words    156 wpm
+vo c5      start  193.00s  dur  2.76s    8 words    174 wpm
+vo s1      start  204.60s  dur  2.50s    7 words    168 wpm
+vo s2      start  208.00s  dur  8.45s   21 words    149 wpm
+vo s3      start  217.20s  dur  5.54s   14 words    152 wpm
+vo s4      start  223.09s  dur  4.02s   11 words    164 wpm
+vo t1      start  227.46s  dur  7.82s   17 words    130 wpm
+vo t2      start  235.63s  dur  6.71s   16 words    143 wpm
+vo x1      start  244.00s  dur  7.13s   13 words    109 wpm
+captions: 59 cues
+music_bed.wav: original synthesized pad, 253 s, peak -6 dBFS before the in-video volume
+sfx_click.wav, sfx_hold.wav: original synthesized
+narration: 37 segments, 446 words, 170.6 s of speech, average 157 wpm, ends at 251.13 s

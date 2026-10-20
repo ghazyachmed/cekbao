@@ -1,0 +1,31 @@
+{
+  "name": "cekbao-video",
+  "private": true,
+  "version": "1.0.0",
+  "description": "CEKBAO demo video for FinTechathon 2026 (Remotion). Real app captures plus line-drawn explanatory scenes.",
+  "type": "module",
+  "scripts": {
+    "studio": "remotion studio src/index.ts",
+    "capture": "node capture/capture.mjs",
+    "evidence": "node scripts/collect_evidence.mjs",
+    "smoke": "remotion render src/index.ts CEKBAODemo .cache/smoke_15s.mp4 --frames=0-449 --scale=0.5",
+    "render": "remotion render src/index.ts CEKBAODemo out/CEKBAO_HMIF_FinTechathon_Demo_1080p.mp4 --codec=h264 --audio-codec=aac --crf=18 --pixel-format=yuv420p",
+    "thumbnail": "remotion still src/index.ts Thumbnail out/CEKBAO_HMIF_thumbnail.jpg --image-format=jpeg --jpeg-quality=92",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@fontsource/lato": "5.2.7",
+    "@remotion/captions": "4.0.537",
+    "@remotion/cli": "4.0.537",
+    "@remotion/fonts": "4.0.537",
+    "@remotion/media": "4.0.537",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "remotion": "4.0.537"
+  },
+  "devDependencies": {
+    "@types/react": "19.3.0",
+    "playwright": "1.64.1",
+    "typescript": "5.9.3"
+  }
+}

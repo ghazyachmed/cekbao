@@ -1,0 +1,17 @@
+# Reproducibility re-render
+date_utc: 2026-10-20T06:12:32Z
+command: npm run render
+
+> cekbao-video@1.0.0 render
+> remotion render src/index.ts CEKBAODemo out/CEKBAO_HMIF_FinTechathon_Demo_1080p.mp4 --codec=h264 --audio-codec=aac --crf=18 --pixel-format=yuv420p
+
+Getting composition
+Composition          CEKBAODemo
+Codec                h264
+Output               out/CEKBAO_HMIF_FinTechathon_Demo_1080p.mp4
+Concurrency          4x
+○                    out/CEKBAO_HMIF_FinTechathon_Demo_1080p.mp4 20.4 MB
+REMOTION_EXIT_CODE=0
+wall_seconds=137
+sha256_first=539504898dc219560e959ab5426e1e235f31d9eb717124e13bea886dc6b844d2
+sha256_rerun=40d85746115e99e470eee0e60d27996c774285d69735d5cc9f1b2f928bb76c64

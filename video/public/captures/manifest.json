@@ -1,0 +1,860 @@
+{
+  "capturedAtUtc": "2026-10-20T05:48:24.130Z",
+  "baseUrl": "http://127.0.0.1:8765",
+  "viewportCss": {
+    "width": 1600,
+    "height": 900
+  },
+  "deviceScaleFactor": 1.2,
+  "shots": [
+    {
+      "name": "A00_landing",
+      "file": "A00_landing.png",
+      "note": "Landing page before sign-in",
+      "click": null,
+      "scrollY": 0
+    },
+    {
+      "name": "A01_signin",
+      "file": "A01_signin.png",
+      "note": "Sign-in page, persona Ayu selected, sandbox access code typed (masked)",
+      "click": {
+        "x": 1372,
+        "y": 829,
+        "w": 110,
+        "h": 56,
+        "persona": {
+          "x": 438,
+          "y": 571,
+          "w": 250,
+          "h": 191
+        }
+      },
+      "scrollY": 0
+    },
+    {
+      "name": "A02_request_tab",
+      "file": "A02_request_tab.png",
+      "note": "Check a request tab, empty form",
+      "click": {
+        "x": 438,
+        "y": 362,
+        "w": 200,
+        "h": 43
+      },
+      "scrollY": 0
+    },
+    {
+      "name": "A03_sample_loaded",
+      "file": "A03_sample_loaded.png",
+      "note": "Synthetic sample 'Urgent deposit e-mail' loaded into the form",
+      "click": {
+        "x": 438,
+        "y": 896,
+        "w": 245,
+        "h": 65
+      },
+      "scrollY": 0
+    },
+    {
+      "name": "A04_verdict",
+      "file": "A04_verdict.png",
+      "note": "Real verdict: Stop. Do not pay through this request (CONFLICT, HOLD_DO_NOT_PAY)",
+      "click": null,
+      "scrollY": 856
+    },
+    {
+      "name": "A05_next_steps",
+      "file": "A05_next_steps.png",
+      "note": "What to do now: checklist and registry contact",
+      "click": {
+        "x": 804,
+        "y": 494,
+        "w": 199,
+        "h": 56
+      },
+      "scrollY": 1035
+    },
+    {
+      "name": "A06_draft",
+      "file": "A06_draft.png",
+      "note": "Draft e-mail to the registry contact (not sent)",
+      "click": null,
+      "scrollY": 1148
+    },
+    {
+      "name": "A07_checks",
+      "file": "A07_checks.png",
+      "note": "What we checked: sender, link, payee, account, SWIFT",
+      "click": null,
+      "scrollY": 1798
+    },
+    {
+      "name": "A08_warnings",
+      "file": "A08_warnings.png",
+      "note": "Warning signs in the message",
+      "click": null,
+      "scrollY": 2470
+    },
+    {
+      "name": "A09_locked",
+      "file": "A09_locked.png",
+      "note": "Cost comparison and payment plan locked",
+      "click": null,
+      "scrollY": 2470
+    },
+    {
+      "name": "A_full",
+      "file": "A_full.png",
+      "note": "Full Scenario A result page",
+      "fullPage": true,
+      "cssHeight": 3370,
+      "pxHeight": 4044,
+      "boxes": {
+        "verdict": [
+          {
+            "x": 408,
+            "y": 1046,
+            "w": 1104,
+            "h": 176
+          }
+        ],
+        "contact": [
+          {
+            "x": 438,
+            "y": 1562,
+            "w": 1044,
+            "h": 157
+          }
+        ],
+        "locked": [
+          {
+            "x": 408,
+            "y": 3651,
+            "w": 1104,
+            "h": 115
+          }
+        ],
+        "checkRows": [
+          {
+            "x": 438,
+            "y": 2317,
+            "w": 1044,
+            "h": 80
+          },
+          {
+            "x": 438,
+            "y": 2396,
+            "w": 1044,
+            "h": 107
+          },
+          {
+            "x": 438,
+            "y": 2503,
+            "w": 1044,
+            "h": 107
+          },
+          {
+            "x": 438,
+            "y": 2666,
+            "w": 1044,
+            "h": 107
+          },
+          {
+            "x": 438,
+            "y": 2773,
+            "w": 1044,
+            "h": 81
+          },
+          {
+            "x": 438,
+            "y": 2854,
+            "w": 1044,
+            "h": 107
+          },
+          {
+            "x": 438,
+            "y": 3016,
+            "w": 1044,
+            "h": 81
+          },
+          {
+            "x": 438,
+            "y": 3097,
+            "w": 1044,
+            "h": 81
+          },
+          {
+            "x": 438,
+            "y": 3233,
+            "w": 1044,
+            "h": 81
+          },
+          {
+            "x": 438,
+            "y": 3314,
+            "w": 1044,
+            "h": 81
+          }
+        ],
+        "panelNext": [
+          {
+            "x": 408,
+            "y": 1243,
+            "w": 1104,
+            "h": 895
+          }
+        ],
+        "panelChecks": [
+          {
+            "x": 408,
+            "y": 2159,
+            "w": 1104,
+            "h": 1263
+          }
+        ],
+        "panelWarnings": [
+          {
+            "x": 408,
+            "y": 3444,
+            "w": 1104,
+            "h": 186
+          }
+        ],
+        "tech": [
+          {
+            "x": 438,
+            "y": 3820,
+            "w": 1044,
+            "h": 44
+          }
+        ],
+        "requestForm": [
+          {
+            "x": 408,
+            "y": 234,
+            "w": 1104,
+            "h": 790
+          },
+          {
+            "x": 408,
+            "y": 1243,
+            "w": 1104,
+            "h": 895
+          },
+          {
+            "x": 408,
+            "y": 2159,
+            "w": 1104,
+            "h": 1263
+          },
+          {
+            "x": 408,
+            "y": 3444,
+            "w": 1104,
+            "h": 186
+          },
+          {
+            "x": 408,
+            "y": 3651,
+            "w": 1104,
+            "h": 115
+          },
+          {
+            "x": 408,
+            "y": 3788,
+            "w": 1104,
+            "h": 104
+          }
+        ]
+      }
+    },
+    {
+      "name": "D2_injection_hold",
+      "file": "D2_injection_hold.png",
+      "note": "Prompt-injection sample: details match but the payment is held",
+      "click": null,
+      "scrollY": 850
+    },
+    {
+      "name": "B01_signin",
+      "file": "B01_signin.png",
+      "note": "Sign-in page, persona Budi selected, sandbox access code typed (masked)",
+      "click": {
+        "x": 1372,
+        "y": 829,
+        "w": 110,
+        "h": 56,
+        "persona": {
+          "x": 967,
+          "y": 571,
+          "w": 250,
+          "h": 191
+        }
+      },
+      "scrollY": 0
+    },
+    {
+      "name": "B02_tabs",
+      "file": "B02_tabs.png",
+      "note": "Student tabs after sign-in",
+      "click": {
+        "x": 597,
+        "y": 154,
+        "w": 253,
+        "h": 57
+      },
+      "scrollY": 0
+    },
+    {
+      "name": "B03_slips_tab",
+      "file": "B03_slips_tab.png",
+      "note": "Did my payment arrive? tab",
+      "click": {
+        "x": 551,
+        "y": 368,
+        "w": 232,
+        "h": 43
+      },
+      "scrollY": 0
+    },
+    {
+      "name": "B04_slips_loaded",
+      "file": "B04_slips_loaded.png",
+      "note": "Bank-agent offer and three synthetic slips loaded",
+      "click": {
+        "x": 438,
+        "y": 1129,
+        "w": 210,
+        "h": 65
+      },
+      "scrollY": 567
+    },
+    {
+      "name": "B05_verdict",
+      "file": "B05_verdict.png",
+      "note": "Real verdict: 1 of 3 payments confirmed by the university record",
+      "click": null,
+      "scrollY": 1610
+    },
+    {
+      "name": "B06_slip_1",
+      "file": "B06_slip_1.png",
+      "note": "Slip card 1: slip, bank feed, institution ledger timeline",
+      "click": null,
+      "scrollY": 1843
+    },
+    {
+      "name": "B06_slip_2",
+      "file": "B06_slip_2.png",
+      "note": "Slip card 2: slip, bank feed, institution ledger timeline",
+      "click": null,
+      "scrollY": 2091
+    },
+    {
+      "name": "B06_slip_3",
+      "file": "B06_slip_3.png",
+      "note": "Slip card 3: slip, bank feed, institution ledger timeline",
+      "click": null,
+      "scrollY": 2318
+    },
+    {
+      "name": "B07_warnings",
+      "file": "B07_warnings.png",
+      "note": "Warning signs in the bank-agent offer",
+      "click": null,
+      "scrollY": 3139
+    },
+    {
+      "name": "B_full",
+      "file": "B_full.png",
+      "note": "Full Scenario B result page",
+      "fullPage": true,
+      "cssHeight": 4170,
+      "pxHeight": 5004,
+      "boxes": {
+        "verdict": [
+          {
+            "x": 408,
+            "y": 1959,
+            "w": 1104,
+            "h": 205
+          }
+        ],
+        "contact": [
+          {
+            "x": 438,
+            "y": 3521,
+            "w": 1044,
+            "h": 125
+          }
+        ],
+        "slipCards": [
+          {
+            "x": 438,
+            "y": 2259,
+            "w": 1044,
+            "h": 283
+          },
+          {
+            "x": 438,
+            "y": 2557,
+            "w": 1044,
+            "h": 259
+          },
+          {
+            "x": 438,
+            "y": 2830,
+            "w": 1044,
+            "h": 323
+          }
+        ],
+        "checkRows": [
+          {
+            "x": 438,
+            "y": 4132,
+            "w": 1044,
+            "h": 106
+          },
+          {
+            "x": 438,
+            "y": 4238,
+            "w": 1044,
+            "h": 81
+          },
+          {
+            "x": 438,
+            "y": 4374,
+            "w": 1044,
+            "h": 107
+          },
+          {
+            "x": 438,
+            "y": 4537,
+            "w": 1044,
+            "h": 81
+          },
+          {
+            "x": 438,
+            "y": 4618,
+            "w": 1044,
+            "h": 81
+          }
+        ],
+        "panelNext": [
+          {
+            "x": 408,
+            "y": 3202,
+            "w": 1104,
+            "h": 544
+          }
+        ],
+        "panelChecks": [
+          {
+            "x": 408,
+            "y": 3975,
+            "w": 1104,
+            "h": 751
+          }
+        ],
+        "panelWarnings": [
+          {
+            "x": 408,
+            "y": 3768,
+            "w": 1104,
+            "h": 186
+          }
+        ],
+        "panelSlips": [
+          {
+            "x": 408,
+            "y": 2186,
+            "w": 1104,
+            "h": 995
+          }
+        ],
+        "tech": [
+          {
+            "x": 438,
+            "y": 4780,
+            "w": 1044,
+            "h": 44
+          }
+        ],
+        "slipForm": [
+          {
+            "x": 438,
+            "y": 848,
+            "w": 1044,
+            "h": 881
+          }
+        ]
+      }
+    },
+    {
+      "name": "C01_signin",
+      "file": "C01_signin.png",
+      "note": "Sign-in page, persona Citra selected, sandbox access code typed (masked)",
+      "click": {
+        "x": 1372,
+        "y": 829,
+        "w": 110,
+        "h": 56,
+        "persona": {
+          "x": 703,
+          "y": 571,
+          "w": 250,
+          "h": 191
+        }
+      },
+      "scrollY": 0
+    },
+    {
+      "name": "C02_sample_loaded",
+      "file": "C02_sample_loaded.png",
+      "note": "Synthetic sample 'Official invoice e-mail' loaded",
+      "click": {
+        "x": 438,
+        "y": 896,
+        "w": 245,
+        "h": 65
+      },
+      "scrollY": 0
+    },
+    {
+      "name": "C03_verdict",
+      "file": "C03_verdict.png",
+      "note": "Real verdict: matches the official procedure on record (MATCHED_SOURCE)",
+      "click": null,
+      "scrollY": 850
+    },
+    {
+      "name": "C04_checks",
+      "file": "C04_checks.png",
+      "note": "All checks match the synthetic registry",
+      "click": null,
+      "scrollY": 1321
+    },
+    {
+      "name": "C05_quotes_form",
+      "file": "C05_quotes_form.png",
+      "note": "Two illustrative quotes entered",
+      "click": {
+        "x": 438,
+        "y": 769,
+        "w": 227,
+        "h": 56
+      },
+      "scrollY": 2124
+    },
+    {
+      "name": "C06_quotes_result",
+      "file": "C06_quotes_result.png",
+      "note": "Decimal all-in cost comparison, lowest total cost badge",
+      "click": null,
+      "scrollY": 2737
+    },
+    {
+      "name": "C07_plan_choose",
+      "file": "C07_plan_choose.png",
+      "note": "Sandbox payment plan: choose quote",
+      "click": {
+        "x": 1215,
+        "y": 683,
+        "w": 267,
+        "h": 56
+      },
+      "scrollY": 2794
+    },
+    {
+      "name": "C08_plan_proposed",
+      "file": "C08_plan_proposed.png",
+      "note": "Plan proposed, waiting for the student's decision",
+      "click": {
+        "x": 438,
+        "y": 673,
+        "w": 234,
+        "h": 65
+      },
+      "scrollY": 3110
+    },
+    {
+      "name": "C09_plan_approved",
+      "file": "C09_plan_approved.png",
+      "note": "Approved by the student, not executed",
+      "click": null,
+      "scrollY": 3072
+    },
+    {
+      "name": "C10_audit",
+      "file": "C10_audit.png",
+      "note": "Technical record: hash-chained audit events",
+      "click": null,
+      "scrollY": 3464
+    },
+    {
+      "name": "C_full",
+      "file": "C_full.png",
+      "note": "Full Scenario C result page",
+      "fullPage": true,
+      "cssHeight": 4364,
+      "pxHeight": 5237,
+      "boxes": {
+        "verdict": [
+          {
+            "x": 408,
+            "y": 1046,
+            "w": 1104,
+            "h": 205
+          }
+        ],
+        "plan": [
+          {
+            "x": 438,
+            "y": 3942,
+            "w": 1044,
+            "h": 439
+          }
+        ],
+        "quoteGrid": [
+          {
+            "x": 438,
+            "y": 2669,
+            "w": 1044,
+            "h": 588
+          },
+          {
+            "x": 438,
+            "y": 3301,
+            "w": 1044,
+            "h": 125
+          }
+        ],
+        "resultGrid": [
+          {
+            "x": 438,
+            "y": 3428,
+            "w": 1044,
+            "h": 281
+          }
+        ],
+        "checkRows": [
+          {
+            "x": 438,
+            "y": 1744,
+            "w": 1044,
+            "h": 80
+          },
+          {
+            "x": 438,
+            "y": 1824,
+            "w": 1044,
+            "h": 81
+          },
+          {
+            "x": 438,
+            "y": 1905,
+            "w": 1044,
+            "h": 81
+          },
+          {
+            "x": 438,
+            "y": 2041,
+            "w": 1044,
+            "h": 81
+          },
+          {
+            "x": 438,
+            "y": 2122,
+            "w": 1044,
+            "h": 81
+          },
+          {
+            "x": 438,
+            "y": 2203,
+            "w": 1044,
+            "h": 81
+          },
+          {
+            "x": 438,
+            "y": 2339,
+            "w": 1044,
+            "h": 81
+          },
+          {
+            "x": 438,
+            "y": 2420,
+            "w": 1044,
+            "h": 81
+          }
+        ],
+        "panelNext": [
+          {
+            "x": 408,
+            "y": 1273,
+            "w": 1104,
+            "h": 292
+          }
+        ],
+        "panelChecks": [
+          {
+            "x": 408,
+            "y": 1587,
+            "w": 1104,
+            "h": 942
+          }
+        ],
+        "panelCosts": [
+          {
+            "x": 408,
+            "y": 2550,
+            "w": 1104,
+            "h": 1299
+          }
+        ],
+        "panelPlan": [
+          {
+            "x": 408,
+            "y": 3871,
+            "w": 1104,
+            "h": 617
+          }
+        ],
+        "tech": [
+          {
+            "x": 438,
+            "y": 4542,
+            "w": 1044,
+            "h": 515
+          }
+        ],
+        "requestForm": [
+          {
+            "x": 408,
+            "y": 234,
+            "w": 1104,
+            "h": 790
+          },
+          {
+            "x": 408,
+            "y": 1273,
+            "w": 1104,
+            "h": 292
+          },
+          {
+            "x": 408,
+            "y": 1587,
+            "w": 1104,
+            "h": 942
+          },
+          {
+            "x": 408,
+            "y": 2550,
+            "w": 1104,
+            "h": 1299
+          },
+          {
+            "x": 408,
+            "y": 3871,
+            "w": 1104,
+            "h": 617
+          },
+          {
+            "x": 408,
+            "y": 4510,
+            "w": 1104,
+            "h": 575
+          }
+        ]
+      }
+    },
+    {
+      "name": "S01_signin",
+      "file": "S01_signin.png",
+      "note": "Sign-in page, persona Ayu selected, sandbox access code typed (masked)",
+      "click": {
+        "x": 1372,
+        "y": 829,
+        "w": 110,
+        "h": 56,
+        "persona": {
+          "x": 438,
+          "y": 571,
+          "w": 250,
+          "h": 191
+        }
+      },
+      "scrollY": 0
+    },
+    {
+      "name": "S02_signin",
+      "file": "S02_signin.png",
+      "note": "Sign-in page, persona Finance office selected, sandbox access code typed (masked)",
+      "click": {
+        "x": 1372,
+        "y": 829,
+        "w": 110,
+        "h": 56,
+        "persona": {
+          "x": 1232,
+          "y": 571,
+          "w": 250,
+          "h": 191
+        }
+      },
+      "scrollY": 0
+    },
+    {
+      "name": "S03_office_inbox",
+      "file": "S03_office_inbox.png",
+      "note": "Office reviewer inbox: escalated cases, read-only",
+      "click": null,
+      "scrollY": 0
+    }
+  ],
+  "api": [
+    {
+      "label": "Ayu proposes a plan on the held case",
+      "method": "POST",
+      "path": "/api/cases/case_0a38f1aa4a10f118/plan/propose",
+      "status": 409,
+      "body": "{\"detail\":\"payment hold: the policy decision does not allow a payment plan\"}"
+    },
+    {
+      "label": "Citra approves again with a new key",
+      "method": "POST",
+      "path": "/api/cases/case_481a3b2586a1c2a8/plan/approve",
+      "status": 409,
+      "body": "{\"detail\":\"plan is already approved. Edit the plan to create a new revision.\"}"
+    },
+    {
+      "label": "State change without the CSRF header",
+      "method": "POST",
+      "path": "/api/cases/case_481a3b2586a1c2a8/analyze",
+      "status": 403,
+      "body": "{\"detail\":\"missing or invalid CSRF token\"}"
+    },
+    {
+      "label": "Ayu opens Citra's case",
+      "method": "GET",
+      "path": "/api/cases/case_481a3b2586a1c2a8",
+      "status": 404,
+      "body": "{\"detail\":\"case not found\"}"
+    },
+    {
+      "label": "Office reviewer tries to approve a student's plan",
+      "method": "POST",
+      "path": "/api/cases/case_481a3b2586a1c2a8/plan/approve",
+      "status": 403,
+      "body": "{\"detail\":\"only the student who owns the case can do this\"}"
+    },
+    {
+      "label": "No session",
+      "method": "GET",
+      "path": "/api/cases/case_481a3b2586a1c2a8",
+      "status": 401,
+      "body": "{\"detail\":\"sign-in required\"}"
+    }
+  ],
+  "gitCommit": "f33a98dd344186b85aa9205e0e22dc7a064e1345"
+}
