@@ -1,0 +1,82 @@
+{% macro icon(name, size=20) -%}
+<svg class="icon" width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+{%- if name == "check" -%}<circle cx="12" cy="12" r="9.5"/><path d="M7.5 12.5l3 3 6-6.5"/>
+{%- elif name == "stop" -%}<path d="M8.2 2.5h7.6l5.7 5.7v7.6l-5.7 5.7H8.2l-5.7-5.7V8.2z"/><path d="M9 9l6 6M15 9l-6 6"/>
+{%- elif name == "question" -%}<path d="M12 2.8l9.6 16.6H2.4z"/><path d="M12 9.5v4.5M12 16.8v.4"/>
+{%- elif name == "person" -%}<circle cx="10" cy="8" r="3.6"/><path d="M3.5 20c.6-3.6 3.2-5.6 6.5-5.6 1.6 0 3 .4 4.1 1.2M15 18.5l2 2 4-4.5"/>
+{%- elif name == "info" -%}<circle cx="12" cy="12" r="9.5"/><path d="M12 11v6M12 7.6v.4"/>
+{%- elif name == "clock" -%}<circle cx="12" cy="12" r="9.5"/><path d="M12 7v5.2l3.4 2"/>
+{%- elif name == "doc" -%}<path d="M6 2.8h8l4 4v14.4H6z"/><path d="M14 2.8v4h4M9 12h6M9 15.5h6"/>
+{%- elif name == "external" -%}<path d="M14 4h6v6M20 4l-9 9M18 14v6H4V6h6"/>
+{%- elif name == "upload" -%}<path d="M12 16V4M7 9l5-5 5 5M4 16v4h16v-4"/>
+{%- elif name == "flask" -%}<path d="M9 2.8h6M10 2.8v6L4.5 19a1.6 1.6 0 001.4 2.2h12.2a1.6 1.6 0 001.4-2.2L14 8.8v-6M7.5 15h9"/>
+{%- endif -%}
+</svg>
+{%- endmacro %}
+
+{% macro synthetic(label="Synthetic") -%}
+<span class="tag tag-synthetic">{{ icon("flask", 14) }}{{ label }}</span>
+{%- endmacro %}
+
+{% macro error_summary(errors) -%}
+{% if errors %}
+<div class="error-summary" role="alert" tabindex="-1" id="error-summary" aria-labelledby="error-summary-title">
+  <h2 id="error-summary-title">{{ t("errors.title") }}</h2>
+  <ul>{% for e in errors %}<li><a href="#{{ e.field }}">{{ e.message }}</a></li>{% endfor %}</ul>
+</div>
+{% endif %}
+{%- endmacro %}
+
+{% macro field_error(errors, name) -%}
+{% for e in errors if e.field == name %}<p class="field-error" id="{{ name }}-error">{{ icon("stop", 16) }}<span>{{ e.message }}</span></p>{% endfor %}
+{%- endmacro %}
+
+{% macro described(errors, name, hint=True) -%}
+{%- set ids = [] -%}{%- if hint %}{% set _ = ids.append(name ~ "-hint") %}{% endif -%}
+{%- for e in errors if e.field == name %}{% set _ = ids.append(name ~ "-error") %}{% endfor -%}
+{%- if ids %} aria-describedby="{{ ids | join(' ') }}"{% endif -%}
+{%- for e in errors if e.field == name %} aria-invalid="true"{% endfor -%}
+{%- endmacro %}
+
+{% macro decision_banner(d, heading, level=1, focus=False) -%}
+<div class="decision decision-{{ d.decision.tone }}">
+  {{ icon(d.decision.icon, 32) }}
+  <div>
+    <p class="decision-context">{{ heading }}</p>
+    <h{{ level }} class="decision-label" {% if focus %}id="result" tabindex="-1"{% endif %}>{{ d.decision.label }}</h{{ level }}>
+  </div>
+</div>
+{%- endmacro %}
+
+{% macro evidence_card(c) -%}
+<article class="evidence evidence-{{ c.role }}" aria-labelledby="ev-{{ c.version_id }}">
+  <header class="evidence-head">
+    <p class="evidence-role">{% if c.role == "conflicting" %}{{ t("evidence.conflicting") }}{% elif c.role == "unauthorized" %}{{ t("evidence.unauthorized") }}{% elif c.role == "superseded" %}Earlier policy version {{ c.version_label }}{% else %}{{ t("evidence.applied") }}{% endif %}</p>
+    <h3 id="ev-{{ c.version_id }}">{{ c.title }}</h3>
+    <p class="evidence-meta">{{ t("evidence.issuer") }} <span class="mono-id">{{ c.issuer }}</span>{% if c.synthetic %} {{ synthetic() }}{% endif %}</p>
+  </header>
+  <figure class="quote">
+    <blockquote lang="{{ c.language }}" cite="{{ c.url }}"><p>{{ c.quote }}</p></blockquote>
+    <figcaption>{{ c.locator }}{% if c.language != "en" %}<span class="fact-note">{{ t("evidence.original", language=c.language_name) }}</span>{% endif %}</figcaption>
+  </figure>
+  {% if c.translation %}
+  <div class="translation">
+    <p class="translation-label">{{ icon("info", 16) }}{{ t("evidence.translation") }}</p>
+    <p lang="en">{{ c.translation }}</p>
+  </div>
+  {% endif %}
+  <dl class="facts">
+    <div><dt>{{ t("evidence.level") }}</dt><dd><span class="level">{{ c.level.label }}</span><span class="fact-note">{{ c.level.description }}</span></dd></div>
+    <div><dt>Effective period</dt><dd>{{ c.effective }}{% if c.valid_tz %} <span class="fact-note">Time zone: {{ c.valid_tz }}</span>{% endif %}</dd></div>
+    <div><dt>Version</dt><dd>{{ c.version_label }}</dd></div>
+  </dl>
+  <details class="disclosure">
+    <summary>{{ t("evidence.details") }}</summary>
+    <dl class="facts">
+      <div><dt>{{ t("evidence.source") }}</dt><dd>{% if c.synthetic %}<span class="url">{{ c.url }}</span> <span class="fact-note">{{ t("evidence.synthetic_url") }}</span>{% else %}<a class="url" href="{{ c.url }}" rel="noopener noreferrer">{{ t("evidence.open_source") }} {{ icon("external", 14) }}</a>{% endif %}</dd></div>
+      <div><dt>Retrieved</dt><dd>{{ c.retrieved }}</dd></div>
+      <div><dt>{{ t("evidence.snapshot") }}</dt><dd><span class="mono-id">{{ c.version_id }}</span><span class="fact-note mono-id">{{ c.source_hash[:23] }}…</span></dd></div>
+    </dl>
+  </details>
+</article>
+{%- endmacro %}

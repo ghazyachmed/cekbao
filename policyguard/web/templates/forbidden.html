@@ -1,0 +1,4 @@
+{% extends "base.html" %}
+{% block title %}{{ t("forbidden.title") }}{% endblock %}
+{% block main_class %}container narrow{% endblock %}
+{% block content %}<h1>{{ t("forbidden.title") }}</h1><p>{{ t("forbidden.body") }}</p><p><a href="/check">{{ t("nav.check") }}</a></p>{% endblock %}

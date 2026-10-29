@@ -1,0 +1,11 @@
+{
+  "url": "/check/cases/case_8b26bc0fd0504c6f8c63",
+  "width": 375,
+  "testEngine": {
+    "name": "axe-core",
+    "version": "4.13.0"
+  },
+  "violations": [],
+  "incomplete": [],
+  "passes": 26
+}

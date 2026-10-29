@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}{{ t("review.title") }}{% endblock %}
+{% block content %}
+<h1>{{ t("review.title") }}</h1>
+<p class="lead">{{ t("review.lead") }}</p>
+<nav aria-label="Filter checks" class="filters">
+  <a href="/review?filter=needs" {% if filter != "all" %}aria-current="page"{% endif %}>{{ t("review.filter_needs") }}</a>
+  <a href="/review?filter=all" {% if filter == "all" %}aria-current="page"{% endif %}>{{ t("review.filter_all") }}</a>
+</nav>
+{% if rows %}
+<div class="table-scroll" role="region" aria-labelledby="queue-caption" tabindex="0">
+<table class="table">
+  <caption id="queue-caption" class="visually-hidden">{{ t("review.title") }}</caption>
+  <thead><tr><th scope="col">{{ t("history.col_submitted") }}</th><th scope="col">{{ t("history.col_institution") }}</th><th scope="col">{{ t("history.col_result") }}</th><th scope="col">{{ t("review.col_needs") }}</th><th scope="col"><span class="visually-hidden">{{ t("history.open") }}</span></th></tr></thead>
+  <tbody>
+  {% for r in rows %}
+    <tr>
+      <td>{{ display.timestamp_label(r.created_at) }}</td>
+      <td>{{ r.institution_name or r.institution_query or "" }}</td>
+      <td>{% if r.decision %}<span class="pill pill-{{ display.decision(r.decision).tone }}">{{ display.decision(r.decision).label }}</span>{% else %}{{ display.job_state(r.state).label }}{% endif %}</td>
+      <td>{% if r.reviews %}{{ t("no") }}, reviewed{% elif r.decision in ["REQUIRES_REVIEW", "INSUFFICIENT_EVIDENCE"] %}{{ t("yes") }}{% else %}{{ t("no") }}{% endif %}</td>
+      <td><a href="/review/cases/{{ r.case_id }}">{{ t("history.open") }}<span class="visually-hidden"> check from {{ display.timestamp_label(r.created_at) }}</span></a></td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+</div>
+{% else %}<p>{{ t("review.empty") }}</p>{% endif %}
+{% endblock %}

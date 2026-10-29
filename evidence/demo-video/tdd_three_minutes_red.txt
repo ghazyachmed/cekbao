@@ -1,0 +1,93 @@
+
+> cekbao-demo-video@1.0.0 test
+> node --test "test/**/*.test.ts"
+
+✔ a user voiceover with a missing line fails loudly (1.805458ms)
+✔ a capture without the markers the narration anchors to is refused (0.409916ms)
+✔ config: accepts the brief's configuration (1.730083ms)
+✔ config: rejects real data, a target above the limit and too many paid calls (0.221208ms)
+✔ captions: wrap to at most two lines within the character limit (0.168333ms)
+✔ captions: long narration splits into several non-overlapping cues (0.437125ms)
+✔ captions: validation reports overlaps, three-line cues and flashes (0.091542ms)
+✔ captions: version numbers and links are not split as sentence ends (0.139041ms)
+✔ captions: a long sentence is split into balanced cues, never a one-word orphan (0.274333ms)
+✔ captions: SRT timestamps (0.103833ms)
+✔ timeline: scenes never cut narration and frames add up (0.151208ms)
+✔ timeline: duration check fails above the official limit (0.306458ms)
+✔ manifest: reads the inference mode from the result page, never from configuration (0.429333ms)
+✔ manifest: final output only when every scenario used live or recorded inference (0.079083ms)
+✔ manifest: secrets are refused (0.749833ms)
+✔ validate: a conforming MP4 passes every probe check (0.303709ms)
+✔ validate: wrong codec, resolution, missing audio and over-limit duration fail (0.302083ms)
+✔ validate: YouTube recommended upload settings pass for a conforming file (0.333334ms)
+✔ validate: low bitrate, sRGB transfer, low audio bitrate, long GOP and edit lists are reported (0.271584ms)
+✔ validate: keyframe gap and edit-list detection (0.441333ms)
+✔ validate: faststart means the moov atom comes before mdat (0.102584ms)
+✔ capture: a run with missing steps is rejected instead of rendered (0.115125ms)
+✔ an animated problem intro opens the video and a real app screen appears within 15 seconds (5.18975ms)
+✔ the policy timeline follows scenario B and its animation beats follow the narration (2.373541ms)
+✔ every recorded segment carries a short callout; result callouts quote the app's own headline (0.770709ms)
+✔ a callout stays only while its sentence is spoken, so later actions in the clip are not mislabelled (0.572292ms)
+✖ in live mode the intro names NVIDIA Nemotron on Nebius; in a preview it does not claim it (1.298459ms)
+✖ the edit fits the three-minute judging window: no reviewer scene, short results (6.118583ms)
+✔ the inference callout states what actually read the instruction (1.10375ms)
+✔ sound effects stay quiet, inside the video, and out of the narration track (0.801708ms)
+✔ chapters start at 00:00, merge short scenes and cover the rendered duration (5.62675ms)
+✔ a closing chapter shorter than 10 s is merged, never left alone (0.194375ms)
+✔ the animated problem intro becomes the first chapter and the timeline joins the policy chapter (0.264875ms)
+✔ chapter validation catches each rule (0.23225ms)
+✔ title and description limits (1.854625ms)
+✔ unsupported claims and mode mismatches fail (0.638875ms)
+✔ a disclosure that denies a customer relationship is not a customer claim (0.067208ms)
+ℹ tests 37
+ℹ suites 0
+ℹ pass 35
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 193.855708
+
+✖ failing tests:
+
+test at test/plan.test.ts:76:1
+✖ in live mode the intro names NVIDIA Nemotron on Nebius; in a preview it does not claim it (1.298459ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /NVIDIA Nemotron on Nebius/. Input:
+  
+  "A tuition email asks you to pay a new account. Would you pay it? CEKBAO checks before you do. The email uses the university's name, but the money would go to someone else. In Singapore, police reported at least 20 cases of scams impersonating schools since March 2026. CEKBAO compares the instruction with the institution's own policy, for the day you pay."
+  
+      at TestContext.<anonymous> (file:///Users/ghazy/Ghazy/cekbao/tools/demo-video/test/plan.test.ts:78:10)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: "A tuition email asks you to pay a new account. Would you pay it? CEKBAO checks before you do. The email uses the university's name, but the money would go to someone else. In Singapore, police reported at least 20 cases of scams impersonating schools since March 2026. CEKBAO compares the instruction with the institution's own policy, for the day you pay.",
+    expected: /NVIDIA Nemotron on Nebius/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at test/plan.test.ts:83:1
+✖ the edit fits the three-minute judging window: no reviewer scene, short results (6.118583ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(!SCENE_ORDER.includes("escalation"))
+  
+      at TestContext.<anonymous> (file:///Users/ghazy/Ghazy/cekbao/tools/demo-video/test/plan.test.ts:84:10)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

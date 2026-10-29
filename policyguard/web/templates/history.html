@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}{{ t("history.title") }}{% endblock %}
+{% block content %}
+<h1>{{ t("history.title") }}</h1>
+{% if rows %}
+<div class="table-scroll" role="region" aria-labelledby="history-caption" tabindex="0">
+<table class="table">
+  <caption id="history-caption" class="visually-hidden">{{ t("history.title") }}</caption>
+  <thead><tr><th scope="col">{{ t("history.col_submitted") }}</th><th scope="col">{{ t("history.col_institution") }}</th><th scope="col">{{ t("history.col_status") }}</th><th scope="col">{{ t("history.col_result") }}</th><th scope="col"><span class="visually-hidden">{{ t("history.open") }}</span></th></tr></thead>
+  <tbody>
+  {% for r in rows %}
+    <tr>
+      <td>{{ display.timestamp_label(r.created_at) }}</td>
+      <td>{{ r.institution_name or r.institution_query or "" }}</td>
+      <td>{{ display.job_state(r.state).label }}</td>
+      <td>{% if r.decision %}<span class="pill pill-{{ display.decision(r.decision).tone }}">{{ display.decision(r.decision).label }}</span>{% endif %}</td>
+      <td><a href="/check/cases/{{ r.case_id }}">{{ t("history.open") }}<span class="visually-hidden"> check from {{ display.timestamp_label(r.created_at) }}</span></a></td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+</div>
+{% else %}<p>{{ t("history.empty") }} <a href="/check">{{ t("nav.check") }}</a></p>{% endif %}
+{% endblock %}

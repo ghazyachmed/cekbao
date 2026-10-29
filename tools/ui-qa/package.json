@@ -1,0 +1,16 @@
+{
+  "name": "cekbao-ui-qa",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Responsive screenshots, axe-core audits, keyboard flow and Lighthouse runs against the running CEKBAO app (synthetic data).",
+  "type": "module",
+  "scripts": {
+    "audit": "node src/audit.mjs",
+    "lighthouse": "node src/lighthouse.mjs"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.13.0",
+    "lighthouse": "13.5.0",
+    "playwright": "1.64.1"
+  }
+}

@@ -1,0 +1,6 @@
+00:00 The problem: a payment email with a new account
+00:22 A conflicting payment instruction
+01:10 Policy versions and payment dates
+01:57 Insufficient evidence: a publisher without authority
+02:18 Model integration status
+02:31 Results and limits

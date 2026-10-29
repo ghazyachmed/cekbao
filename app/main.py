@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import json
+import os
 import sqlite3
 from pathlib import Path
 from typing import Iterator
@@ -50,7 +51,9 @@ class LoginRequest(BaseModel):
     access_code: str = Field(min_length=4, max_length=100)
 
 
-def create_app(settings: Settings | None = None, llm_transport: httpx.BaseTransport | None = None) -> FastAPI:
+def create_app(settings: Settings | None = None, llm_transport: httpx.BaseTransport | None = None,
+               policyguard=None) -> FastAPI:
+    """``policyguard``: a PolicyGuard Runtime, or None to read PG_ENABLED from the environment."""
     settings = settings or Settings.from_env()
     init_db(settings.db_path)
     registry = Registry(settings.registry_path)
@@ -242,6 +245,13 @@ def create_app(settings: Settings | None = None, llm_transport: httpx.BaseTransp
         return HTMLResponse(render_html(bundle), headers={
             "Content-Disposition": f'attachment; filename="cekbao-{case_id}.html"',
             "Content-Security-Policy": EVIDENCE_CSP})
+
+    if policyguard is None and os.environ.get("PG_ENABLED") == "1":
+        from policyguard.runtime import build_runtime
+        policyguard = build_runtime()
+    if policyguard is not None:
+        from policyguard.web.routes import install as install_policyguard
+        install_policyguard(app, policyguard, settings)
 
     @app.get("/api/office/escalations")
     def escalations(session: auth.Session = Depends(get_session), conn: sqlite3.Connection = Depends(get_conn)):

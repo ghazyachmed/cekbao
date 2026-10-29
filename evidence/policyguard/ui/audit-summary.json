@@ -1,0 +1,587 @@
+{
+  "generated_at": "2026-10-28T12:00:29.969Z",
+  "base_url": "http://127.0.0.1:8780",
+  "data": "synthetic",
+  "widths": [
+    320,
+    375,
+    768,
+    1024,
+    1440
+  ],
+  "axe_tags": [
+    "wcag2a",
+    "wcag2aa",
+    "wcag21a",
+    "wcag21aa",
+    "wcag22aa"
+  ],
+  "results": [
+    {
+      "page": "sign-in",
+      "width": 320,
+      "horizontal_overflow_px": 0,
+      "screenshot": "screens/sign-in-320.png"
+    },
+    {
+      "page": "sign-in",
+      "width": 375,
+      "horizontal_overflow_px": 0,
+      "screenshot": "screens/sign-in-375.png",
+      "axe_violations": [],
+      "axe_incomplete": 0
+    },
+    {
+      "page": "sign-in",
+      "width": 768,
+      "horizontal_overflow_px": 0,
+      "screenshot": "screens/sign-in-768.png"
+    },
+    {
+      "page": "sign-in",
+      "width": 1024,
+      "horizontal_overflow_px": 0,
+      "screenshot": "screens/sign-in-1024.png"
+    },
+    {
+      "page": "sign-in",
+      "width": 1440,
+      "horizontal_overflow_px": 0,
+      "screenshot": "screens/sign-in-1440.png",
+      "axe_violations": [],
+      "axe_incomplete": 0
+    },
+    {
+      "page": "check-form",
+      "width": 320,
+      "horizontal_overflow_px": 0,
+      "screenshot": "screens/check-form-320.png"
+    },
+    {
+      "page": "check-form",
+      "width": 375,
+      "horizontal_overflow_px": 0,
+      "screenshot": "screens/check-form-375.png",
+      "axe_violations": [],
+      "axe_incomplete": 0
+    },
+    {
+      "page": "check-form",
+      "width": 768,
+      "horizontal_overflow_px": 0,
+      "screenshot": "screens/check-form-768.png"
+    },
+    {
+      "page": "check-form",
+      "width": 1024,
+      "horizontal_overflow_px": 0,
+      "screenshot": "screens/check-form-1024.png"
+    },
+    {
+      "page": "check-form",
+      "width": 1440,
+      "horizontal_overflow_px": 0,
+      "screenshot": "screens/check-form-1440.png",
+      "axe_violations": [],
+      "axe_incomplete": 0
+    },
+    {
+      "page": "check-errors",
+      "width": 1024,
+      "screenshot": "screens/check-errors-1024.png",
+      "focused": "error-summary"
+    },
+    {
+      "page": "upload-rejected",
+      "width": 1024,
+      "screenshot": "screens/upload-rejected-1024.png",
+      "text": "invoice.pdf\nNot attached: PDF contains active content (JavaScript, launch action or embedded file)\nTry again\nRemove"
+    },
+    {
+      "page": "processing",
+      "width": 1024,
+      "screenshot": "screens/processing-1024.png",
+      "status": "Queued"
+    },
+    {
+      "page": "result-conflict",
+      "width": 320,
+      "horizontal_overflow_px": 0,
+      "screenshot": "screens/result-conflict-320.png"
+    },
+    {
+      "page": "result-conflict",
+      "width": 375,
+      "horizontal_overflow_px": 0,
+      "screenshot": "screens/result-conflict-375.png",
+      "axe_violations": [],
+      "axe_incomplete": 0
+    },
+    {
+      "page": "result-conflict",
+      "width": 768,
+      "horizontal_overflow_px": 0,
+      "screenshot": "screens/result-conflict-768.png"
+    },
+    {
+      "page": "result-conflict",
+      "width": 1024,
+      "horizontal_overflow_px": 0,
+      "screenshot": "screens/result-conflict-1024.png"
+    },
+    {
+      "page": "result-conflict",
+      "width": 1440,
+      "horizontal_overflow_px": 0,
+      "screenshot": "screens/result-conflict-1440.png",
+      "axe_violations": [],
+      "axe_incomplete": 0
+    },
+    {
+      "page": "result-policy_change",
+      "width": 320,
+      "horizontal_overflow_px": 0,
+      "screenshot": "screens/result-policy_change-320.png"
+    },
+    {
+      "page": "result-policy_change",
+      "width": 375,
+      "horizontal_overflow_px": 0,
+      "screenshot": "screens/result-policy_change-375.png",
+      "axe_violations": [],
+      "axe_incomplete": 1
+    },
+    {
+      "page": "result-policy_change",
+      "width": 768,
+      "horizontal_overflow_px": 0,
+      "screenshot": "screens/result-policy_change-768.png"
+    },
+    {
+      "page": "result-policy_change",
+      "width": 1024,
+      "horizontal_overflow_px": 0,
+      "screenshot": "screens/result-policy_change-1024.png"
+    },
+    {
+      "page": "result-policy_change",
+      "width": 1440,
+      "horizontal_overflow_px": 0,
+      "screenshot": "screens/result-policy_change-1440.png",
+      "axe_violations": [],
+      "axe_incomplete": 1
+    },
+    {
+      "page": "result-insufficient",
+      "width": 320,
+      "horizontal_overflow_px": 0,
+      "screenshot": "screens/result-insufficient-320.png"
+    },
+    {
+      "page": "result-insufficient",
+      "width": 375,
+      "horizontal_overflow_px": 0,
+      "screenshot": "screens/result-insufficient-375.png",
+      "axe_violations": [],
+      "axe_incomplete": 0
+    },
+    {
+      "page": "result-insufficient",
+      "width": 768,
+      "horizontal_overflow_px": 0,
+      "screenshot": "screens/result-insufficient-768.png"
+    },
+    {
+      "page": "result-insufficient",
+      "width": 1024,
+      "horizontal_overflow_px": 0,
+      "screenshot": "screens/result-insufficient-1024.png"
+    },
+    {
+      "page": "result-insufficient",
+      "width": 1440,
+      "horizontal_overflow_px": 0,
+      "screenshot": "screens/result-insufficient-1440.png",
+      "axe_violations": [],
+      "axe_incomplete": 0
+    },
+    {
+      "page": "result-source_conflict",
+      "width": 320,
+      "horizontal_overflow_px": 0,
+      "screenshot": "screens/result-source_conflict-320.png"
+    },
+    {
+      "page": "result-source_conflict",
+      "width": 375,
+      "horizontal_overflow_px": 0,
+      "screenshot": "screens/result-source_conflict-375.png",
+      "axe_violations": [],
+      "axe_incomplete": 0
+    },
+    {
+      "page": "result-source_conflict",
+      "width": 768,
+      "horizontal_overflow_px": 0,
+      "screenshot": "screens/result-source_conflict-768.png"
+    },
+    {
+      "page": "result-source_conflict",
+      "width": 1024,
+      "horizontal_overflow_px": 0,
+      "screenshot": "screens/result-source_conflict-1024.png"
+    },
+    {
+      "page": "result-source_conflict",
+      "width": 1440,
+      "horizontal_overflow_px": 0,
+      "screenshot": "screens/result-source_conflict-1440.png",
+      "axe_violations": [],
+      "axe_incomplete": 0
+    },
+    {
+      "page": "history",
+      "width": 320,
+      "horizontal_overflow_px": 0,
+      "screenshot": "screens/history-320.png"
+    },
+    {
+      "page": "history",
+      "width": 375,
+      "horizontal_overflow_px": 0,
+      "screenshot": "screens/history-375.png",
+      "axe_violations": [],
+      "axe_incomplete": 0
+    },
+    {
+      "page": "history",
+      "width": 768,
+      "horizontal_overflow_px": 0,
+      "screenshot": "screens/history-768.png"
+    },
+    {
+      "page": "history",
+      "width": 1024,
+      "horizontal_overflow_px": 0,
+      "screenshot": "screens/history-1024.png"
+    },
+    {
+      "page": "history",
+      "width": 1440,
+      "horizontal_overflow_px": 0,
+      "screenshot": "screens/history-1440.png",
+      "axe_violations": [],
+      "axe_incomplete": 0
+    },
+    {
+      "page": "review-queue",
+      "width": 320,
+      "horizontal_overflow_px": 0,
+      "screenshot": "screens/review-queue-320.png"
+    },
+    {
+      "page": "review-queue",
+      "width": 375,
+      "horizontal_overflow_px": 0,
+      "screenshot": "screens/review-queue-375.png",
+      "axe_violations": [],
+      "axe_incomplete": 0
+    },
+    {
+      "page": "review-queue",
+      "width": 768,
+      "horizontal_overflow_px": 0,
+      "screenshot": "screens/review-queue-768.png"
+    },
+    {
+      "page": "review-queue",
+      "width": 1024,
+      "horizontal_overflow_px": 0,
+      "screenshot": "screens/review-queue-1024.png"
+    },
+    {
+      "page": "review-queue",
+      "width": 1440,
+      "horizontal_overflow_px": 0,
+      "screenshot": "screens/review-queue-1440.png",
+      "axe_violations": [],
+      "axe_incomplete": 0
+    },
+    {
+      "page": "review-case",
+      "width": 320,
+      "horizontal_overflow_px": 0,
+      "screenshot": "screens/review-case-320.png"
+    },
+    {
+      "page": "review-case",
+      "width": 375,
+      "horizontal_overflow_px": 0,
+      "screenshot": "screens/review-case-375.png",
+      "axe_violations": [],
+      "axe_incomplete": 0
+    },
+    {
+      "page": "review-case",
+      "width": 768,
+      "horizontal_overflow_px": 0,
+      "screenshot": "screens/review-case-768.png"
+    },
+    {
+      "page": "review-case",
+      "width": 1024,
+      "horizontal_overflow_px": 0,
+      "screenshot": "screens/review-case-1024.png"
+    },
+    {
+      "page": "review-case",
+      "width": 1440,
+      "horizontal_overflow_px": 0,
+      "screenshot": "screens/review-case-1440.png",
+      "axe_violations": [],
+      "axe_incomplete": 0
+    }
+  ],
+  "keyboard_flow": {
+    "completed": true,
+    "headline": "Conflicts with the checked policy.",
+    "focused_after_result": "result",
+    "focus_stops": 33,
+    "stops_without_visible_outline": [],
+    "stops": [
+      {
+        "tag": "A",
+        "id": "",
+        "name": "Skip to main content",
+        "outline": "solid 3px",
+        "url": "/check/sign-in"
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "name": "C\nCEKBAO\nPayment instruction check",
+        "outline": "solid 3px",
+        "url": "/check/sign-in"
+      },
+      {
+        "tag": "INPUT",
+        "id": "user_id",
+        "name": "User ID",
+        "outline": "solid 3px",
+        "url": "/check/sign-in"
+      },
+      {
+        "tag": "INPUT",
+        "id": "access_code",
+        "name": "Access code",
+        "outline": "solid 3px",
+        "url": "/check/sign-in"
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "name": "Skip to main content",
+        "outline": "solid 3px",
+        "url": "/check"
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "name": "C\nCEKBAO\nPayment instruction check",
+        "outline": "solid 3px",
+        "url": "/check"
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "name": "Check instructions",
+        "outline": "solid 3px",
+        "url": "/check"
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "name": "My checks",
+        "outline": "solid 3px",
+        "url": "/check"
+      },
+      {
+        "tag": "BUTTON",
+        "id": "",
+        "name": "Sign out",
+        "outline": "solid 3px",
+        "url": "/check"
+      },
+      {
+        "tag": "SELECT",
+        "id": "example",
+        "name": "Synthetic example",
+        "outline": "solid 3px",
+        "url": "/check"
+      },
+      {
+        "tag": "BUTTON",
+        "id": "",
+        "name": "Use example",
+        "outline": "solid 3px",
+        "url": "/check"
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "name": "Skip to main content",
+        "outline": "solid 3px",
+        "url": "/check"
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "name": "C\nCEKBAO\nPayment instruction check",
+        "outline": "solid 3px",
+        "url": "/check"
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "name": "Check instructions",
+        "outline": "solid 3px",
+        "url": "/check"
+      },
+      {
+        "tag": "A",
+        "id": "",
+        "name": "My checks",
+        "outline": "solid 3px",
+        "url": "/check"
+      },
+      {
+        "tag": "BUTTON",
+        "id": "",
+        "name": "Sign out",
+        "outline": "solid 3px",
+        "url": "/check"
+      },
+      {
+        "tag": "SELECT",
+        "id": "example",
+        "name": "Synthetic example",
+        "outline": "solid 3px",
+        "url": "/check"
+      },
+      {
+        "tag": "BUTTON",
+        "id": "",
+        "name": "Use example",
+        "outline": "solid 3px",
+        "url": "/check"
+      },
+      {
+        "tag": "TEXTAREA",
+        "id": "instruction_text",
+        "name": "Payment instruction",
+        "outline": "solid 3px",
+        "url": "/check"
+      },
+      {
+        "tag": "INPUT",
+        "id": "institution_filter",
+        "name": "Filter institutions",
+        "outline": "solid 3px",
+        "url": "/check"
+      },
+      {
+        "tag": "INPUT",
+        "id": "inst-inst-asterbay",
+        "name": "Aster Bay University\nGB, time zone Europe/London\nSynthetic",
+        "outline": "solid 3px",
+        "url": "/check"
+      },
+      {
+        "tag": "INPUT",
+        "id": "due_on",
+        "name": "Date you intend to pay",
+        "outline": "solid 3px",
+        "url": "/check"
+      },
+      {
+        "tag": "INPUT",
+        "id": "due_on",
+        "name": "Date you intend to pay",
+        "outline": "solid 3px",
+        "url": "/check"
+      },
+      {
+        "tag": "INPUT",
+        "id": "due_on",
+        "name": "Date you intend to pay",
+        "outline": "solid 3px",
+        "url": "/check"
+      },
+      {
+        "tag": "INPUT",
+        "id": "due_on",
+        "name": "Date you intend to pay",
+        "outline": "solid 3px",
+        "url": "/check"
+      },
+      {
+        "tag": "INPUT",
+        "id": "instruction_received_on",
+        "name": "Date you received the instruction (optional)",
+        "outline": "solid 3px",
+        "url": "/check"
+      },
+      {
+        "tag": "INPUT",
+        "id": "instruction_received_on",
+        "name": "Date you received the instruction (optional)",
+        "outline": "solid 3px",
+        "url": "/check"
+      },
+      {
+        "tag": "INPUT",
+        "id": "instruction_received_on",
+        "name": "Date you received the instruction (optional)",
+        "outline": "solid 3px",
+        "url": "/check"
+      },
+      {
+        "tag": "INPUT",
+        "id": "instruction_received_on",
+        "name": "Date you received the instruction (optional)",
+        "outline": "solid 3px",
+        "url": "/check"
+      },
+      {
+        "tag": "SUMMARY",
+        "id": "",
+        "name": "I already paid using these details",
+        "outline": "solid 3px",
+        "url": "/check"
+      },
+      {
+        "tag": "SELECT",
+        "id": "payment_tz",
+        "name": "Time zone for these dates",
+        "outline": "solid 3px",
+        "url": "/check"
+      },
+      {
+        "tag": "INPUT",
+        "id": "document_input",
+        "name": "Supporting document (optional)",
+        "outline": "solid 3px",
+        "url": "/check"
+      },
+      {
+        "tag": "BUTTON",
+        "id": "",
+        "name": "Check instructions",
+        "outline": "solid 3px",
+        "url": "/check"
+      }
+    ]
+  },
+  "overflow_failures": [],
+  "axe_failures": []
+}

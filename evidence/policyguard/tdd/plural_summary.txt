@@ -1,0 +1,4 @@
+# plural summary fix (2026-10-28)
+RED: ImportError: cannot import name 'tn' from policyguard.web.i18n (test written first)
+GREEN:
+2 passed in 0.35s

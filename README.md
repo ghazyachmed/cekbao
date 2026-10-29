@@ -12,6 +12,61 @@ The name CEKBAO is an original bilingual coinage: Indonesian *cek* (check) + Man
 
 ---
 
+## NVIDIA Nemotron on Nebius Token Factory (Nebius x NVIDIA Global AI Hackathon)
+
+The hackathon build is **PolicyGuard** (`policyguard/`). It checks a payment instruction against the payment policy that an institution published **for the payment date**, and shows one of four results: *Matches the checked policy*, *Conflicts with the checked policy*, *Not enough evidence to verify*, or *Institution review required*. It never moves money and never confirms that a payment arrived.
+
+**Model.** `nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B` (NVIDIA Nemotron 3 Nano, NVIDIA Nemotron Open Model License, open weights), called through Nebius Token Factory at `https://api.tokenfactory.nebius.com/v1/chat/completions`. We chose Nano because the model only reads one instruction and extracts fields. The decision is made by rules, so a fast, low-cost model is enough.
+
+**Where the model runs in the main flow.**
+
+1. `POST /check` (web) or `POST /v1/cases` (API) saves the case and returns 202 after the database commit.
+2. A worker leases the job and sends the instruction text to Nemotron with a strict JSON schema (`response_format: json_schema, strict: true`, temperature 0): institution, payee, account, bank, SWIFT/BIC, amount, currency, payment channel and due date, each with a verbatim quote (`policyguard/infra/nebius.py`).
+3. Code checks every quote against the instruction text and drops any field without a matching quote (`policyguard/application/extraction.py`).
+4. Fixed rules choose the policy version that is valid on the payment date and decide (`policyguard/domain/rules.py`). The model never decides.
+
+**Where Token Factory helped.**
+
+- No GPU setup: one OpenAI-compatible endpoint let the existing worker call Nemotron through a single adapter.
+- Structured output gives JSON that the worker validates directly against the schema.
+- Per-token prices (USD 0.06 / 0.24 per 1M input / output tokens for Nano) let the budget ledger reserve the worst-case cost before each call and refuse calls above the approved budget.
+- `GET /v1/models` lets `scripts/nebius_live_check.py` confirm the model ID before any paid call.
+
+The latest live-call record (model ID, time, latency, redacted result) is in `docs/policyguard/NVIDIA_NEBIUS.md` and `evidence/policyguard/`.
+
+### Run PolicyGuard locally
+
+Requirements: Python 3.11+, PostgreSQL 16 (the script looks in `/opt/homebrew/opt/postgresql@16/bin`; set `PGBIN` otherwise) and `redis-server` on the `PATH`.
+
+```bash
+python3.11 -m venv .venv && .venv/bin/pip install -r requirements-dev.txt
+```
+
+```bash
+scripts/policyguard_local.sh start
+```
+
+Create `.env.local` (git-ignored) in the repository root with your own Nebius Token Factory key and an approved cost cap. Without all four values the app uses fixed rules only and makes no paid call.
+
+```
+NEBIUS_API_KEY=<your key from tokenfactory.nebius.com>
+NEBIUS_MODEL_ID=nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B
+PG_INFERENCE_BUDGET_USD=0.05
+PG_MAX_PAID_CALLS=10
+```
+
+```bash
+.venv/bin/python scripts/nebius_live_check.py
+```
+
+```bash
+scripts/policyguard_serve.sh 8780
+```
+
+Open `http://127.0.0.1:8780/check`, choose **Use example**, and sign in with the synthetic demo code `demo-payer-2026` (reviewer: `demo-reviewer-2026`, see `policyguard/fixtures/demo_users.json`). Run the tests with `.venv/bin/python -m pytest -q`.
+
+---
+
 ## 1. What works today
 
 | Capability | Status | Where |
@@ -142,6 +197,8 @@ CEKBAO_FinTechathon_2026_DRAFT_Package/   Earlier offline baseline and draft doc
 - `docs/SUBMISSION_CHECKLIST.md`: official requirements and open steps
 - `docs/DEMO_STORYBOARD.md`: demo recording script (video NOT DONE)
 - `docs/screenshots/`: real screenshots of the running app (Scenarios A, B, C), taken on 20 October 2026
+- `docs/policyguard/`: PolicyGuard (temporal policy checks, `/check` and `/review` pages, `/v1` API): audit, architecture and ADRs, threat model, design system, NVIDIA/Nebius integration status, query plans, evaluation, traceability. Start it with `scripts/policyguard_serve.sh`
+- `tools/demo-video/README.md`: programmatic demo video and YouTube package (Playwright capture of the real app, Remotion render, validation)
 
 ## 11. License and attribution
 

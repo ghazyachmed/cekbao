@@ -1,0 +1,13 @@
+✔ an animated problem intro opens the video and a real app screen appears within 15 seconds (3.04775ms)
+✔ the policy timeline follows scenario B and its animation beats follow the narration (1.003458ms)
+✔ every recorded segment carries a short callout; result callouts quote the app's own headline (0.75975ms)
+✔ the inference callout states what actually read the instruction (1.122625ms)
+✔ sound effects stay quiet, inside the video, and out of the narration track (0.663833ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 128.336333

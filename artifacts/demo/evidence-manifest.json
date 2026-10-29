@@ -1,0 +1,451 @@
+{
+  "schema": "cekbao-demo-evidence/1",
+  "build_id": "20261029T001918Z-745bb1f",
+  "captured_at": "2026-10-29T00:19:19.307Z",
+  "git": {
+    "commit": "745bb1f774ff8b21c2a19258426643cd694ffbee",
+    "dirty": true,
+    "changed_files": 23
+  },
+  "app": {
+    "base_url": "http://127.0.0.1:8790",
+    "started_by_pipeline": true,
+    "data": "synthetic (policyguard/seed.py)"
+  },
+  "official_rules": {
+    "url": "https://nebiusglobalaihackathon.devpost.com/rules",
+    "checked_on": "2026-10-29",
+    "video_rule": "Nebius x NVIDIA Global AI Hackathon (Devpost): the video should be less than three (3) minutes; judges are not required to watch beyond three minutes; it must be publicly visible on YouTube and show the project functioning. All submission materials in English."
+  },
+  "scenarios": [
+    {
+      "code": "A",
+      "key": "conflict",
+      "title": "payee changed to a third party",
+      "case_ref": "case_22c4c9cf61f14357b0d9",
+      "headlines": [
+        "Conflicts with the checked policy."
+      ],
+      "status_seen_after_submit": "Queued",
+      "evidence_sources": [
+        "Paying your tuition fees (2026/27)"
+      ],
+      "inference": {
+        "scenario": "conflict",
+        "mode": "rules",
+        "tokens": "undefined out"
+      },
+      "video": "conflict.webm",
+      "markers": [
+        {
+          "label": "sign_in_page",
+          "t": 0.068
+        },
+        {
+          "label": "form_open",
+          "t": 0.239
+        },
+        {
+          "label": "click:use_example",
+          "t": 1.47,
+          "at": {
+            "x": 909,
+            "y": 349
+          }
+        },
+        {
+          "label": "form_filled",
+          "t": 1.986
+        },
+        {
+          "label": "institution_shown",
+          "t": 6.887
+        },
+        {
+          "label": "dates_shown",
+          "t": 10.324
+        },
+        {
+          "label": "click:check_instructions",
+          "t": 13.775,
+          "at": {
+            "x": 472,
+            "y": 604
+          }
+        },
+        {
+          "label": "submitted",
+          "t": 14.311
+        },
+        {
+          "label": "status_shown",
+          "t": 14.331,
+          "detail": "Queued"
+        },
+        {
+          "label": "result_shown",
+          "t": 15.639,
+          "detail": "Conflicts with the checked policy."
+        },
+        {
+          "label": "next_action_shown",
+          "t": 19.076
+        },
+        {
+          "label": "explanation_shown",
+          "t": 23.014
+        },
+        {
+          "label": "evidence_shown",
+          "t": 28.449
+        },
+        {
+          "label": "click:read_details",
+          "t": 33.901,
+          "at": {
+            "x": 720,
+            "y": 509
+          }
+        },
+        {
+          "label": "inference_shown",
+          "t": 34.369,
+          "detail": "Fixed rules (no AI model call)"
+        },
+        {
+          "label": "end",
+          "t": 38.869
+        }
+      ]
+    },
+    {
+      "code": "B",
+      "key": "policy_change",
+      "title": "an old invoice after a policy change",
+      "case_ref": "case_86d1add3a97e4ad9b745",
+      "headlines": [
+        "Conflicts with the checked policy.",
+        "Matches the checked policy."
+      ],
+      "status_seen_after_submit": "Queued",
+      "evidence_sources": [
+        "Paying your tuition fees (2026/27)",
+        "Paying your tuition fees (2025/26)",
+        "Paying your tuition fees (2025/26)"
+      ],
+      "inference": {
+        "scenario": "policy_change",
+        "mode": "unknown",
+        "tokens": "undefined out"
+      },
+      "video": "policy_change.webm",
+      "markers": [
+        {
+          "label": "sign_in_page",
+          "t": 0.066
+        },
+        {
+          "label": "form_open",
+          "t": 0.226
+        },
+        {
+          "label": "click:use_example",
+          "t": 1.5,
+          "at": {
+            "x": 909,
+            "y": 349
+          }
+        },
+        {
+          "label": "form_filled",
+          "t": 2.022
+        },
+        {
+          "label": "dates_shown",
+          "t": 6.897
+        },
+        {
+          "label": "click:check_instructions",
+          "t": 12.337,
+          "at": {
+            "x": 472,
+            "y": 604
+          }
+        },
+        {
+          "label": "submitted",
+          "t": 12.843
+        },
+        {
+          "label": "status_shown",
+          "t": 12.858,
+          "detail": "Queued"
+        },
+        {
+          "label": "result_shown",
+          "t": 15.662,
+          "detail": "Conflicts with the checked policy."
+        },
+        {
+          "label": "explanation_shown",
+          "t": 19.127
+        },
+        {
+          "label": "evidence_shown",
+          "t": 24.559
+        },
+        {
+          "label": "earlier_payment_shown",
+          "t": 29.991
+        },
+        {
+          "label": "end",
+          "t": 35.491
+        }
+      ]
+    },
+    {
+      "code": "C",
+      "key": "insufficient",
+      "title": "a publisher without authority",
+      "case_ref": "case_1d954c67cbf344048485",
+      "headlines": [
+        "Not enough evidence to verify."
+      ],
+      "status_seen_after_submit": "Queued",
+      "evidence_sources": [
+        "Dépôt d'admission – étudiants internationaux"
+      ],
+      "inference": {
+        "scenario": "insufficient",
+        "mode": "unknown",
+        "tokens": "undefined out"
+      },
+      "video": "insufficient.webm",
+      "markers": [
+        {
+          "label": "sign_in_page",
+          "t": 0.051
+        },
+        {
+          "label": "form_open",
+          "t": 0.214
+        },
+        {
+          "label": "click:use_example",
+          "t": 1.454,
+          "at": {
+            "x": 909,
+            "y": 349
+          }
+        },
+        {
+          "label": "form_filled",
+          "t": 1.975
+        },
+        {
+          "label": "dates_shown",
+          "t": 6.856
+        },
+        {
+          "label": "click:check_instructions",
+          "t": 10.318,
+          "at": {
+            "x": 472,
+            "y": 604
+          }
+        },
+        {
+          "label": "submitted",
+          "t": 10.835
+        },
+        {
+          "label": "status_shown",
+          "t": 10.865,
+          "detail": "Queued"
+        },
+        {
+          "label": "result_shown",
+          "t": 13.674,
+          "detail": "Not enough evidence to verify."
+        },
+        {
+          "label": "explanation_shown",
+          "t": 17.218
+        },
+        {
+          "label": "evidence_shown",
+          "t": 22.672
+        },
+        {
+          "label": "end",
+          "t": 27.675
+        }
+      ]
+    },
+    {
+      "code": "C",
+      "key": "escalation",
+      "title": "institution review",
+      "case_ref": "case_1d954c67cbf344048485",
+      "headlines": [
+        "Not enough evidence to verify."
+      ],
+      "status_seen_after_submit": "",
+      "evidence_sources": [
+        "Dépôt d'admission – étudiants internationaux"
+      ],
+      "inference": null,
+      "video": "escalation.webm",
+      "markers": [
+        {
+          "label": "sign_in_page",
+          "t": 0.065
+        },
+        {
+          "label": "queue_shown",
+          "t": 0.247
+        },
+        {
+          "label": "click:open_case",
+          "t": 4.006,
+          "at": {
+            "x": 1240,
+            "y": 439
+          }
+        },
+        {
+          "label": "review_case_shown",
+          "t": 4.558
+        },
+        {
+          "label": "review_filled",
+          "t": 9.039
+        },
+        {
+          "label": "click:record_review",
+          "t": 10.551,
+          "at": {
+            "x": 258,
+            "y": 742
+          }
+        },
+        {
+          "label": "review_recorded",
+          "t": 11.089
+        },
+        {
+          "label": "review_history_shown",
+          "t": 13.034
+        },
+        {
+          "label": "end",
+          "t": 16.535
+        }
+      ]
+    }
+  ],
+  "inference_summary": {
+    "provider": "nebius",
+    "mode": "rules",
+    "model_id": null,
+    "latency_ms": null,
+    "tokens": "undefined out",
+    "checked_at": "2026-10-29T00:19:19.307Z",
+    "per_scenario": [
+      {
+        "scenario": "conflict",
+        "mode": "rules",
+        "tokens": "undefined out"
+      },
+      {
+        "scenario": "policy_change",
+        "mode": "unknown",
+        "tokens": "undefined out"
+      },
+      {
+        "scenario": "insufficient",
+        "mode": "unknown",
+        "tokens": "undefined out"
+      }
+    ],
+    "blocked_reason": "not configured at capture time: NEBIUS_API_KEY, PG_INFERENCE_BUDGET_USD, PG_MAX_PAID_CALLS",
+    "live_check_records": []
+  },
+  "output_kind": "preview-mock",
+  "measurements": {
+    "tests_passed": 231,
+    "axe_violations": 0,
+    "axe_audit": {
+      "generated_at": "2026-10-28T12:00:29.969Z",
+      "pages": 12
+    },
+    "lighthouse_accessibility_min": 100
+  },
+  "project": {
+    "repository": "https://github.com/ghazyachmed/cekbao.git"
+  },
+  "render": {
+    "output": "artifacts/demo/cekbao-demo-preview-MOCK.mp4",
+    "srt": "artifacts/demo/cekbao-demo-preview-MOCK.srt",
+    "kind": "preview-mock",
+    "narration_audio": "kokoro-82m-local",
+    "music": "none",
+    "render_seconds": 475.031,
+    "total_frames": 4932,
+    "fps": 30,
+    "smoke_render": "artifacts/demo/smoke/20261029T001918Z-745bb1f-segment.mp4",
+    "scenes": [
+      {
+        "id": "intro",
+        "from": 0,
+        "frames": 682
+      },
+      {
+        "id": "title_conflict",
+        "from": 682,
+        "frames": 78
+      },
+      {
+        "id": "conflict",
+        "from": 760,
+        "frames": 1362
+      },
+      {
+        "id": "title_policy_change",
+        "from": 2122,
+        "frames": 60
+      },
+      {
+        "id": "policy_change",
+        "from": 2182,
+        "frames": 911
+      },
+      {
+        "id": "policy_timeline",
+        "from": 3093,
+        "frames": 423
+      },
+      {
+        "id": "title_insufficient",
+        "from": 3516,
+        "frames": 60
+      },
+      {
+        "id": "insufficient",
+        "from": 3576,
+        "frames": 582
+      },
+      {
+        "id": "nvidia",
+        "from": 4158,
+        "frames": 381
+      },
+      {
+        "id": "results",
+        "from": 4539,
+        "frames": 393
+      }
+    ]
+  }
+}

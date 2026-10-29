@@ -1,0 +1,82 @@
+{
+  "build_id": "20261029T001918Z-745bb1f",
+  "variants": {
+    "A": {
+      "headline": "Check before you pay",
+      "accent": "#ff6b7d",
+      "scenario": "conflict",
+      "lines": [
+        {
+          "text": "Check"
+        },
+        {
+          "text": "before"
+        },
+        {
+          "text": "you pay",
+          "neon": true
+        }
+      ]
+    },
+    "B": {
+      "headline": "Who authorized this?",
+      "accent": "#ffc53d",
+      "scenario": "insufficient",
+      "lines": [
+        {
+          "text": "Who"
+        },
+        {
+          "text": "authorized",
+          "neon": true
+        },
+        {
+          "text": "this?"
+        }
+      ]
+    },
+    "C": {
+      "headline": "When policies change",
+      "accent": "#a08cff",
+      "scenario": "policy_change",
+      "lines": [
+        {
+          "text": "When"
+        },
+        {
+          "text": "policies"
+        },
+        {
+          "text": "change",
+          "neon": true
+        }
+      ]
+    }
+  },
+  "sizes": {
+    "A": {
+      "master": [
+        3840,
+        2160
+      ],
+      "jpg_bytes": 653974,
+      "jpg_quality": 92
+    },
+    "B": {
+      "master": [
+        3840,
+        2160
+      ],
+      "jpg_bytes": 655006,
+      "jpg_quality": 92
+    },
+    "C": {
+      "master": [
+        3840,
+        2160
+      ],
+      "jpg_bytes": 675773,
+      "jpg_quality": 92
+    }
+  }
+}

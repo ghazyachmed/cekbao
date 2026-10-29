@@ -1,0 +1,11 @@
+{
+  "url": "/check/history",
+  "width": 1440,
+  "testEngine": {
+    "name": "axe-core",
+    "version": "4.13.0"
+  },
+  "violations": [],
+  "incomplete": [],
+  "passes": 25
+}

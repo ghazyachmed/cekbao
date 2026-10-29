@@ -1,0 +1,33 @@
+{
+  "lines": [
+    {
+      "text": "When"
+    },
+    {
+      "text": "policies"
+    },
+    {
+      "text": "change",
+      "neon": true
+    }
+  ],
+  "accent": "#a08cff",
+  "phone": {
+    "src": "build/20261029T001918Z-745bb1f/policy_change-mobile.png",
+    "w": 390,
+    "h": 844
+  },
+  "note": "REAL APP · SYNTHETIC DATA",
+  "dates": [
+    {
+      "label": "14 AUG",
+      "result": "MATCHES",
+      "tone": "ok"
+    },
+    {
+      "label": "30 NOV",
+      "result": "CONFLICTS",
+      "tone": "bad"
+    }
+  ]
+}

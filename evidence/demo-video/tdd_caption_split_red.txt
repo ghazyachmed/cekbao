@@ -1,0 +1,47 @@
+✔ config: accepts the brief's configuration (1.376417ms)
+✔ config: rejects real data, a target above the limit and too many paid calls (0.163083ms)
+✔ captions: wrap to at most two lines within the character limit (0.135458ms)
+✔ captions: long narration splits into several non-overlapping cues (0.337166ms)
+✔ captions: validation reports overlaps, three-line cues and flashes (0.073375ms)
+✖ captions: version numbers and links are not split as sentence ends (0.900125ms)
+✔ captions: SRT timestamps (0.092125ms)
+✔ timeline: scenes never cut narration and frames add up (0.090667ms)
+✔ timeline: duration check fails above the official limit (0.080417ms)
+✔ manifest: reads the inference mode from the result page, never from configuration (0.287833ms)
+✔ manifest: final output only when every scenario used live or recorded inference (0.070792ms)
+✔ manifest: secrets are refused (0.40675ms)
+✔ validate: a conforming MP4 passes every probe check (0.120625ms)
+✔ validate: wrong codec, resolution, missing audio and over-limit duration fail (0.080875ms)
+✔ validate: faststart means the moov atom comes before mdat (0.304625ms)
+✔ capture: a run with missing steps is rejected instead of rendered (0.089542ms)
+ℹ tests 16
+ℹ suites 0
+ℹ pass 15
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 125.661458
+
+✖ failing tests:
+
+test at test/pipeline.test.ts:62:1
+✖ captions: version numbers and links are not split as sentence ends (0.900125ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /2025\.1 applied/. Input:
+  
+  'Version 2025. 1 applied until 31 August. Code: github. com/ghazyachmed/cekbao.'
+  
+      at TestContext.<anonymous> (file:///Users/ghazy/Ghazy/cekbao/tools/demo-video/test/pipeline.test.ts:65:10)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'Version 2025. 1 applied until 31 August. Code: github. com/ghazyachmed/cekbao.',
+    expected: /2025\.1 applied/,
+    operator: 'match',
+    diff: 'simple'
+  }

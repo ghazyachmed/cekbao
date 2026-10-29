@@ -1,0 +1,102 @@
+{% from "_macros.html" import icon, decision_banner, evidence_card, synthetic %}
+{% set p = case.primary %}
+{% if case.needs_reevaluation %}<div class="banner banner-warn" role="status"><p>{{ t("result.reevaluate") }}</p></div>{% endif %}
+
+<section class="result" aria-labelledby="result">
+  {{ decision_banner(p, p.heading, 1, True) }}
+  <p class="decision-sub">{{ case.institution or "" }}{% if case.institution_synthetic %} {{ synthetic() }}{% endif %}</p>
+
+  <section id="next-action" class="next-action next-{{ p.decision.tone }}" aria-labelledby="next-action-title">
+    <h2 id="next-action-title">{{ t("result.next_action") }}</h2>
+    <p class="next-text">{{ p.next_action }}</p>
+    {% if case.contact_url and p.decision.value != "CONSISTENT" %}
+    <div class="contact-row"><a class="btn btn-secondary" href="{{ case.contact_url }}" rel="noopener noreferrer">{{ t("result.contact_link", institution=case.institution) }} {{ icon("external", 16) }}</a>
+      {% if case.institution_synthetic %}<p class="hint">{{ t("evidence.synthetic_url") }}</p>{% endif %}</div>
+    {% endif %}
+    <p class="not-settlement">{{ icon("info", 18) }}<span>{{ t("result.not_settlement") }} {{ t("result.payment_status") }}</span></p>
+  </section>
+
+  <section id="explanation" aria-labelledby="explanation-title">
+    <h2 id="explanation-title">{{ t("result.explanation") }}</h2>
+    {% set cmp = p.comparison %}
+    {% if cmp.summary %}<p class="compare-summary">{{ cmp.summary }}</p>{% endif %}
+    <table class="compare-table">
+      <caption>{{ t("compare.caption") }}</caption>
+      <thead><tr>
+        <th scope="col">{{ t("compare.detail") }}</th>
+        <th scope="col">{{ t("compare.instruction") }}</th>
+        {% for col in cmp.columns %}<th scope="col">{{ col.header }}<span class="col-sub">{{ col.sub }}</span></th>{% endfor %}
+        <th scope="col">{{ t("compare.status") }}</th>
+      </tr></thead>
+      <tbody>
+      {% for r in cmp.rows %}
+        <tr class="row-{{ r.tone }}">
+          <th scope="row">{{ r.label }}</th>
+          <td data-label="{{ t('compare.instruction') }}"{% if r.numeric %} class="numeric"{% endif %}>{% if r.instruction %}{{ r.instruction }}{% else %}<span class="missing">{{ t("compare.empty") }}</span>{% endif %}</td>
+          {% for v in r.policy %}<td data-label="{{ cmp.columns[loop.index0].header }}"{% if r.numeric %} class="numeric"{% endif %}>{{ v or t("compare.empty") }}</td>{% endfor %}
+          <td data-label="{{ t('compare.status') }}"><span class="verdict verdict-{{ r.tone }}">{{ icon(r.icon, 18) }}{{ r.verdict_label }}</span></td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+    {% if p.notes %}<ul class="reasons">{% for e in p.notes %}<li>{{ e }}</li>{% endfor %}</ul>{% endif %}
+    <div id="still-unknown" class="still-unknown">
+      <h3>{{ t("compare.unknown_title") }}</h3>
+      <ul>{% for u in cmp.unknown %}<li>{{ u }}</li>{% endfor %}</ul>
+    </div>
+  </section>
+
+  <section id="evidence" aria-labelledby="evidence-title">
+    <h2 id="evidence-title">{{ t("result.evidence") }}</h2>
+    <p class="evidence-summary"><span class="level">{{ p.evidence_level.label }}</span> <span class="hint">{{ p.evidence_level.description }}</span></p>
+    {% if p.cards %}
+    <div class="{% if p.compare %}compare{% else %}cards{% endif %}">{% for c in p.cards %}{{ evidence_card(c) }}{% endfor %}</div>
+    {% else %}<p>{{ t("evidence.none") }}</p>{% endif %}
+  </section>
+
+  {% for a in case.assessments[1:] %}
+  <section class="secondary-assessment" aria-labelledby="assessment-{{ loop.index }}">
+    <h2 id="assessment-{{ loop.index }}">{{ t("result.earlier_payment") }}</h2>
+    {{ decision_banner(a, a.heading, 3) }}
+    <ul class="reasons">{% for e in a.explanations %}<li>{{ e }}</li>{% endfor %}</ul>
+    <div class="cards">{% for c in a.cards %}{{ evidence_card(c) }}{% endfor %}</div>
+  </section>
+  {% endfor %}
+
+  <section id="limitations" aria-labelledby="limitations-title">
+    <h2 id="limitations-title">{{ t("result.limitations") }}</h2>
+    <ul class="limitations">{% for l in case.limitations %}<li>{{ l }}</li>{% endfor %}</ul>
+
+    <details class="disclosure">
+      <summary>{{ t("result.read_details") }}</summary>
+      <p class="hint">{{ t("result.how_read") }}: {{ case.inference }}{% if case.tokens %}, {{ case.tokens }}{% endif %}.</p>
+      <dl class="facts read-fields">
+        {% for f in case.fields %}
+        <div><dt>{{ f.label }}</dt><dd>{% if f.value %}<span class="{% if f.numeric %}numeric{% endif %}">{{ f.value }}</span><span class="fact-note">{{ f.source }}</span>{% else %}<span class="missing">{{ t("result.field_missing") }}</span>{% endif %}</dd></div>
+        {% endfor %}
+      </dl>
+      {% if not reviewer_view %}<p><a class="btn btn-secondary" href="/check?correct={{ case.case_id }}">{{ t("result.correct") }}</a></p>{% endif %}
+    </details>
+
+    <details class="disclosure">
+      <summary>{{ t("result.history") }}</summary>
+      <ol class="timeline">
+        <li>Submitted {{ case.created }}</li>
+        <li>{{ case.state.label }} {{ case.updated }}{% if case.job %}, attempt {{ case.job.attempts }} of {{ case.job.max_attempts }}{% endif %}</li>
+        {% for r in case.reviews %}<li>Reviewed {{ r.when }}: {{ r.outcome_label }}</li>{% endfor %}
+      </ol>
+    </details>
+
+    <details class="disclosure">
+      <summary>{{ t("result.technical") }}</summary>
+      <dl class="facts">
+        <div><dt>Check ID</dt><dd class="mono-id">{{ case.case_id }}</dd></div>
+        <div><dt>Rules</dt><dd class="mono-id">{{ p.rule_version }}</dd></div>
+        <div><dt>Reader</dt><dd class="mono-id">{{ p.model_version }}</dd></div>
+        <div><dt>Request hash</dt><dd class="mono-id">{{ p.request_hash[:16] }}…</dd></div>
+        <div><dt>Policy snapshot epoch</dt><dd>{{ p.policy_epoch }}</dd></div>
+        <div><dt>Payment status</dt><dd>{{ p.transaction_status }}</dd></div>
+      </dl>
+    </details>
+  </section>
+</section>

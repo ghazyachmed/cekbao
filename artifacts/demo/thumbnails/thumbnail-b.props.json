@@ -1,0 +1,25 @@
+{
+  "lines": [
+    {
+      "text": "Who"
+    },
+    {
+      "text": "authorized",
+      "neon": true
+    },
+    {
+      "text": "this?"
+    }
+  ],
+  "accent": "#ffc53d",
+  "phone": {
+    "src": "build/20261029T001918Z-745bb1f/insufficient-mobile.png",
+    "w": 390,
+    "h": 844
+  },
+  "note": "REAL APP · SYNTHETIC DATA",
+  "chip": {
+    "text": "NOT ENOUGH EVIDENCE",
+    "tone": "warn"
+  }
+}

@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% from "_macros.html" import error_summary, field_error, described, synthetic %}
+{% block title %}{{ t("signin.title") }}{% endblock %}
+{% block main_class %}container narrow{% endblock %}
+{% block content %}
+<h1>{{ t("signin.title") }}</h1>
+<p class="lead">{{ t("signin.lead") }}</p>
+{% if message %}<div class="banner banner-info" role="status"><p>{{ message }}</p></div>{% endif %}
+{{ error_summary(errors or []) }}
+<form method="post" action="/check/sign-in" class="stack" novalidate>
+  <input type="hidden" name="next" value="{{ next_url }}">
+  {% for k, v in carry.items() %}<input type="hidden" name="carry_{{ k }}" value="{{ v }}">{% endfor %}
+  <div class="field">
+    <label for="user_id">{{ t("signin.user_id") }}</label>
+    <input id="user_id" name="user_id" autocomplete="username" value="{{ user_id or '' }}" required{{ described(errors or [], "user_id", False) }}>
+    {{ field_error(errors or [], "user_id") }}
+  </div>
+  <div class="field">
+    <label for="access_code">{{ t("signin.code") }}</label>
+    <input id="access_code" name="access_code" type="password" autocomplete="current-password" required>
+  </div>
+  <button class="btn btn-primary" type="submit">{{ t("signin.submit") }}</button>
+</form>
+{% if carry %}
+<section class="panel" aria-labelledby="kept">
+  <h2 id="kept">Your instruction (kept on this page only)</h2>
+  <pre class="instruction">{{ carry.get("instruction_text", "") }}</pre>
+</section>
+{% endif %}
+<section class="panel" aria-labelledby="demo-accounts">
+  <h2 id="demo-accounts">{{ t("signin.demo_title") }} {{ synthetic() }}</h2>
+  <table class="table">
+    <caption class="visually-hidden">{{ t("signin.demo_title") }}</caption>
+    <thead><tr><th scope="col">{{ t("signin.user_id") }}</th><th scope="col">Can do</th></tr></thead>
+    <tbody>
+      <tr><td><span class="mono-id">pg_payer</span></td><td>Check payment instructions</td></tr>
+      <tr><td><span class="mono-id">pg_reviewer</span></td><td>Check instructions and review checks for the institution</td></tr>
+    </tbody>
+  </table>
+  <p class="hint">{{ t("signin.demo_note") }}</p>
+</section>
+{% endblock %}

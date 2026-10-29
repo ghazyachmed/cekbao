@@ -1,0 +1,28 @@
+## ruff check app tests scripts (baseline, no config)
+tests/test_api_security.py:2:1: I001 [*] Import block is un-sorted or un-formatted
+tests/test_api_security.py:85:5: RUF059 Unpacked variable `citra` is never used
+tests/test_llm_adapter.py:7:1: I001 [*] Import block is un-sorted or un-formatted
+tests/test_llm_adapter.py:59:5: RUF059 Unpacked variable `actor` is never used
+tests/test_llm_adapter.py:82:5: RUF059 Unpacked variable `actor` is never used
+tests/test_money.py:2:1: I001 [*] Import block is un-sorted or un-formatted
+tests/test_money.py:13:9: C408 Unnecessary `dict()` call (rewrite as a literal)
+tests/test_money.py:82:50: FURB157 [*] Verbose expression in `Decimal` constructor
+tests/test_policy.py:141:1: PLE2502 Contains control characters that can permit obfuscated code
+tests/test_policy.py:141:29: PLE2515 [*] Invalid unescaped character zero-width-space, use "\u200B" instead
+tests/test_policy.py:143:1: PLE2502 Contains control characters that can permit obfuscated code
+tests/test_policy.py:143:13: PLE2515 [*] Invalid unescaped character zero-width-space, use "\u200B" instead
+tests/test_policy.py:171:10: B017 Do not assert blind exception: `Exception`
+Found 78 errors.
+[*] 30 fixable with `--fix` (12 unsafe fixes available with `--fix --unsafe-fixes`).
+RUFF_EXIT=1
+
+## mypy app (baseline)
+app/workflow.py:482: error: Item "None" of "InstitutionEntry | None" has no attribute "approved_channels"  [union-attr]
+app/workflow.py:486: error: Item "None" of "InstitutionEntry | None" has no attribute "institution_id"  [union-attr]
+app/workflow.py:487: error: Item "None" of "InstitutionEntry | None" has no attribute "synthetic"  [union-attr]
+app/workflow.py:491: error: Item "None" of "InstitutionEntry | None" has no attribute "source"  [union-attr]
+app/main.py:61: error: Argument 1 to "LLMExtractor" has incompatible type "str | None"; expected "str"  [arg-type]
+app/main.py:61: error: Argument 2 to "LLMExtractor" has incompatible type "str | None"; expected "str"  [arg-type]
+app/main.py:61: error: Argument 3 to "LLMExtractor" has incompatible type "str | None"; expected "str"  [arg-type]
+Found 15 errors in 3 files (checked 19 source files)
+MYPY_EXIT=1

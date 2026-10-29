@@ -1,0 +1,4 @@
+FAILED tests/pgtests/test_web.py::test_comparison_table_is_the_core_of_the_result
+FAILED tests/pgtests/test_web.py::test_comparison_marks_a_source_without_authority
+FAILED tests/pgtests/test_web.py::test_comparison_shows_both_conflicting_sources
+3 failed, 21 passed in 5.27s

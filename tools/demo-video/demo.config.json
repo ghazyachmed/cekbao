@@ -1,0 +1,33 @@
+{
+  "video": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "duration_target_seconds": 170,
+    "duration_limit_seconds": 179,
+    "language": "en",
+    "subtitles": "en",
+    "output": "artifacts/demo/cekbao-demo.mp4"
+  },
+  "capture": {
+    "base_url": "env:DEMO_BASE_URL",
+    "port": 8790,
+    "data": "synthetic",
+    "inference": "live",
+    "max_paid_calls": 3,
+    "max_cost_usd": null
+  },
+  "rules_source": {
+    "url": "https://nebiusglobalaihackathon.devpost.com/rules",
+    "checked_on": "2026-10-29",
+    "video_rule": "Nebius x NVIDIA Global AI Hackathon (Devpost): the video should be less than three (3) minutes; judges are not required to watch beyond three minutes; it must be publicly visible on YouTube and show the project functioning. All submission materials in English."
+  },
+  "tts": {
+    "engine": "kokoro-local",
+    "voice": "af_heart",
+    "speed": 0.95
+  },
+  "music": {
+    "enabled": false
+  }
+}

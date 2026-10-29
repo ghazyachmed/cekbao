@@ -1,0 +1,4 @@
+{% extends "base.html" %}
+{% block title %}{{ t("notfound.title") }}{% endblock %}
+{% block main_class %}container narrow{% endblock %}
+{% block content %}<h1>{{ t("notfound.title") }}</h1><p>{{ t("notfound.body") }}</p><p><a href="/check/history">{{ t("nav.history") }}</a></p>{% endblock %}

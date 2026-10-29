@@ -1,0 +1,9 @@
+{
+  "_comment": "Synthetic demo personas for the PolicyGuard web flow. demo_access_code values are test values for this sandbox, not credentials. All accounts belong to the synthetic tenant demo-tenant.",
+  "users": [
+    {"user_id": "pg_payer", "display_name": "Alex Morgan (synthetic payer)", "role": "student",
+     "institution_id": "demo-tenant", "payer_reference": null, "demo_access_code": "demo-payer-2026"},
+    {"user_id": "pg_reviewer", "display_name": "Student finance reviewer (synthetic)", "role": "office_reviewer",
+     "institution_id": "demo-tenant", "payer_reference": null, "demo_access_code": "demo-reviewer-2026"}
+  ]
+}

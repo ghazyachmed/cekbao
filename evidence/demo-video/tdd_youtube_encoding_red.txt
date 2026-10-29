@@ -1,0 +1,44 @@
+
+> cekbao-demo-video@1.0.0 test
+> node --test "test/**/*.test.ts"
+
+✔ a user voiceover with a missing line fails loudly (1.263458ms)
+✔ a capture without the markers the narration anchors to is refused (0.306292ms)
+file:///Users/ghazy/Ghazy/cekbao/tools/demo-video/test/pipeline.test.ts:8
+import { checkProbe, checkYoutubeRecommended, hasEditList, maxKeyframeGap, moovBeforeMdat } from "../src/pipeline/validate.ts";
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: The requested module '../src/pipeline/validate.ts' does not provide an export named 'checkYoutubeRecommended'
+    at #asyncInstantiate (node:internal/modules/esm/module_job:326:21)
+    at async ModuleJob.run (node:internal/modules/esm/module_job:429:5)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:639:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)
+
+Node.js v25.9.0
+✖ test/pipeline.test.ts (148.206416ms)
+✔ an animated problem intro opens the video and a real app screen appears within 15 seconds (3.66175ms)
+✔ the policy timeline follows scenario B and its animation beats follow the narration (2.080208ms)
+✔ every recorded segment carries a short callout; result callouts quote the app's own headline (0.691375ms)
+✔ a callout stays only while its sentence is spoken, so later actions in the clip are not mislabelled (0.613875ms)
+✔ the inference callout states what actually read the instruction (1.764ms)
+✔ sound effects stay quiet, inside the video, and out of the narration track (0.661292ms)
+✔ chapters start at 00:00, merge short scenes and cover the rendered duration (1.700417ms)
+✔ a closing chapter shorter than 10 s is merged, never left alone (0.119834ms)
+✔ the animated problem intro becomes the first chapter and the timeline joins the policy chapter (0.09875ms)
+✔ chapter validation catches each rule (0.073125ms)
+✔ title and description limits (0.138709ms)
+✔ unsupported claims and mode mismatches fail (4.803459ms)
+✔ a disclosure that denies a customer relationship is not a customer claim (0.214542ms)
+ℹ tests 16
+ℹ suites 0
+ℹ pass 15
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 158.939875
+
+✖ failing tests:
+
+test at test/pipeline.test.ts:1:1
+✖ test/pipeline.test.ts (148.206416ms)
+  'test failed'

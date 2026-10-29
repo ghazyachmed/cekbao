@@ -1,0 +1,3 @@
+ERROR tests/pgtests/test_api_v1.py
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+1 error in 1.58s

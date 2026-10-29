@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% from "_macros.html" import icon %}
+{% block title %}{% if case.completed %}{{ case.primary.decision.label }}{% else %}{{ t("processing.title") }}{% endif %}{% endblock %}
+{% block main_class %}container wide{% endblock %}
+{% block content %}
+{% if case.completed and case.primary %}
+  {% set reviewer_view = False %}
+  {% include "_result.html" %}
+{% else %}
+<section class="processing narrow-inner" data-status-url="/check/cases/{{ case.case_id }}/status.json" data-state="{{ case.state.state }}">
+  <h1 id="result" tabindex="-1">{{ t("processing.title") }}</h1>
+  <p class="lead">{{ t("processing.saved", time=case.created) }}</p>
+  <div class="status status-{{ case.state.tone }}" id="status-box">
+    {{ icon("clock" if not case.state.done else "stop", 24) }}
+    <div>
+      <p class="status-label" id="status-label">{{ case.state.label }}</p>
+      <p class="status-text" id="status-text">{{ case.state.description }}</p>
+      {% if case.job and case.job.attempts %}<p class="hint" id="status-attempt">{{ t("processing.attempt", attempt=case.job.attempts, max=case.job.max_attempts) }}</p>{% endif %}
+    </div>
+  </div>
+  <p class="visually-hidden" role="status" aria-live="polite" id="status-live"></p>
+  <ol class="steps" aria-label="{{ t('processing.steps') }}">
+    {% set order = ["QUEUED", "PROCESSING", "COMPLETED"] %}
+    {% set current = {"ACCEPTED": 0, "QUEUED": 0, "RETRY_WAIT": 1, "PROCESSING": 1}.get(case.state.state, 2) %}
+    {% for s in order %}
+    <li class="step {% if loop.index0 < current %}step-done{% elif loop.index0 == current %}step-current{% endif %}" {% if loop.index0 == current %}aria-current="step"{% endif %}>{{ t("state." ~ s ~ ".label") }}</li>
+    {% endfor %}
+  </ol>
+  <p class="slow hint" id="status-slow" hidden>{{ t("processing.slow") }}</p>
+  <p><a class="btn btn-secondary" href="/check/cases/{{ case.case_id }}">{{ t("processing.refresh") }}</a>
+  {% if case.state.done %}<a class="btn btn-primary" href="/check">{{ t("processing.new_check") }}</a>{% endif %}</p>
+</section>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,49 @@
+
+> cekbao-demo-video@1.0.0 test
+> node --test "test/**/*.test.ts"
+
+✔ a user voiceover with a missing line fails loudly (1.552292ms)
+✔ a capture without the markers the narration anchors to is refused (0.312792ms)
+✔ config: accepts the brief's configuration (2.625334ms)
+✔ config: rejects real data, a target above the limit and too many paid calls (0.208792ms)
+✔ captions: wrap to at most two lines within the character limit (0.180375ms)
+✔ captions: long narration splits into several non-overlapping cues (0.376833ms)
+✔ captions: validation reports overlaps, three-line cues and flashes (0.086958ms)
+✔ captions: version numbers and links are not split as sentence ends (0.127042ms)
+✔ captions: a long sentence is split into balanced cues, never a one-word orphan (0.166167ms)
+✔ captions: SRT timestamps (0.092625ms)
+✔ timeline: scenes never cut narration and frames add up (0.099625ms)
+✔ timeline: duration check fails above the official limit (0.108042ms)
+✔ manifest: reads the inference mode from the result page, never from configuration (0.26875ms)
+✔ manifest: final output only when every scenario used live or recorded inference (0.069ms)
+✔ manifest: secrets are refused (0.45375ms)
+✔ validate: a conforming MP4 passes every probe check (0.730625ms)
+✔ validate: wrong codec, resolution, missing audio and over-limit duration fail (0.306875ms)
+✔ validate: YouTube recommended upload settings pass for a conforming file (0.340125ms)
+✔ validate: low bitrate, sRGB transfer, low audio bitrate, long GOP and edit lists are reported (0.194834ms)
+✔ validate: keyframe gap and edit-list detection (0.641958ms)
+✔ validate: faststart means the moov atom comes before mdat (0.107458ms)
+✔ capture: a run with missing steps is rejected instead of rendered (0.110708ms)
+✔ an animated problem intro opens the video and a real app screen appears within 15 seconds (9.778792ms)
+✔ the policy timeline follows scenario B and its animation beats follow the narration (0.671917ms)
+✔ every recorded segment carries a short callout; result callouts quote the app's own headline (1.838083ms)
+✔ a callout stays only while its sentence is spoken, so later actions in the clip are not mislabelled (0.510958ms)
+✔ in live mode the intro names NVIDIA Nemotron on Nebius; in a preview it does not claim it (0.163792ms)
+✔ the edit fits the three-minute judging window: no reviewer scene, short results (0.494541ms)
+✔ the inference callout states what actually read the instruction (1.51875ms)
+✔ sound effects stay quiet, inside the video, and out of the narration track (0.467666ms)
+✔ chapters start at 00:00, merge short scenes and cover the rendered duration (5.456ms)
+✔ a closing chapter shorter than 10 s is merged, never left alone (0.125459ms)
+✔ the animated problem intro becomes the first chapter and the timeline joins the policy chapter (0.100292ms)
+✔ chapter validation catches each rule (0.074125ms)
+✔ title and description limits (0.142375ms)
+✔ unsupported claims and mode mismatches fail (1.344375ms)
+✔ a disclosure that denies a customer relationship is not a customer claim (0.059208ms)
+ℹ tests 37
+ℹ suites 0
+ℹ pass 37
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 156.196333

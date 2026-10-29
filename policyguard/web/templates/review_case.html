@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% from "_macros.html" import error_summary, field_error, described %}
+{% block title %}{{ t("review.case_title") }}{% endblock %}
+{% block main_class %}container wide{% endblock %}
+{% block content %}
+<p><a href="/review">{{ t("review.back") }}</a></p>
+{% if recorded %}<div class="banner banner-ok" role="status"><p>{{ t("review.recorded") }}</p></div>{% endif %}
+{% if banner %}<div class="banner banner-warn" role="alert"><p>{{ banner }}</p></div>{% endif %}
+{% if case.completed and case.primary %}
+  {% set reviewer_view = True %}
+  {% include "_result.html" %}
+{% else %}<h1>{{ case.state.label }}</h1><p>{{ case.state.description }}</p>{% endif %}
+
+<section class="panel" aria-labelledby="instruction-title">
+  <h2 id="instruction-title">{{ t("review.instruction") }}</h2>
+  <pre class="instruction">{{ case.instruction_text }}</pre>
+</section>
+
+<section class="panel" aria-labelledby="review-history">
+  <h2 id="review-history">{{ t("review.history") }}</h2>
+  {% if case.reviews %}
+  <ol class="timeline">{% for r in case.reviews %}<li><strong>{{ r.outcome_label }}</strong> by <span class="mono-id">{{ r.reviewer_id }}</span>, {{ r.when }}<br>{{ r.reason }}</li>{% endfor %}</ol>
+  {% else %}<p>{{ t("review.none") }}</p>{% endif %}
+</section>
+
+{% if case.completed %}
+<section class="panel narrow-inner" aria-labelledby="review-form">
+  <h2 id="review-form">{{ t("review.form") }}</h2>
+  {{ error_summary(errors) }}
+  <form method="post" action="/review/cases/{{ case.case_id }}" class="stack" novalidate>
+    <input type="hidden" name="csrf_token" value="{{ csrf }}">
+    <input type="hidden" name="row_version" value="{{ case.row_version }}">
+    <fieldset class="field" id="outcome" {% if "outcome" in error_fields %}aria-invalid="true"{% endif %}>
+      <legend>{{ t("review.outcome") }}</legend>
+      {{ field_error(errors, "outcome") }}
+      <div class="choices">
+      {% for o in ["CONFIRMED", "CORRECTED", "NEEDS_MORE_INFORMATION"] %}
+        <div class="choice"><input type="radio" id="outcome-{{ o }}" name="outcome" value="{{ o }}" {% if values.get("outcome") == o %}checked{% endif %}><label for="outcome-{{ o }}"><span class="choice-title">{{ t("review.outcome." ~ o) }}</span></label></div>
+      {% endfor %}
+      </div>
+    </fieldset>
+    <div class="field">
+      <label for="reason">{{ t("review.reason") }}</label>
+      <p class="hint" id="reason-hint">{{ t("review.reason_hint") }}</p>
+      {{ field_error(errors, "reason") }}
+      <textarea id="reason" name="reason" rows="4"{{ described(errors, "reason") }}>{{ values.get("reason", "") }}</textarea>
+    </div>
+    <button class="btn btn-primary" type="submit">{{ t("review.submit") }}</button>
+  </form>
+</section>
+{% endif %}
+{% endblock %}

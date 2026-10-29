@@ -1,0 +1,41 @@
+{% from "_macros.html" import icon, synthetic %}<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="Check whether a payment instruction matches the institution's applicable payment policy.">
+  <title>{% block title %}{{ t("app.product") }}{% endblock %} | {{ t("app.name") }}</title>
+  <link rel="preload" href="/pg-static/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/pg-static/tokens.css?v={{ asset_v }}">
+  <link rel="stylesheet" href="/pg-static/app.css?v={{ asset_v }}">
+  <script src="/pg-static/app.js?v={{ asset_v }}" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">{{ t("app.skip") }}</a>
+  <header class="site-header">
+    <div class="container header-row">
+      <a class="brand" href="/check"><span class="brand-mark" aria-hidden="true">C</span><span class="brand-name">{{ t("app.name") }}</span><span class="brand-product">{{ t("app.product") }}</span></a>
+      {% if session %}
+      <nav aria-label="Main">
+        <ul class="nav">
+          <li><a href="/check" {% if request_path == "/check" %}aria-current="page"{% endif %}>{{ t("nav.check") }}</a></li>
+          <li><a href="/check/history" {% if request_path.startswith("/check/history") %}aria-current="page"{% endif %}>{{ t("nav.history") }}</a></li>
+          {% if "reviewer" in roles %}<li><a href="/review" {% if request_path.startswith("/review") %}aria-current="page"{% endif %}>{{ t("nav.review") }}</a></li>{% endif %}
+        </ul>
+      </nav>
+      <form class="signout" method="post" action="/check/sign-out">
+        <span class="who">{{ t("nav.signed_in_as", name=session.user.display_name) }}</span>
+        <input type="hidden" name="csrf_token" value="{{ csrf }}">
+        <button class="btn btn-quiet" type="submit">{{ t("nav.sign_out") }}</button>
+      </form>
+      {% endif %}
+    </div>
+  </header>
+  <p class="synthetic-banner"><span class="container">{{ synthetic("Synthetic data") }} {{ t("app.synthetic_banner") }}</span></p>
+  <main id="main" tabindex="-1" class="{% block main_class %}container{% endblock %}">
+    {% block content %}{% endblock %}
+  </main>
+  <footer class="site-footer"><p class="container">{{ t("app.footer") }}</p></footer>
+</body>
+</html>

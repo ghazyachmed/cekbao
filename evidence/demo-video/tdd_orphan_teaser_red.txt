@@ -1,0 +1,85 @@
+
+> cekbao-demo-video@1.0.0 test
+> node --test "test/**/*.test.ts"
+
+✔ a user voiceover with a missing line fails loudly (1.280792ms)
+✔ a capture without the markers the narration anchors to is refused (0.297542ms)
+✔ config: accepts the brief's configuration (1.585792ms)
+✔ config: rejects real data, a target above the limit and too many paid calls (0.20125ms)
+✔ captions: wrap to at most two lines within the character limit (0.154ms)
+✔ captions: long narration splits into several non-overlapping cues (0.373708ms)
+✔ captions: validation reports overlaps, three-line cues and flashes (0.085333ms)
+✔ captions: version numbers and links are not split as sentence ends (0.13ms)
+✖ captions: a long sentence is split into balanced cues, never a one-word orphan (0.533167ms)
+✔ captions: SRT timestamps (0.107959ms)
+✔ timeline: scenes never cut narration and frames add up (0.108375ms)
+✔ timeline: duration check fails above the official limit (0.109791ms)
+✔ manifest: reads the inference mode from the result page, never from configuration (0.265625ms)
+✔ manifest: final output only when every scenario used live or recorded inference (0.064666ms)
+✔ manifest: secrets are refused (0.464667ms)
+✔ validate: a conforming MP4 passes every probe check (0.126917ms)
+✔ validate: wrong codec, resolution, missing audio and over-limit duration fail (0.10225ms)
+✔ validate: faststart means the moov atom comes before mdat (0.317667ms)
+✔ capture: a run with missing steps is rejected instead of rendered (0.098041ms)
+✖ an animated problem intro opens the video and a real app screen appears within 15 seconds (4.2545ms)
+✔ the policy timeline follows scenario B and its animation beats follow the narration (1.23525ms)
+✔ every recorded segment carries a short callout; result callouts quote the app's own headline (0.771875ms)
+✔ the inference callout states what actually read the instruction (1.155625ms)
+✔ sound effects stay quiet, inside the video, and out of the narration track (0.697167ms)
+✔ chapters start at 00:00, merge short scenes and cover the rendered duration (1.578417ms)
+✔ a closing chapter shorter than 10 s is merged, never left alone (0.120792ms)
+✔ the animated problem intro becomes the first chapter and the timeline joins the policy chapter (0.101334ms)
+✔ chapter validation catches each rule (0.075541ms)
+✔ title and description limits (0.147458ms)
+✔ unsupported claims and mode mismatches fail (1.270041ms)
+✔ a disclosure that denies a customer relationship is not a customer claim (0.06ms)
+ℹ tests 31
+ℹ suites 0
+ℹ pass 29
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 150.824208
+
+✖ failing tests:
+
+test at test/pipeline.test.ts:69:1
+✖ captions: a long sentence is split into balanced cues, never a one-word orphan (0.533167ms)
+  AssertionError [ERR_ASSERTION]: orphan cue: "pay."
+      at TestContext.<anonymous> (file:///Users/ghazy/Ghazy/cekbao/tools/demo-video/test/pipeline.test.ts:74:34)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at test/plan.test.ts:36:1
+✖ an animated problem intro opens the video and a real app screen appears within 15 seconds (4.2545ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'build/x/conflict-result_shown.png'
+  - 'build/x/conflict-mobile.png'
+                      ^
+  
+      at TestContext.<anonymous> (file:///Users/ghazy/Ghazy/cekbao/tools/demo-video/test/plan.test.ts:40:10)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.start (node:internal/test_runner/test:1096:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:385:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'build/x/conflict-result_shown.png',
+    expected: 'build/x/conflict-mobile.png',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

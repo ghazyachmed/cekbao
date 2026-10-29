@@ -1,0 +1,99 @@
+✖ an animated intro opens the video and the real app is on screen within 15 seconds (3.27825ms)
+✖ the policy timeline follows scenario B and its animation beats follow the narration (0.922625ms)
+✖ every recorded segment carries a short callout; result callouts quote the app's own headline (0.560291ms)
+✖ the inference callout states what actually read the instruction (0.585167ms)
+✖ sound effects stay quiet, inside the video, and out of the narration track (0.458792ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 0
+ℹ fail 5
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 124.055
+
+✖ failing tests:
+
+test at test/plan.test.ts:35:1
+✖ an animated intro opens the video and the real app is on screen within 15 seconds (3.27825ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'title_conflict'
+  - 'intro'
+  
+      at TestContext.<anonymous> (file:///Users/ghazy/Ghazy/cekbao/tools/demo-video/test/plan.test.ts:37:10)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.start (node:internal/test_runner/test:1096:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:385:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'title_conflict',
+    expected: 'intro',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test/plan.test.ts:42:1
+✖ the policy timeline follows scenario B and its animation beats follow the narration (0.922625ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + undefined
+  - 'policy_change'
+  
+      at TestContext.<anonymous> (file:///Users/ghazy/Ghazy/cekbao/tools/demo-video/test/plan.test.ts:45:10)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: 'policy_change',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at test/plan.test.ts:52:1
+✖ every recorded segment carries a short callout; result callouts quote the app's own headline (0.560291ms)
+  AssertionError [ERR_ASSERTION]: conflict/form_open
+      at TestContext.<anonymous> (file:///Users/ghazy/Ghazy/cekbao/tools/demo-video/test/plan.test.ts:55:12)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at test/plan.test.ts:64:1
+✖ the inference callout states what actually read the instruction (0.585167ms)
+  TypeError: Cannot read properties of undefined (reading 'text')
+      at TestContext.<anonymous> (file:///Users/ghazy/Ghazy/cekbao/tools/demo-video/test/plan.test.ts:66:31)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7)
+
+test at test/plan.test.ts:72:1
+✖ sound effects stay quiet, inside the video, and out of the narration track (0.458792ms)
+  TypeError: Cannot read properties of undefined (reading 'length')
+      at TestContext.<anonymous> (file:///Users/ghazy/Ghazy/cekbao/tools/demo-video/test/plan.test.ts:74:19)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7)

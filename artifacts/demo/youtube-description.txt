@@ -1,0 +1,33 @@
+CEKBAO checks whether a payment instruction matches the payment policy an institution has published for the payment date. It shows the policy evidence and the next step, and it never moves money or confirms that a payment arrived.
+
+In this demo the running app checks three synthetic cases: an email that names a new payee, an old invoice whose account changed when a new policy version took effect, and a deposit request backed only by a page from a publisher without authority.
+
+Links
+Code: https://github.com/ghazyachmed/cekbao
+Reported scam pattern (Singapore Police Force advisory, 19 March 2026): https://www.police.gov.sg/media-hub/news/2026/03/20260319_police_advisory_on_resurgence_of_impersonation_scams_involving_educational_institutions
+
+Chapters
+00:00 The problem: a payment email with a new account
+00:22 A conflicting payment instruction
+01:10 Policy versions and payment dates
+01:57 Insufficient evidence: a publisher without authority
+02:18 Model integration status
+02:31 Results and limits
+
+How it works
+- A check is saved first (HTTP 202 after a database commit); a separate worker processes it.
+- Policy versions have validity periods. The check uses the version valid on the payment date, and an earlier payment is assessed separately from a new one.
+- Each result compares the instruction with the policy detail by detail and shows the policy quote, its version, its effective period and the publisher's authority.
+- Model: the app is built to read instructions with NVIDIA Nemotron 3 Nano (nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B) on Nebius Token Factory, with quote checks and fixed rules deciding. In this recording the model was not called because no API key or budget was configured; fixed rules read every instruction.
+- Measured on this build: 231 automated tests passed; axe-core found 0 WCAG violations on the audited pages.
+
+Limits and disclosure
+- All institutions, people, accounts and sources are synthetic. They are not customers or partners.
+- A policy match is not a payment confirmation; payment status is always shown as unknown.
+- No user testing has been done yet.
+- The narration uses a synthetic voice.
+
+Credits
+Font: Inter (SIL Open Font License 1.1). Voice: Kokoro-82M via kokoro-onnx (Apache-2.0). Sound effects: original, synthesized. App recorded with Playwright; video composed with Remotion.
+
+#FinTech #Hackathon

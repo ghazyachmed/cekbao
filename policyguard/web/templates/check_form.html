@@ -1,0 +1,128 @@
+{% extends "base.html" %}
+{% from "_macros.html" import icon, error_summary, field_error, described, synthetic %}
+{% block title %}{{ t("check.title") }}{% endblock %}
+{% block main_class %}container narrow{% endblock %}
+{% block content %}
+<h1>{{ t("check.title") }}</h1>
+<p class="lead">{{ t("check.lead") }}</p>
+
+{% if banner %}<div class="banner banner-warn" role="alert"><p>{{ banner }}</p></div>{% endif %}
+{{ error_summary(errors) }}
+
+<form class="example-picker" method="get" action="/check" aria-labelledby="example-title">
+  <p id="example-title" class="example-title">{{ synthetic(t("check.example_label")) }}</p>
+  <div class="example-row">
+    <label for="example" class="visually-hidden">{{ t("check.example_label") }}</label>
+    <select id="example" name="example" aria-describedby="example-hint">
+      {% for key, s in samples.items() %}<option value="{{ key }}" {% if values.get("example") == key %}selected{% endif %}>{{ s.title }}</option>{% endfor %}
+    </select>
+    <button class="btn btn-secondary" type="submit">{{ t("check.example_button") }}</button>
+  </div>
+  <p id="example-hint" class="hint">{{ t("check.example_hint") }}</p>
+</form>
+
+<form id="check-form" class="stack" method="post" action="/check" enctype="multipart/form-data" novalidate data-upload-url="/check/uploads">
+  <input type="hidden" name="csrf_token" value="{{ csrf }}">
+  <input type="hidden" name="idempotency_token" value="{{ idempotency_token }}">
+  {% if values.get("correcting") %}<input type="hidden" name="correcting" value="{{ values.correcting }}">{% endif %}
+
+  <div class="field">
+    <label for="instruction_text">{{ t("check.instruction") }}</label>
+    <p class="hint" id="instruction_text-hint">{{ t("check.instruction_hint") }}</p>
+    {{ field_error(errors, "instruction_text") }}
+    <textarea id="instruction_text" name="instruction_text" rows="11" spellcheck="false" required{{ described(errors, "instruction_text") }}>{{ values.get("instruction_text", "") }}</textarea>
+  </div>
+
+  <fieldset class="field" id="institution_choice" {% if "institution_choice" in error_fields %}aria-invalid="true"{% endif %} aria-describedby="institution_choice-hint{% if 'institution_choice' in error_fields %} institution_choice-error{% endif %}">
+    <legend>{{ t("check.institution") }}</legend>
+    <p class="hint" id="institution_choice-hint">{{ t("check.institution_hint") }}</p>
+    {{ field_error(errors, "institution_choice") }}
+    <div class="filter" data-js-only hidden>
+      <label for="institution_filter">{{ t("check.institution_filter") }}</label>
+      <input id="institution_filter" type="search" autocomplete="off" aria-controls="institution-options">
+      <p class="hint" id="institution_count" role="status" aria-live="polite"></p>
+    </div>
+    <div class="choices" id="institution-options">
+      {% for i in institutions %}
+      <div class="choice inst-option" data-name="{{ i.name | lower }}">
+        <input type="radio" id="inst-{{ i.institution_id }}" name="institution_choice" value="{{ i.institution_id }}" data-tz="{{ i.timezone }}" {% if values.get("institution_choice") == i.institution_id %}checked{% endif %}>
+        <label for="inst-{{ i.institution_id }}"><span class="choice-title">{{ i.name }}</span><span class="choice-meta">{{ i.country_code }}, time zone {{ i.timezone }}{% if i.synthetic %} {{ synthetic() }}{% endif %}</span></label>
+      </div>
+      {% endfor %}
+      <div class="choice choice-other">
+        <input type="radio" id="inst-not-listed" name="institution_choice" value="{{ not_listed }}" {% if values.get("institution_choice") == not_listed %}checked{% endif %} aria-controls="institution_query_wrap">
+        <label for="inst-not-listed"><span class="choice-title">{{ t("check.not_listed") }}</span></label>
+      </div>
+    </div>
+    <div class="field nested" id="institution_query_wrap" data-reveal-for="inst-not-listed">
+      <label for="institution_query">{{ t("check.institution_query") }}</label>
+      <p class="hint" id="institution_query-hint">{{ t("check.institution_query_hint") }}</p>
+      {{ field_error(errors, "institution_query") }}
+      <input id="institution_query" name="institution_query" value="{{ values.get('institution_query', '') }}" autocomplete="organization"{{ described(errors, "institution_query") }}>
+    </div>
+  </fieldset>
+
+  <fieldset class="field">
+    <legend>{{ t("check.dates") }}</legend>
+    <div class="field">
+      <label for="due_on">{{ t("check.due_on") }}</label>
+      <p class="hint" id="due_on-hint">{{ t("check.due_on_hint") }}</p>
+      {{ field_error(errors, "due_on") }}
+      <input id="due_on" name="due_on" type="date" value="{{ values.get('due_on', '') }}" required class="input-date"{{ described(errors, "due_on") }}>
+    </div>
+    <div class="field">
+      <label for="instruction_received_on">{{ t("check.received_on") }}</label>
+      <p class="hint" id="instruction_received_on-hint">{{ t("check.received_on_hint") }}</p>
+      {{ field_error(errors, "instruction_received_on") }}
+      <input id="instruction_received_on" name="instruction_received_on" type="date" value="{{ values.get('instruction_received_on', '') }}" class="input-date"{{ described(errors, "instruction_received_on") }}>
+    </div>
+    <details class="disclosure" {% if values.get("paid_on") or "paid_on" in error_fields %}open{% endif %}>
+      <summary>{{ t("check.paid_before") }}</summary>
+      <div class="field">
+        <label for="paid_on">{{ t("check.paid_on") }}</label>
+        <p class="hint" id="paid_on-hint">{{ t("check.paid_on_hint") }}</p>
+        {{ field_error(errors, "paid_on") }}
+        <input id="paid_on" name="paid_on" type="date" value="{{ values.get('paid_on', '') }}" class="input-date"{{ described(errors, "paid_on") }}>
+      </div>
+    </details>
+    <div class="field">
+      <label for="payment_tz">{{ t("check.tz") }}</label>
+      <select id="payment_tz" name="payment_tz">
+        <option value="" {% if not values.get("payment_tz") %}selected{% endif %}>{{ t("check.tz_institution") }}</option>
+        {% for z in timezones %}<option value="{{ z }}" {% if values.get("payment_tz") == z %}selected{% endif %}>{{ z }}</option>{% endfor %}
+      </select>
+    </div>
+  </fieldset>
+
+  {% if values.get("correcting") %}
+  <fieldset class="field">
+    <legend>{{ t("check.corrections") }}</legend>
+    <p class="hint">{{ t("check.corrections_hint") }}</p>
+    {% for name in ["payee_name", "account_number", "swift_bic", "currency", "amount"] %}
+    <div class="field">
+      <label for="corr_{{ name }}">{{ t("field." ~ name) }}</label>
+      <input id="corr_{{ name }}" name="corr_{{ name }}" value="{{ values.get('corr_' ~ name, '') }}" {% if name in ["account_number", "swift_bic", "amount"] %}class="numeric" spellcheck="false"{% endif %}>
+    </div>
+    {% endfor %}
+  </fieldset>
+  {% endif %}
+
+  <div class="field" id="document">
+    <label for="document_input">{{ t("check.upload") }}</label>
+    <p class="hint" id="document-hint">{{ t("check.upload_hint", size=max_upload_mb) }}</p>
+    {{ field_error(errors, "document") }}
+    <div class="dropzone" data-dropzone>
+      {{ icon("upload", 24) }}
+      <p class="dropzone-text">{{ t("check.upload_drop") }}</p>
+      <input id="document_input" name="document" type="file" accept=".pdf,.png,.jpg,.jpeg,.txt,application/pdf,image/png,image/jpeg,text/plain" aria-describedby="document-hint">
+    </div>
+    <ul class="upload-list" id="upload-list" aria-live="polite"></ul>
+    {% for uid in values.get("upload_ids", []) %}<input type="hidden" name="upload_ids" value="{{ uid }}">{% endfor %}
+  </div>
+
+  <div class="actions">
+    <button class="btn btn-primary btn-large" type="submit" data-busy-text="{{ t('check.submitting') }}">{{ t("check.submit") }}</button>
+    <p class="hint">{{ t("check.privacy") }}</p>
+  </div>
+</form>
+{% endblock %}

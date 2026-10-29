@@ -1,0 +1,6 @@
+E   ModuleNotFoundError: No module named 'policyguard.domain.temporal'
+=========================== short test summary info ============================
+ERROR tests/pgtests/test_rules.py
+ERROR tests/pgtests/test_temporal.py
+!!!!!!!!!!!!!!!!!!! Interrupted: 2 errors during collection !!!!!!!!!!!!!!!!!!!!
+2 errors in 0.43s

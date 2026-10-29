@@ -1,0 +1,44 @@
+
+> cekbao-demo-video@1.0.0 test
+> node --test "test/**/*.test.ts"
+
+✔ a user voiceover with a missing line fails loudly (1.220083ms)
+✔ a capture without the markers the narration anchors to is refused (0.297584ms)
+✔ config: accepts the brief's configuration (3.181083ms)
+✔ config: rejects real data, a target above the limit and too many paid calls (0.414875ms)
+✔ captions: wrap to at most two lines within the character limit (0.331958ms)
+✔ captions: long narration splits into several non-overlapping cues (0.812959ms)
+✔ captions: validation reports overlaps, three-line cues and flashes (0.194875ms)
+✔ captions: version numbers and links are not split as sentence ends (0.151375ms)
+✔ captions: a long sentence is split into balanced cues, never a one-word orphan (0.177667ms)
+✔ captions: SRT timestamps (0.153292ms)
+✔ timeline: scenes never cut narration and frames add up (0.132375ms)
+✔ timeline: duration check fails above the official limit (0.122125ms)
+✔ manifest: reads the inference mode from the result page, never from configuration (0.293791ms)
+✔ manifest: final output only when every scenario used live or recorded inference (0.077166ms)
+✔ manifest: secrets are refused (0.49575ms)
+✔ validate: a conforming MP4 passes every probe check (0.133375ms)
+✔ validate: wrong codec, resolution, missing audio and over-limit duration fail (0.094084ms)
+✔ validate: faststart means the moov atom comes before mdat (0.322209ms)
+✔ capture: a run with missing steps is rejected instead of rendered (0.0995ms)
+✔ an animated problem intro opens the video and a real app screen appears within 15 seconds (3.728167ms)
+✔ the policy timeline follows scenario B and its animation beats follow the narration (1.198459ms)
+✔ every recorded segment carries a short callout; result callouts quote the app's own headline (0.687292ms)
+✔ a callout stays only while its sentence is spoken, so later actions in the clip are not mislabelled (0.528958ms)
+✔ the inference callout states what actually read the instruction (1.104459ms)
+✔ sound effects stay quiet, inside the video, and out of the narration track (0.478917ms)
+✔ chapters start at 00:00, merge short scenes and cover the rendered duration (1.568ms)
+✔ a closing chapter shorter than 10 s is merged, never left alone (0.119542ms)
+✔ the animated problem intro becomes the first chapter and the timeline joins the policy chapter (0.10175ms)
+✔ chapter validation catches each rule (0.075333ms)
+✔ title and description limits (2.550083ms)
+✔ unsupported claims and mode mismatches fail (0.513875ms)
+✔ a disclosure that denies a customer relationship is not a customer claim (0.065375ms)
+ℹ tests 32
+ℹ suites 0
+ℹ pass 32
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 145.782958

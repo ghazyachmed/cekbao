@@ -1,0 +1,18 @@
+{
+  "url": "/check/cases/case_8cc71c9f055c4425905a",
+  "width": 375,
+  "testEngine": {
+    "name": "axe-core",
+    "version": "4.13.0"
+  },
+  "violations": [],
+  "incomplete": [
+    {
+      "id": "duplicate-id-aria",
+      "impact": "critical",
+      "help": "IDs used in ARIA and labels must be unique",
+      "nodes": 1
+    }
+  ],
+  "passes": 26
+}

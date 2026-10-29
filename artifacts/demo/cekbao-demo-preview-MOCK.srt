@@ -1,0 +1,170 @@
+1
+00:00:00,600 --> 00:00:03,373
+A tuition email asks you
+to pay a new account.
+
+2
+00:00:03,723 --> 00:00:06,454
+Would you pay it? CEKBAO
+checks before you do.
+
+3
+00:00:06,804 --> 00:00:08,612
+The name is the university's.
+
+4
+00:00:08,612 --> 00:00:10,687
+The account belongs to someone else.
+
+5
+00:00:11,037 --> 00:00:17,138
+Singapore police reported at least 20
+school impersonation scams since March 2026.
+
+6
+00:00:17,488 --> 00:00:21,477
+CEKBAO checks it against the
+institution's own policy for that date.
+
+7
+00:00:25,483 --> 00:00:29,025
+This is the real app. We
+paste the email into CEKBAO.
+
+8
+00:00:29,517 --> 00:00:32,354
+It asks us to pay a new
+payee and a new account.
+
+9
+00:00:34,417 --> 00:00:36,913
+We choose the university from the registry.
+
+10
+00:00:37,850 --> 00:00:40,608
+The date matters, because policies change.
+
+11
+00:00:40,608 --> 00:00:42,778
+We plan to pay on 15 November.
+
+12
+00:00:43,283 --> 00:00:46,163
+The check is saved first,
+then a worker compares it.
+
+13
+00:00:46,650 --> 00:00:49,295
+The result: conflicts
+with the checked policy.
+
+14
+00:00:50,083 --> 00:00:54,158
+Next step: do not pay these
+details. Contact the university.
+
+15
+00:00:54,650 --> 00:00:58,959
+Payee, account and bank code
+conflict. Currency and method agree.
+
+16
+00:01:00,083 --> 00:01:04,990
+This is the policy sentence behind the
+result, with its version and effective date.
+
+17
+00:01:06,017 --> 00:01:08,300
+In this preview, fixed rules read it.
+
+18
+00:01:08,300 --> 00:01:10,369
+The NVIDIA model was not called.
+
+19
+00:01:12,883 --> 00:01:17,373
+Now, dates. This old invoice
+was paid once on 14 August.
+
+20
+00:01:17,373 --> 00:01:20,713
+The next payment is due on 30 November.
+
+21
+00:01:21,950 --> 00:01:26,366
+For 30 November, the result is:
+conflicts with the checked policy.
+
+22
+00:01:26,850 --> 00:01:32,866
+Policy version 2026.1 took effect
+on 1 September, with a new account.
+
+23
+00:01:37,717 --> 00:01:41,386
+The August payment matched version 2025.1.
+
+24
+00:01:43,700 --> 00:01:46,973
+Until 31 August, the old policy applied.
+
+25
+00:01:46,973 --> 00:01:50,889
+From 1 September, a new
+version has a new account.
+
+26
+00:01:51,239 --> 00:01:55,933
+One invoice, two answers. A match in
+the past does not approve a new payment.
+
+27
+00:01:59,350 --> 00:02:03,425
+Third, a deposit request for a
+synthetic Canadian institute.
+
+28
+00:02:03,917 --> 00:02:06,541
+The result: not enough evidence to verify.
+
+29
+00:02:07,450 --> 00:02:10,229
+The account matches an
+agent's page, but that
+
+30
+00:02:10,229 --> 00:02:13,146
+publisher has no authority
+for this institution.
+
+31
+00:02:13,650 --> 00:02:15,865
+The French original stays visible.
+
+32
+00:02:15,865 --> 00:02:18,258
+The translation is labeled unofficial.
+
+33
+00:02:19,200 --> 00:02:24,725
+The worker is built to call NVIDIA
+Nemotron 3 Nano on Nebius Token Factory.
+
+34
+00:02:25,075 --> 00:02:27,247
+In this preview it was not called.
+
+35
+00:02:27,247 --> 00:02:30,025
+Code checks every quote,
+and fixed rules decide.
+
+36
+00:02:31,900 --> 00:02:37,468
+231 automated tests pass, and axe
+found no accessibility violations.
+
+37
+00:02:37,818 --> 00:02:43,130
+Limits: synthetic data, no user testing
+yet, and no model call in this preview.

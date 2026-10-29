@@ -1,0 +1,261 @@
+[
+  {
+    "text": "A tuition email asks you to pay a new account.",
+    "startMs": 600,
+    "endMs": 3373,
+    "timestampMs": 600,
+    "confidence": null
+  },
+  {
+    "text": "Would you pay it? CEKBAO checks before you do.",
+    "startMs": 3723,
+    "endMs": 6454,
+    "timestampMs": 3723,
+    "confidence": null
+  },
+  {
+    "text": "The name is the university's.",
+    "startMs": 6804,
+    "endMs": 8612,
+    "timestampMs": 6804,
+    "confidence": null
+  },
+  {
+    "text": "The account belongs to someone else.",
+    "startMs": 8612,
+    "endMs": 10687,
+    "timestampMs": 8612,
+    "confidence": null
+  },
+  {
+    "text": "Singapore police reported at least 20 school impersonation scams since March 2026.",
+    "startMs": 11037,
+    "endMs": 17138,
+    "timestampMs": 11037,
+    "confidence": null
+  },
+  {
+    "text": "CEKBAO checks it against the institution's own policy for that date.",
+    "startMs": 17488,
+    "endMs": 21477,
+    "timestampMs": 17488,
+    "confidence": null
+  },
+  {
+    "text": "This is the real app. We paste the email into CEKBAO.",
+    "startMs": 25483,
+    "endMs": 29025,
+    "timestampMs": 25483,
+    "confidence": null
+  },
+  {
+    "text": "It asks us to pay a new payee and a new account.",
+    "startMs": 29517,
+    "endMs": 32354,
+    "timestampMs": 29517,
+    "confidence": null
+  },
+  {
+    "text": "We choose the university from the registry.",
+    "startMs": 34417,
+    "endMs": 36913,
+    "timestampMs": 34417,
+    "confidence": null
+  },
+  {
+    "text": "The date matters, because policies change.",
+    "startMs": 37850,
+    "endMs": 40608,
+    "timestampMs": 37850,
+    "confidence": null
+  },
+  {
+    "text": "We plan to pay on 15 November.",
+    "startMs": 40608,
+    "endMs": 42778,
+    "timestampMs": 40608,
+    "confidence": null
+  },
+  {
+    "text": "The check is saved first, then a worker compares it.",
+    "startMs": 43283,
+    "endMs": 46163,
+    "timestampMs": 43283,
+    "confidence": null
+  },
+  {
+    "text": "The result: conflicts with the checked policy.",
+    "startMs": 46650,
+    "endMs": 49295,
+    "timestampMs": 46650,
+    "confidence": null
+  },
+  {
+    "text": "Next step: do not pay these details. Contact the university.",
+    "startMs": 50083,
+    "endMs": 54158,
+    "timestampMs": 50083,
+    "confidence": null
+  },
+  {
+    "text": "Payee, account and bank code conflict. Currency and method agree.",
+    "startMs": 54650,
+    "endMs": 58959,
+    "timestampMs": 54650,
+    "confidence": null
+  },
+  {
+    "text": "This is the policy sentence behind the result, with its version and effective date.",
+    "startMs": 60083,
+    "endMs": 64990,
+    "timestampMs": 60083,
+    "confidence": null
+  },
+  {
+    "text": "In this preview, fixed rules read it.",
+    "startMs": 66017,
+    "endMs": 68300,
+    "timestampMs": 66017,
+    "confidence": null
+  },
+  {
+    "text": "The NVIDIA model was not called.",
+    "startMs": 68300,
+    "endMs": 70369,
+    "timestampMs": 68300,
+    "confidence": null
+  },
+  {
+    "text": "Now, dates. This old invoice was paid once on 14 August.",
+    "startMs": 72883,
+    "endMs": 77373,
+    "timestampMs": 72883,
+    "confidence": null
+  },
+  {
+    "text": "The next payment is due on 30 November.",
+    "startMs": 77373,
+    "endMs": 80713,
+    "timestampMs": 77373,
+    "confidence": null
+  },
+  {
+    "text": "For 30 November, the result is: conflicts with the checked policy.",
+    "startMs": 81950,
+    "endMs": 86366,
+    "timestampMs": 81950,
+    "confidence": null
+  },
+  {
+    "text": "Policy version 2026.1 took effect on 1 September, with a new account.",
+    "startMs": 86850,
+    "endMs": 92866,
+    "timestampMs": 86850,
+    "confidence": null
+  },
+  {
+    "text": "The August payment matched version 2025.1.",
+    "startMs": 97717,
+    "endMs": 101386,
+    "timestampMs": 97717,
+    "confidence": null
+  },
+  {
+    "text": "Until 31 August, the old policy applied.",
+    "startMs": 103700,
+    "endMs": 106973,
+    "timestampMs": 103700,
+    "confidence": null
+  },
+  {
+    "text": "From 1 September, a new version has a new account.",
+    "startMs": 106973,
+    "endMs": 110889,
+    "timestampMs": 106973,
+    "confidence": null
+  },
+  {
+    "text": "One invoice, two answers. A match in the past does not approve a new payment.",
+    "startMs": 111239,
+    "endMs": 115933,
+    "timestampMs": 111239,
+    "confidence": null
+  },
+  {
+    "text": "Third, a deposit request for a synthetic Canadian institute.",
+    "startMs": 119350,
+    "endMs": 123425,
+    "timestampMs": 119350,
+    "confidence": null
+  },
+  {
+    "text": "The result: not enough evidence to verify.",
+    "startMs": 123917,
+    "endMs": 126541,
+    "timestampMs": 123917,
+    "confidence": null
+  },
+  {
+    "text": "The account matches an agent's page, but that",
+    "startMs": 127450,
+    "endMs": 130229,
+    "timestampMs": 127450,
+    "confidence": null
+  },
+  {
+    "text": "publisher has no authority for this institution.",
+    "startMs": 130229,
+    "endMs": 133146,
+    "timestampMs": 130229,
+    "confidence": null
+  },
+  {
+    "text": "The French original stays visible.",
+    "startMs": 133650,
+    "endMs": 135865,
+    "timestampMs": 133650,
+    "confidence": null
+  },
+  {
+    "text": "The translation is labeled unofficial.",
+    "startMs": 135865,
+    "endMs": 138258,
+    "timestampMs": 135865,
+    "confidence": null
+  },
+  {
+    "text": "The worker is built to call NVIDIA Nemotron 3 Nano on Nebius Token Factory.",
+    "startMs": 139200,
+    "endMs": 144725,
+    "timestampMs": 139200,
+    "confidence": null
+  },
+  {
+    "text": "In this preview it was not called.",
+    "startMs": 145075,
+    "endMs": 147247,
+    "timestampMs": 145075,
+    "confidence": null
+  },
+  {
+    "text": "Code checks every quote, and fixed rules decide.",
+    "startMs": 147247,
+    "endMs": 150025,
+    "timestampMs": 147247,
+    "confidence": null
+  },
+  {
+    "text": "231 automated tests pass, and axe found no accessibility violations.",
+    "startMs": 151900,
+    "endMs": 157468,
+    "timestampMs": 151900,
+    "confidence": null
+  },
+  {
+    "text": "Limits: synthetic data, no user testing yet, and no model call in this preview.",
+    "startMs": 157818,
+    "endMs": 163130,
+    "timestampMs": 157818,
+    "confidence": null
+  }
+]

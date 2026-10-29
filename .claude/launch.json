@@ -4,8 +4,25 @@
     {
       "name": "cekbao",
       "runtimeExecutable": "/Users/ghazy/Ghazy/cekbao/.venv/bin/python",
-      "runtimeArgs": ["-m", "uvicorn", "app.main:get_app", "--factory", "--host", "127.0.0.1", "--port", "8765"],
+      "runtimeArgs": [
+        "-m",
+        "uvicorn",
+        "app.main:get_app",
+        "--factory",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "8765"
+      ],
       "port": 8765
+    },
+    {
+      "name": "cekbao-policyguard",
+      "runtimeExecutable": "/Users/ghazy/Ghazy/cekbao/scripts/policyguard_serve.sh",
+      "runtimeArgs": [
+        "8780"
+      ],
+      "port": 8780
     }
   ]
 }

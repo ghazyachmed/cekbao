@@ -1,0 +1,40 @@
+{
+  "name": "cekbao-demo-video",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Programmatic CEKBAO demo video: Playwright capture of the real app, Remotion composition, narration, captions, validation.",
+  "type": "module",
+  "engines": {
+    "node": ">=25"
+  },
+  "scripts": {
+    "demo:doctor": "node src/cli/doctor.ts",
+    "demo:seed": "node src/cli/seed.ts",
+    "demo:capture": "node src/cli/capture.ts",
+    "demo:render": "node src/cli/render.ts",
+    "demo:validate": "node src/cli/validate.ts",
+    "demo:build": "node src/cli/build.ts",
+    "studio": "remotion studio src/remotion/index.ts",
+    "test": "node --test \"test/**/*.test.ts\"",
+    "typecheck": "tsc --noEmit",
+    "demo:thumbnail": "node src/cli/thumbnail.ts",
+    "demo:metadata": "node src/cli/metadata.ts",
+    "demo:package": "node src/cli/package.ts",
+    "demo:validate-package": "node src/cli/validate-package.ts"
+  },
+  "dependencies": {
+    "@remotion/captions": "4.0.537",
+    "@remotion/cli": "4.0.537",
+    "@remotion/fonts": "4.0.537",
+    "@remotion/media": "4.0.537",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "remotion": "4.0.537"
+  },
+  "devDependencies": {
+    "@types/node": "24.10.1",
+    "@types/react": "19.3.0",
+    "playwright": "1.64.1",
+    "typescript": "5.9.3"
+  }
+}

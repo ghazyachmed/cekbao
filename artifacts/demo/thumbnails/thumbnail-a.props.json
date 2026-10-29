@@ -1,0 +1,25 @@
+{
+  "lines": [
+    {
+      "text": "Check"
+    },
+    {
+      "text": "before"
+    },
+    {
+      "text": "you pay",
+      "neon": true
+    }
+  ],
+  "accent": "#ff6b7d",
+  "phone": {
+    "src": "build/20261029T001918Z-745bb1f/conflict-mobile.png",
+    "w": 390,
+    "h": 844
+  },
+  "note": "REAL APP · SYNTHETIC DATA",
+  "chip": {
+    "text": "CONFLICTS WITH POLICY",
+    "tone": "bad"
+  }
+}
