@@ -1,0 +1,25 @@
+{
+  "accent": "#2ee6c5",
+  "title": "Measured on this build",
+  "caption": "Local measurements with synthetic data. No user testing yet; a policy match is not a payment confirmation.",
+  "stats": [
+    [
+      "231",
+      "automated tests pass (pytest, Hypothesis)"
+    ],
+    [
+      "0",
+      "axe-core WCAG violations on 12 audited pages"
+    ],
+    [
+      "100",
+      "lowest Lighthouse accessibility score (lab)"
+    ],
+    [
+      "≤ 3 ms",
+      "per query on 100,000 synthetic cases (EXPLAIN ANALYZE, local)"
+    ]
+  ],
+  "index": 7,
+  "total": 7
+}

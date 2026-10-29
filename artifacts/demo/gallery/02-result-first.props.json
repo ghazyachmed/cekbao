@@ -1,0 +1,19 @@
+{
+  "accent": "#ff6b7d",
+  "title": "The result and the next step come first",
+  "caption": "Four fixed labels: matches, conflicts, not enough evidence, institution review required. Never “safe to pay”.",
+  "images": [
+    {
+      "src": "build/20261029T001918Z-745bb1f/conflict-result_shown.png",
+      "w": 1160,
+      "h": 141
+    },
+    {
+      "src": "build/20261029T001918Z-745bb1f/conflict-next_action_shown.png",
+      "w": 1105,
+      "h": 177
+    }
+  ],
+  "index": 2,
+  "total": 7
+}

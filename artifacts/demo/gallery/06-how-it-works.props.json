@@ -1,0 +1,29 @@
+{
+  "accent": "#76b900",
+  "title": "How it works: NVIDIA Nemotron reads, rules decide",
+  "caption": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B on Nebius Token Factory proposes fields; code and rules do the rest.",
+  "steps": [
+    [
+      "Check saved",
+      "HTTP 202 after the database commit; a transactional outbox queues the job."
+    ],
+    [
+      "Worker leases the job",
+      "Leases with heartbeat, retries with jitter, dead letters, idempotency."
+    ],
+    [
+      "Nemotron on Nebius",
+      "Strict JSON schema, temperature 0; every field needs a verbatim quote."
+    ],
+    [
+      "Quote check in code",
+      "Fields whose quote is not in the instruction are dropped."
+    ],
+    [
+      "Rules decide",
+      "The policy version valid on the payment date, the issuer's authority, the result."
+    ]
+  ],
+  "index": 6,
+  "total": 7
+}

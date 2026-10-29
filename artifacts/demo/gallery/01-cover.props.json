@@ -1,0 +1,24 @@
+{
+  "accent": "#ff6b7d",
+  "title": "Check a payment instruction before you pay",
+  "caption": "CEKBAO compares a payment request with the payment policy the institution published for the date you pay.",
+  "phones": [
+    {
+      "src": "build/20261029T001918Z-745bb1f/policy_change-mobile.png",
+      "w": 390,
+      "h": 844
+    },
+    {
+      "src": "build/20261029T001918Z-745bb1f/conflict-mobile.png",
+      "w": 390,
+      "h": 844
+    },
+    {
+      "src": "build/20261029T001918Z-745bb1f/insufficient-mobile.png",
+      "w": 390,
+      "h": 844
+    }
+  ],
+  "index": 1,
+  "total": 7
+}

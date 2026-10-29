@@ -4,8 +4,10 @@ import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import { VERIFIED_SOURCES, buildChapters, chapterText, validateChapters } from "../pipeline/youtube.ts";
-import { ARTIFACTS, REPO, ffprobe, latestBuild, readJson, writeJson } from "../pipeline/util.ts";
+import { loadConfig } from "../pipeline/config.ts";
+import { ARTIFACTS, REPO, TOOL_DIR, ffprobe, latestBuild, readJson, writeJson } from "../pipeline/util.ts";
 
+const cfg = loadConfig(path.join(TOOL_DIR, "demo.config.json"));
 const build = latestBuild();
 const manifest = readJson(path.join(build.dir, "evidence-manifest.json"));
 if (!manifest.render) throw new Error("Render the video first (npm run demo:render).");
@@ -98,7 +100,8 @@ const description = [
   "- Each result compares the instruction with the policy detail by detail and shows the policy quote, its version, its effective period and the publisher's authority.",
   live
     ? `- Model: ${manifest.inference_summary.model_id} on Nebius Token Factory reads the instruction and proposes fields with exact quotes; code checks every quote and fixed rules decide. Measured latency in this recording: ${(manifest.inference_summary.latency_ms / 1000).toFixed(1)} s.`
-    : "- Model: the app is built to read instructions with NVIDIA Nemotron 3 Nano (nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B) on Nebius Token Factory, with quote checks and fixed rules deciding. In this recording the model was not called because no API key or budget was configured; fixed rules read every instruction.",
+    : "- Model: the app is built to read instructions with NVIDIA Nemotron 3 Nano (nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B) on Nebius Token Factory, with quote checks and fixed rules deciding. " +
+      (cfg.inference_blocker?.long ?? "In this recording the model was not called because no API key or budget was configured; fixed rules read every instruction."),
   `- Measured on this build: ${m.tests_passed} automated tests passed; axe-core found ${m.axe_violations} WCAG violations on the audited pages.`,
   "",
   "Limits and disclosure",

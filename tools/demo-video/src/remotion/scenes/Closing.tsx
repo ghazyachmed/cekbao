@@ -6,7 +6,8 @@ import { C, FONT, L, TONE, V } from "../theme.ts";
 
 export type Facts = { preview: boolean; mode: string; modelId: string | null; latencyMs: number | null; tokens: string | null;
   checkedAt: string | null; license: string; testsPassed: number | null; axeViolations: number | null;
-  lighthouseA11y: number | null; decisions: [string, string][]; repo: string; blockedReason: string | null };
+  lighthouseA11y: number | null; decisions: [string, string][]; repo: string; blockedReason: string | null;
+  blocker?: string | null };
 
 const Title: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const frame = useCurrentFrame();
@@ -30,7 +31,7 @@ export const NvidiaScene: React.FC<{ f: Facts; scene: PlannedScene }> = ({ f, sc
     ["Licence", "NVIDIA Nemotron Open Model License (open weights, not OSI open source)"],
     ["This video", live ? (f.mode === "replay" ? `Recorded inference, ${((f.latencyMs ?? 0) / 1000).toFixed(1)} s`
                                               : `Live call, ${((f.latencyMs ?? 0) / 1000).toFixed(1)} s measured`)
-                        : "Not called: no API key or budget configured"],
+                        : f.blocker ?? "Not called: no API key or budget configured"],
   ];
   const steps = ["Instruction saved (202 after commit)", "Worker leases the job",
                  "NVIDIA Nemotron proposes fields with quotes", "Code checks every quote", "Rules: policy valid on the date"];

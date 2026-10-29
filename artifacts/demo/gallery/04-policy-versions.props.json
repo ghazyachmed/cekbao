@@ -1,0 +1,19 @@
+{
+  "accent": "#a08cff",
+  "title": "The payment date chooses the policy version",
+  "caption": "The same invoice conflicts on 30 November (policy 2026.1) and matched on 14 August (policy 2025.1).",
+  "images": [
+    {
+      "src": "build/20261029T001918Z-745bb1f/policy_change-result_shown.png",
+      "w": 1160,
+      "h": 141
+    },
+    {
+      "src": "build/20261029T001918Z-745bb1f/policy_change-earlier_payment_shown.png",
+      "w": 1160,
+      "h": 553
+    }
+  ],
+  "index": 4,
+  "total": 7
+}

@@ -1,6 +1,7 @@
 import { loadFont } from "@remotion/fonts";
 import { Composition, Still, staticFile } from "remotion";
 import { DemoVideo, type DemoProps } from "./DemoVideo.tsx";
+import { Gallery, type GalleryProps } from "./Gallery.tsx";
 import { Thumbnail, type ThumbnailProps } from "./Thumbnail.tsx";
 
 // Inter (SIL OFL 1.1), the same files the app serves.
@@ -30,5 +31,7 @@ export const Root: React.FC = () => (
     <Still id="ThumbnailA" component={Thumbnail} width={1920} height={1080} defaultProps={thumb("Check / before / you pay")} />
     <Still id="ThumbnailB" component={Thumbnail} width={1920} height={1080} defaultProps={thumb("Who / authorized / this?")} />
     <Still id="ThumbnailC" component={Thumbnail} width={1920} height={1080} defaultProps={thumb("When / policies / change")} />
+    <Still id="Gallery" component={Gallery} width={1800} height={1200}
+           defaultProps={{ index: 1, total: 1, title: "CEKBAO", caption: "", accent: "#2ee6c5" } as GalleryProps} />
   </>
 );

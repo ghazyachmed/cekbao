@@ -20,7 +20,8 @@
     "demo:thumbnail": "node src/cli/thumbnail.ts",
     "demo:metadata": "node src/cli/metadata.ts",
     "demo:package": "node src/cli/package.ts",
-    "demo:validate-package": "node src/cli/validate-package.ts"
+    "demo:validate-package": "node src/cli/validate-package.ts",
+    "demo:gallery": "node src/cli/gallery.ts"
   },
   "dependencies": {
     "@remotion/captions": "4.0.537",

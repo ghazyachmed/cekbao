@@ -1,0 +1,19 @@
+{
+  "accent": "#ffc53d",
+  "title": "Evidence needs an authorized publisher",
+  "caption": "An agent's page is not enough. The French original stays visible; the translation is labelled unofficial.",
+  "images": [
+    {
+      "src": "build/20261029T001918Z-745bb1f/insufficient-explanation_shown.png",
+      "w": 1158,
+      "h": 281
+    },
+    {
+      "src": "build/20261029T001918Z-745bb1f/insufficient-evidence_shown.png",
+      "w": 1110,
+      "h": 264
+    }
+  ],
+  "index": 5,
+  "total": 7
+}

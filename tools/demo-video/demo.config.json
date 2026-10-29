@@ -29,5 +29,9 @@
   },
   "music": {
     "enabled": false
+  },
+  "inference_blocker": {
+    "short": "Not called: Nebius Token Factory billing is not available in Indonesia",
+    "long": "In this recording the model was not called: Nebius Token Factory onboarding is not available to us from Indonesia (the country is not in the billing list and the card was declined), and the hackathon FAQ does not allow other providers. The Nebius adapter is implemented and contract-tested, and scripts/nebius_live_check.py runs the live check once a key exists. Fixed rules read every instruction in this recording."
   }
 }

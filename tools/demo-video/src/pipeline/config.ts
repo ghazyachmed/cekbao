@@ -10,7 +10,9 @@ export type CaptureConfig = {
   max_paid_calls: number; max_cost_usd: number | null;
 };
 export type DemoConfig = { video: VideoConfig; capture: CaptureConfig; tts?: { engine: string; voice: string; speed: number };
-  music?: { enabled: boolean }; rules_source?: { url: string; checked_on: string; video_rule: string } };
+  music?: { enabled: boolean }; rules_source?: { url: string; checked_on: string; video_rule: string };
+  // Why the model could not be called, shown in previews only (short: video card; long: YouTube description).
+  inference_blocker?: { short: string; long: string } };
 
 const HARD_PAID_CALL_CAP = 3;
 

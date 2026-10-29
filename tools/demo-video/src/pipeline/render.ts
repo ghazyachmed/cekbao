@@ -50,6 +50,7 @@ export function render(cfg: DemoConfig, build: { id: string; dir: string },
   const checks = capture.scenarios.filter((s: ScenarioCapture) => s.key !== "escalation");
   const plan = makePlan(lines, voiced, captures, `build/${build.id}`, cfg.video.fps, {
     preview: kind !== "final", mode: inf.mode, modelId: inf.model_id, latencyMs: inf.latency_ms,
+    blocker: cfg.inference_blocker?.short ?? null,
     tokens: inf.tokens ?? null, checkedAt: inf.checked_at ?? null, blockedReason: inf.blocked_reason ?? null,
     license: "NVIDIA Nemotron Open Model License (open weights; not an OSI open-source licence)",
     testsPassed: manifest.measurements.tests_passed, axeViolations: manifest.measurements.axe_violations,

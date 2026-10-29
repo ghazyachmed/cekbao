@@ -3,6 +3,16 @@
 Draft answers for the submission form. Rules checked on 2026-10-29 at https://nebiusglobalaihackathon.devpost.com/rules.
 Deadline: **Friday 30 October 2026, 10:00 am Pacific Time** (Saturday 31 October, 00:00 WIB).
 
+## Nebius access (blocker on 2026-10-29)
+
+The key in hand is from build.nvidia.com. The FAQ says an NVIDIA model called through another provider does not qualify ("Can I call an NVIDIA model through a different provider ... instead of Nebius? No"). The Indonesian card was declined at Nebius billing. Routes listed by the organisers:
+
+1. Credits form with activation code `NEBIUS-DEVPOST-GLOBAL26` (USD 25 Token Factory credits): https://nebius.com/promo-code?utm_promo_event_code=2026-devpost-global-ai-hack&utm_promo_code_type=Token_Factory&utm_promo_activation_code=NEBIUS-DEVPOST-GLOBAL26
+2. Nebius Builders Program (another USD 25): https://dev.nebius.com/builders
+3. Country or billing problems are "handled case by case with Nebius": Nebius Discord https://discord.gg/eXYTGhgnhK
+
+Fallback if access does not arrive in time: submit the complete draft with the preview video (it states that the model was not called), and replace the video before the deadline if the live run succeeds.
+
 Items marked **[AFTER LIVE RUN]** need numbers from `scripts/nebius_live_check.py` and the final demo build. Items marked **[YOU]** are personal answers that only the entrant can give. Do not submit a rating or a result that was not measured.
 
 ## Project overview
@@ -49,8 +59,9 @@ CEKBAO (PolicyGuard) checks a payment instruction against the payment policy an 
 ## What we learned
 [YOU: two or three sentences in your own words.]
 
-## Measured with NVIDIA Nemotron on Nebius
-[AFTER LIVE RUN: model ID, date, latency per call, tokens, how many fields were grounded, and the three scenario results. Copy from docs/policyguard/NVIDIA_NEBIUS.md.]
+## Status of the NVIDIA Nemotron call
+The worker is built to call NVIDIA Nemotron 3 Nano on Nebius Token Factory, and the adapter is contract-tested. We could not run it live before the deadline: Nebius Token Factory onboarding is not available to us from Indonesia (the country is not in the billing list and our card was declined). The hackathon FAQ asks entrants in this situation to contact Nebius on Discord, and it does not allow other providers, so we did not switch provider. In the demo, fixed rules read every instruction, and every result page says "Fixed rules (no AI model call)". With a Nebius key, `scripts/nebius_live_check.py` checks the model ID and runs three capped calls.
+[If the live run succeeds before the deadline, replace this section with the measured results from docs/policyguard/NVIDIA_NEBIUS.md.]
 
 ## Limits
 All institutions, accounts and people are synthetic. No user testing yet. A policy match is not a payment confirmation.
@@ -70,7 +81,17 @@ python, fastapi, postgresql, redis, sqlalchemy, alembic, pydantic, jinja2, nvidi
 
 ### Image gallery (JPG, PNG or GIF, 5 MB max, 3:2 recommended, up to 15)
 
-Not prepared yet. Candidates: `artifacts/demo/thumbnail-a.jpg` (16:9) and the screenshots in `evidence/policyguard/ui/screens/` (result pages at 1440 px).
+Upload `artifacts/demo/gallery/01-cover.jpg` to `07-tested.jpg` in order (1800x1200, 3:2, 0.2 to 0.3 MB each; `npm run demo:gallery` rebuilds them from the latest capture). Do not use `docs/screenshots/`: those show the earlier MVP (payment slips, payment plan), not PolicyGuard.
+
+| File | Shows |
+|---|---|
+| 01-cover | Three phone captures of the result page |
+| 02-result-first | Result and next step (Scenario A) |
+| 03-detail-by-detail | Comparison table: instruction against policy |
+| 04-policy-versions | 30 November conflicts, 14 August matched |
+| 05-evidence-authority | Publisher without authority, French original with unofficial translation |
+| 06-how-it-works | Pipeline: saved, leased, Nemotron on Nebius, quote check, rules |
+| 07-tested | Measured: tests, axe-core, Lighthouse, query time |
 
 ### Demo video URL
 
@@ -104,7 +125,7 @@ YouTube, **Public** (the rules say "publicly visible on YouTube"; the form also 
 
 **How would you rate Nemotron's output quality for your use case? (1-10)**
 
-> [AFTER LIVE RUN] Base the number on the live results: how many fields were returned with exact quotes, whether any field was dropped by the quote check, and whether the three scenarios gave the expected results. Example wording once measured: "N/10. On our three synthetic instructions, Nemotron returned X of Y fields with exact quotes; the quote check dropped Z. Instruction-following with the strict schema was ...".
+> Fallback if there is no live run: the form needs a number, so pick the value you can defend and say what it is based on. Suggested text: "Not measured on Nebius: Token Factory onboarding was not available from Indonesia before the deadline. We designed for Nemotron 3 Nano because of its strict structured output and long context; the score reflects our expectation, not a measurement." Otherwise: [AFTER LIVE RUN] Base the number on the live results: how many fields were returned with exact quotes, whether any field was dropped by the quote check, and whether the three scenarios gave the expected results. Example wording once measured: "N/10. On our three synthetic instructions, Nemotron returned X of Y fields with exact quotes; the quote check dropped Z. Instruction-following with the strict schema was ...".
 
 **Did you fine-tune, prompt-engineer, or use Nemotron out of the box?**
 
@@ -112,7 +133,7 @@ YouTube, **Public** (the rules say "publicly visible on YouTube"; the form also 
 
 **How did Nemotron's performance compare to other models you've used for similar tasks?**
 
-> [AFTER LIVE RUN] We did not benchmark other LLMs. Our baseline is the deterministic regex extractor in the same app. Compare the live Nemotron fields with the rules extractor on the same three instructions and report only what was measured.
+> Fallback: "We could not compare: no live Nemotron run was possible from Indonesia before the deadline, and we did not use other LLM providers." Otherwise: [AFTER LIVE RUN] We did not benchmark other LLMs. Our baseline is the deterministic regex extractor in the same app. Compare the live Nemotron fields with the rules extractor on the same three instructions and report only what was measured.
 
 **Which Nebius platform capabilities were most valuable and how?**
 
@@ -124,7 +145,7 @@ YouTube, **Public** (the rules say "publicly visible on YouTube"; the form also 
 
 **What additional features or improvements would have made it more effective?**
 
-> A public, unauthenticated model availability list (we could not confirm a model ID before we had a key). Per-key spending caps enforced on the server side. Documentation that states which models support strict JSON schema output. Optional character offsets for quoted spans in structured output, so applications can verify grounding without string search.
+> Token Factory onboarding for more countries: Indonesia is not in the billing list, so we could not run our integration live. Also: a public, unauthenticated model availability list (we could not confirm a model ID before we had a key). Per-key spending caps enforced on the server side. Documentation that states which models support strict JSON schema output. Optional character offsets for quoted spans in structured output, so applications can verify grounding without string search.
 
 **What do you most hope to see from the Nemotron team next?**
 

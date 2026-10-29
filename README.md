@@ -32,7 +32,7 @@ The hackathon build is **PolicyGuard** (`policyguard/`). It checks a payment ins
 - Per-token prices (USD 0.06 / 0.24 per 1M input / output tokens for Nano) let the budget ledger reserve the worst-case cost before each call and refuse calls above the approved budget.
 - `GET /v1/models` lets `scripts/nebius_live_check.py` confirm the model ID before any paid call.
 
-The latest live-call record (model ID, time, latency, redacted result) is in `docs/policyguard/NVIDIA_NEBIUS.md` and `evidence/policyguard/`.
+**Live status (2026-10-29): not yet called.** Nebius Token Factory onboarding is not available to us from Indonesia: the country is not in Nebius's billing list and the card was declined. The hackathon FAQ calls this an account-provisioning gap handled case by case through the Nebius Discord, and it does not allow other providers, so we did not switch to one. The adapter is implemented and contract-tested; with a Nebius key in `.env.local`, `scripts/nebius_live_check.py` runs the live check and the app uses Nemotron in the main flow. Until then the app reads instructions with fixed rules and shows "Fixed rules (no AI model call)" on every result. The live-call record (model ID, time, latency, redacted result) will be in `docs/policyguard/NVIDIA_NEBIUS.md`.
 
 ### Run PolicyGuard locally
 

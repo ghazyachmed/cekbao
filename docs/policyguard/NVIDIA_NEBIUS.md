@@ -1,6 +1,6 @@
 # NVIDIA model through Nebius Token Factory
 
-Checked on 2026-10-28. Status: **IMPLEMENTED and contract-tested; live integration BLOCKED** (no API key and no approved budget were available in this environment).
+Checked on 2026-10-28, updated 2026-10-29. Status: **IMPLEMENTED and contract-tested; live integration BLOCKED.** Nebius Token Factory onboarding is not available from Indonesia (country not in the billing list; card declined). The hackathon FAQ (https://nebiusglobalaihackathon.devpost.com/details/faqs) treats this as an account-provisioning gap handled case by case via the Nebius Discord, and says an NVIDIA model called through another provider does not qualify. A build.nvidia.com key exists but is not used by the app.
 
 ## Selected model
 
