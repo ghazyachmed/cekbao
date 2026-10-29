@@ -1,9 +1,9 @@
 {
   "status": "final",
-  "generated_at": "2026-10-29T00:32:00.108Z",
+  "generated_at": "2026-10-29T14:31:14.135Z",
   "build_id": "20261029T001918Z-745bb1f",
   "video": "artifacts/demo/cekbao-demo-preview-MOCK.mp4",
-  "sha256": "c21d83711c4b60e42dcc4a423a96f249b787a36bf81da4be11ff843635f9c537",
+  "sha256": "fac6b2cc71216825bb4cc335ad68f6795c2d46231e2845e596ee25ee4fa1e7bf",
   "fps": 30,
   "total_frames": 4932,
   "duration_seconds": 164.459,

@@ -391,7 +391,7 @@
     "kind": "preview-mock",
     "narration_audio": "kokoro-82m-local",
     "music": "none",
-    "render_seconds": 475.031,
+    "render_seconds": 380.114,
     "total_frames": 4932,
     "fps": 30,
     "smoke_render": "artifacts/demo/smoke/20261029T001918Z-745bb1f-segment.mp4",

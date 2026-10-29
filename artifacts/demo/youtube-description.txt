@@ -18,7 +18,7 @@ How it works
 - A check is saved first (HTTP 202 after a database commit); a separate worker processes it.
 - Policy versions have validity periods. The check uses the version valid on the payment date, and an earlier payment is assessed separately from a new one.
 - Each result compares the instruction with the policy detail by detail and shows the policy quote, its version, its effective period and the publisher's authority.
-- Model: the app is built to read instructions with NVIDIA Nemotron 3 Nano (nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B) on Nebius Token Factory, with quote checks and fixed rules deciding. In this recording the model was not called because no API key or budget was configured; fixed rules read every instruction.
+- Model: the app is built to read instructions with NVIDIA Nemotron 3 Nano (nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B) on Nebius Token Factory, with quote checks and fixed rules deciding. In this recording the model was not called: Nebius Token Factory onboarding is not available to us from Indonesia (the country is not in the billing list and the card was declined), and the hackathon FAQ does not allow other providers. The Nebius adapter is implemented and contract-tested, and scripts/nebius_live_check.py runs the live check once a key exists. Fixed rules read every instruction in this recording.
 - Measured on this build: 231 automated tests passed; axe-core found 0 WCAG violations on the audited pages.
 
 Limits and disclosure
